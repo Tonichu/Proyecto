@@ -5,7 +5,7 @@ CREATE TABLE USUARIO (
     nombre VARCHAR(255),
     pass VARCHAR(255),
     tipo_usuario TINYINT(1),
-    CONSTRAINT chk_tipo_usuario CHECK (tipo_usuario IN (0, 1))
+    CONSTRAINT chk_tipo_usuario CHECK (tipo_usuario IN (0, 1, 2))
 );
 
 CREATE TABLE PROYECTO (
