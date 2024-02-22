@@ -12,7 +12,7 @@ CREATE TABLE USUARIOS (
     correo_electronico VARCHAR(255) NOT NULL,
     direccion VARCHAR(255),
     pass VARCHAR(255) NOT NULL,
-    tipo_usuarios TINYINT(1),
+    tipo_usuarios TINYINT(1) DEFAULT 2,
     foto BLOB, 
     CONSTRAINT chk_tipo_usuarios CHECK (tipo_usuarios IN (0, 1, 2))
 );

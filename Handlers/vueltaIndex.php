@@ -1,5 +1,3 @@
 <?php
-$url = "index.php";
-$tiempoEspera = 3;
-$Primerapagina = header("refresh:$tiempoEspera;url=$url");
+$Primerapagina = header("refresh:3;url=http://localhost/php/Proyecto/index.php");
 ?>
