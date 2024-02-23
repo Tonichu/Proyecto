@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       exit();
     } else {
       echo "Error al crear usuario: " . $conexion->error;
- 
     }
   }
 }}

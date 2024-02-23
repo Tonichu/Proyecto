@@ -7,5 +7,7 @@
 </head>
 <body>
  <h1>Página usuarios</h1> 
+ <form action="" method="post"></form>
+ <a href=""></a>
 </body>
 </html>
