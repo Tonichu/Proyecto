@@ -12,19 +12,20 @@ if (!$conexion) {
     die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
 }
 
-// Obtener el ID del usuario a eliminar
+// Obtener el ID de la maquina a eliminar
 $id = $_GET["id"];
 
-// Eliminar el usuario de la tabla "USUARIO"
-$sql = "DELETE FROM USUARIOS WHERE id_usuarios=$id";
+// Eliminar la maquina de la tabla "USUARIO"
+$sql = "DELETE FROM maquinas WHERE id_maquina=$id";
 
 if ($conexion->query($sql) === TRUE) {
   // Mostrar un mensaje de éxito y redirigir al usuario a la página "panelDeControl.php"
-  echo "El usuario ha sido eliminado con éxito.";
-  header("refresh:1;url=panel_de_control.php");
+  echo "la maquina ha sido eliminada con éxito.";
+  header("refresh:1;../usuarios/panel_de_control.php");
   exit();
 } else {
-  echo "Error al eliminar usuario: " . $conexion->error;
+  echo "Error al eliminar la maquina: " . $conexion->error;
+  header("refresh:1;../usuarios/panel_de_control.php");
 }
 
 // Cerrar la conexión a la base de datos

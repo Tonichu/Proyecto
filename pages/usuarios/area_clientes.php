@@ -9,7 +9,7 @@
 
 <body>
   <h1>Página usuarios</h1>
-  <form class="formIndex" action="comprobarUsuario.php" method="post">
+  <form class="formIndex" action="comprobar_usuario.php" method="post">
     <label class="labelIndex" for="Email">Nombre de Email:</label>
     <input type="text" id="Email" name="Email" required>
 
@@ -18,7 +18,7 @@
 
     <input class="botonInicio" type="submit" value="Login">
   </form>
-
+  <a href="../../index.php"><button>Cancelar</button></a>
 </body>
 
 </html>

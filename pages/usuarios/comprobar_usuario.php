@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
-require_once(__DIR__ . "/../../Handlers/vueltaIndex.php");
+require_once(__DIR__ . "/../../Handlers/vuelta_index.php");
 
 session_start();
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
@@ -35,21 +35,21 @@ if (!$resultado || mysqli_num_rows($resultado) == 0) {
       $_SESSION["nombre"] = $name;
       $_SESSION["tipo_usuarios"] = $tipo_usuario;
       $_SESSION["id_usuarios"] = $id;
-      header("Location: panelDeControl.php");
+      header("Location: panel_de_control.php");
       exit;
     } else if ($tipo_usuario == 1) {
       // El usuario es de tipo Profesor (1)
       $_SESSION["nombre"] = $name;
       $_SESSION["tipo_usuarios"] = $tipo_usuario;
       $_SESSION["id_usuarios"] = $id;
-      header("Location: usuarioProfe.php");
+      header("Location: usuario_profe.php");
       exit;
     } else if ($tipo_usuario == 2) {
       // El usuario es de tipo usuario registrado/alumno (2)
       $_SESSION["nombre"] = $name;
       $_SESSION["tipo_usuarios"] = $tipo_usuario;
       $_SESSION["id_usuarios"] = $id;
-      header("Location: areaUsuario.php");
+      header("Location: area_usuario.php");
       exit;
     }
   } else {

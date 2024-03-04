@@ -16,15 +16,16 @@ if (!$conexion) {
 $id = $_GET["id"];
 
 // Eliminar el usuario de la tabla "USUARIO"
-$sql = "DELETE FROM USUARIOS WHERE id_usuarios=$id";
+$sql = "DELETE FROM clases WHERE id_clases=$id";
 
 if ($conexion->query($sql) === TRUE) {
   // Mostrar un mensaje de éxito y redirigir al usuario a la página "panelDeControl.php"
-  echo "El usuario ha sido eliminado con éxito.";
-  header("refresh:1;url=panel_de_control.php");
+  echo "la clase ha sido eliminada con éxito.";
+  header("refresh:1;../usuarios/panel_de_control.php");
   exit();
 } else {
-  echo "Error al eliminar usuario: " . $conexion->error;
+  echo "Error al eliminar la clase: " . $conexion->error;
+  header("refresh:1;../usuarios/panel_de_control.php");
 }
 
 // Cerrar la conexión a la base de datos
