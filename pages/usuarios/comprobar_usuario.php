@@ -1,5 +1,4 @@
 <?php
-
 require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
 require_once(__DIR__ . "/../../Handlers/vuelta_index.php");
 
@@ -8,57 +7,57 @@ $conexion = mysqli_connect($host, $user, $password, $database, $port);
 if (!$conexion) {
   die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
 }
-$correo = $_POST['Email'];
+
+$correo = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_EMAIL);
 $pass = $_POST['password'];
-/*$correo = mysqli_real_escape_string($conexion, $correo);
-$pass = mysqli_real_escape_string($conexion, $pass);*/
 
 $sql = "SELECT * FROM USUARIOS WHERE correo_electronico = '$correo'";
 $resultado = mysqli_query($conexion, $sql);
 
 if (!$resultado || mysqli_num_rows($resultado) == 0) {
-  // El usuario no existe en la base de datos
-  echo "El usuario no existe, recuerda que es gratis registrarse!";
-  $Primerapagina;
+  // Usuario no encontrado en la base de datos
+  $_SESSION['error_message'] = "Credenciales inválidas. Verifica tu correo electrónico y contraseña.";
+  header("Location: $Primerapagina");
   exit;
 } else {
-  // Si el usuario existe en la base de datos, comprobar la contraseña
   $usuario = mysqli_fetch_assoc($resultado);
   $hash = $usuario['pass'];
   $id = $usuario['id_usuarios'];
   $name = $usuario['nombre'];
+
   if (password_verify($pass, $hash)) {
-    // La contraseña es correcta
+    // Contraseña correcta
     $tipo_usuario = $usuario['tipo_usuarios'];
-    if ($tipo_usuario == 0) {
-      // El usuario es de tipo admin (0)
-      $_SESSION["nombre"] = $name;
-      $_SESSION["tipo_usuarios"] = $tipo_usuario;
-      $_SESSION["id_usuarios"] = $id;
-      header("Location: panel_de_control.php");
-      exit;
-    } else if ($tipo_usuario == 1) {
-      // El usuario es de tipo Profesor (1)
-      $_SESSION["nombre"] = $name;
-      $_SESSION["tipo_usuarios"] = $tipo_usuario;
-      $_SESSION["id_usuarios"] = $id;
-      header("Location: usuario_profe.php");
-      exit;
-    } else if ($tipo_usuario == 2) {
-      // El usuario es de tipo usuario registrado/alumno (2)
-      $_SESSION["nombre"] = $name;
-      $_SESSION["tipo_usuarios"] = $tipo_usuario;
-      $_SESSION["id_usuarios"] = $id;
-      header("Location: area_usuario.php");
-      exit;
+    switch ($tipo_usuario) {
+      case 0: // Admin
+        $pagina_redireccion = "panel_de_control.php";
+        break;
+      case 1: // Profesor
+        $pagina_redireccion = "usuario_profe.php";
+        break;
+      case 2: // Usuario
+        $pagina_redireccion = "area_usuario.php";
+        break;
+      default:
+        $_SESSION['error_message'] = "Error: Tipo de usuario no válido.";
+        header("Location: $Primerapagina");
+        exit;
     }
+
+    // Almacenar información de sesión y redirigir
+    $_SESSION["nombre"] = $name;
+    $_SESSION["tipo_usuarios"] = $tipo_usuario;
+    $_SESSION["id_usuarios"] = $id;
+    header("Location: $pagina_redireccion");
+    exit;
   } else {
-    // La contraseña es incorrecta
-    echo "La contraseña es incorrecta!";
-    $Primerapagina;
+    // Contraseña incorrecta
+    $_SESSION['error_message'] = "Credenciales inválidas. Verifica tu correo electrónico y contraseña.";
+    header("Location: $Primerapagina");
     exit;
   }
 }
 
 // Cerrar la conexión a la base de datos
 mysqli_close($conexion);
+?>
