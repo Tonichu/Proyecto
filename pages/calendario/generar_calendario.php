@@ -19,13 +19,13 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
         echo "<td>"; //abro la columna del día en la fila de la hora
         //consulta bbdd
         //$sql = "SELECT * FROM sesiones WHERE dia = $dia AND hora inicio = $hora"; // Selecionar todo de la tabla sesiones donde el día y hora sean los que se ponen arriba
-        $sql = "SELECT * FROM sesiones WHERE DAYOFWEEK(inicio) = $dia AND HOUR(inicio) = $hora";
+        $sql = "SELECT * FROM sesiones WHERE DAYOFWEEK(fecha_hora) = $dia AND HOUR(fecha_hora) = $hora";
         $result = mysqli_query($conn, $sql);
         $sesion = mysqli_fetch_assoc($result);
 
         if ($sesion) {
             // Si hay una sesión programada, muestra los detalles en la celda
-            echo "<td>{$sesion['nombre_clase']} en {$sesion['nombre_sala']}</td>";
+            echo "<td>{$sesion['id_clases']} en {$sesion['id_salas']}</td>";
         } else {
             // Si no hay una sesión programada, deja la celda vacía
             echo "--";
@@ -35,13 +35,13 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
     // Para el día domingo (1)
     echo "<td>"; // Abrir la columna para el domingo en la fila de la hora   
     // Consultar la base de datos 
-    $sql = "SELECT * FROM sesiones WHERE DAYOFWEEK(inicio) = 1 AND HOUR(inicio) = $hora";
+    $sql = "SELECT * FROM sesiones WHERE DAYOFWEEK(fecha_hora) = 1 AND HOUR(fecha_hora) = $hora";
     $result = mysqli_query($conn, $sql);
     $sesion = mysqli_fetch_assoc($result);
 
     if ($sesion) {
         // Si hay una sesión programada, mostrar los detalles en la celda
-        echo "{$sesion['nombre_clase']} en {$sesion['nombre_sala']}";
+        echo "{$sesion['id_clases']} en {$sesion['id_salas']}";
     } else {
         // Si no hay una sesión programada, mostrar un guion o dejar la celda vacía
         echo "--";

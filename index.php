@@ -13,6 +13,7 @@
   include('layout/navbar/navbar.php');
   ?>
   <h1>Bienvenido a Bunkay</h1>
+  <a href="pages/calendario/calendario.php">calendario</a>
   <div class="container">
     <div class="row" style="background-color: blue;">
       <div class="col-lg-6 col-md-1 col-xs-11" style="background-color: red;">.col-md-8</div>

@@ -69,7 +69,7 @@ if (!$resultSesiones) {
   die("Error en la consulta: " . mysqli_error($conexion));
 }
 $sqlUserSesiones = "SELECT sesiones.id AS id_sesion, clases.nombre AS nombre_sesion, usuarios.nombre AS nombre_usuario
-        FROM sesiones
+        FROM sesiones 
         INNER JOIN clases ON sesiones.id_clases = clases.id_clases
         INNER JOIN usuarios_sesiones ON sesiones.id = usuarios_sesiones.id_sesion
         INNER JOIN usuarios ON usuarios_sesiones.id_usuario = usuarios.id_usuarios";
@@ -80,16 +80,6 @@ $resultSesionesUser = mysqli_query($conexion, $sqlUserSesiones);
 if (!$resultSesionesUser) {
     die("Error en la consulta: " . mysqli_error($conexion));
 }
-
-/*
-function obtenerNombreUsuario($id_usuarios, $conexion)
-{
-  $query = "SELECT nombre FROM usuarios WHERE id_usuarios = '$id_usuarios'";
-  $result = mysqli_query($conexion, $query);
-  $row = mysqli_fetch_assoc($result);
-  return $row['nombre'];
-}*/
-
 
 ?>
 <!DOCTYPE html>
