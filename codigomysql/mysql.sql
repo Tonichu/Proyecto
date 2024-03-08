@@ -23,7 +23,7 @@ CREATE TABLE CLASES (
     hora_inicio TIME NOT NULL,
     hora_fin TIME NOT NULL,
     id_usuarios INT,
-    aforo_maximo INT NOT NULL,
+    aforo INT,
     FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios)
 );
 
