@@ -57,8 +57,12 @@
       ?>
     </select>
 
-    <label for="fecha_hora">Fecha y Hora:</label>
-    <input type="datetime-local" id="fecha_hora" name="fecha_hora"><br><br>
+
+    <label for="fecha_hora_inicio">Fecha y Hora de Inicio:</label>
+    <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio" required>
+
+    <label for="fecha_hora_fin">Fecha y Hora de Fin:</label>
+    <input type="datetime-local" id="fecha_hora_fin" name="fecha_hora_fin" required><br>
 
     <input type="submit" value="Enviar">
 
