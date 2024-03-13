@@ -95,6 +95,12 @@ VALUES (1, 2),
        (1, 4),
        (1, 7);
 
+       INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario)
+VALUES (2, 6),
+       (2, 4),
+       (2, 7),
+       (2, 8);;
+
 
 --la pass es 1234
 --INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario) VALUES (1, 123);
