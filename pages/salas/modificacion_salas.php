@@ -20,12 +20,12 @@ if (!empty($_POST['id']) && !empty($_POST['nombre']) && !empty($_POST['aforo']))
   if (!$resultado) {
     die('Error en la consulta: ' . mysqli_error($conexion));
   }
+  echo "La sala se modifico correctamente";
   header("refresh:1;url= ../usuarios/panel_de_control.php");
-  echo "La clase se modifico correctamente";
   mysqli_close($conexion);
   exit;
 } else {
-  header("refresh:1;url= ../usuarios/panel_de_control.php");
   // Si no se recibió un ID de sala válido, mostrar un mensaje de error
   echo "<p>Error: ID de sala no válido</p>";
+  header("refresh:1;url= ../usuarios/panel_de_control.php");
 }
