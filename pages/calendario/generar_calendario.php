@@ -25,10 +25,12 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
 
         if ($sesion) {
             // Si hay una sesión programada, muestra los detalles en la celda
-            echo "<td>{$sesion['id_clases']} en {$sesion['id_salas']} - Inicio: {$sesion['fecha_hora_inicio']} / Fin: {$sesion['fecha_hora_fin']}</td>";
+            echo "{$sesion['id_clases']} en {$sesion['id_salas']} - Inicio: {$sesion['fecha_hora_inicio']} / Fin: {$sesion['fecha_hora_fin']}";
+            
         } else {
             // Si no hay una sesión programada, deja la celda vacía
             echo "--";
+            echo '<a href="">prueba</a>';
         }
         echo "</td>";
     }

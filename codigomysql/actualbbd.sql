@@ -91,15 +91,15 @@ VALUES (1, 1, '2024-03-15 10:00:00', '2024-03-15 11:00:00'),
        (2, 3, '2024-03-16 18:00:00', '2024-03-16 19:00:00');
 
 INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario)
-VALUES (1, 2),
-       (1, 4),
-       (1, 7);
+VALUES (1, 2);
 
        INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario)
 VALUES (2, 6),
+       (1, 4),
+       (1, 7),
        (2, 4),
        (2, 7),
-       (2, 8);;
+       (2, 8);
 
 
 --la pass es 1234

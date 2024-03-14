@@ -249,8 +249,8 @@ if (!$resultUserSesiones) {
   <table class="tabla">
     <tr>
       <th>ID</th>
-      <th>Nombre clases</th>
-      <th>Nombre salas</th>
+      <th>Nombre clase</th>
+      <th>Nombre sala</th>
       <th>Hora ---- Inicio</th>
       <th>Hora ---- Fin</th>
     </tr>
