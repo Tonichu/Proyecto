@@ -17,7 +17,7 @@
   if (!$conexion) {
     die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
   }
-
+  usuarioProfesor();
   $id_usuario = $_SESSION['id_usuarios'];
 
   $queryClases = "SELECT * from clases where id_profesor =$id_usuario";
@@ -33,15 +33,18 @@
 
   $resultSesiones = mysqli_query($conexion, $querySesiones);
 
-  usuarioProfesor();
+
   echo "Bienvenido al panel de Profesores " . $_SESSION['nombre'];
   ?>
   <form action="../../Handlers/logout.php" method="post">
     <input type="submit" value="Cerrar sesión">
   </form>
+  <form action="../area_profesor/modificar_perfil_profesor.php" method="post">
+    <input type="submit" value="Modificar datos">
+  </form>
 
   <h2>Crear nueva clase</h2>
-  <form action="../clases/profesor/crear_clase_profesor.php" method="post">
+  <form action="../../pages/area_profesor/crear_clase_profesor.php" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required><br><br>
 
@@ -72,9 +75,9 @@
           <td>
             <!-- Botón para eliminar la clase -->
             <?php echo "<input type='hidden' name='id' value='" . $row['id_clases'] . "'>"; ?>
-            <a href="../clases/profesor/eliminar_clase_profesor.php?id=<?php echo $row['id_clases']; ?>"><button>Eliminar</button></a>
+            <a href="../../pages/area_profesor/eliminar_clase_profesor.php?id=<?php echo $row['id_clases']; ?>"><button>Eliminar</button></a>
             <!-- Botón para modificar la clase -->
-            <a href="../clases/profesor/modificar_clase_profesor.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
+            <a href="../../pages/area_profesor/modificar_clase_profesor.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
           </td>
         </tr>
       <?php } ?>
@@ -83,7 +86,7 @@
     <p>No tienes clases aún.</p>
   <?php } ?>
   <h2>Registro de nueva sesión</h2>
-  <form action="../clases/profesor/crear_nueva_sesion_profesor.php" method="post">
+  <form action="../../pages/area_profesor/crear_nueva_sesion_profesor.php" method="post">
     <span>Clases</span>
     <select name="id_clase" id="id_clase">
       <?php
@@ -104,7 +107,7 @@
     <select name="id_sala" id="id_sala">
       <?php
       // Consulta para obtener las salas existentes de la base de datos
-      $query_salas = "SELECT id_salas, nombre FROM SALAS";
+      $query_salas = "SELECT id_salas, nombre, aforo FROM SALAS";
       $result_salas = mysqli_query($conexion, $query_salas);
 
       // Verificar si hay resultados
@@ -112,7 +115,7 @@
         // Iterar sobre cada fila de resultados
         while ($row = mysqli_fetch_assoc($result_salas)) {
           // Imprimir una opción para cada sala
-          echo "<option value='" . $row['id_salas'] . "'>" . $row['nombre'] . "</option>";
+          echo "<option value='" . $row['id_salas'] . "'>" . $row['nombre'] . "  Aforo: " . $row['aforo'] . "" . "</option>";
         }
       } else {
         echo "<option value='' disabled>No hay salas disponibles</option>";
@@ -149,9 +152,9 @@
         <td>
           <!-- Botón para eliminar la sesion -->
           <?php echo "<input type='hidden' name='id' value='" . $row['id'] . "'>"; ?>
-          <a href="../sesiones/eliminar_sesion.php?id=<?php echo $row['id']; ?>"><button>Eliminar</button></a>
-          <!-- Botón para modificar la sesion -->
-          <a href="../sesiones/modificar_sesion.php?id=<?php echo $row['id']; ?>"><button>Modificar</button></a>
+          <a href="../../pages/area_profesor/eliminar_sesion_profesor.php?id=<?php echo $row['id']; ?>"><button>Eliminar</button></a>
+          <!-- Botón para modificar la sesion --> 
+          <a href="../../pages/area_profesor/modificar_sesion_profesor.php?id=<?php echo $row['id']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
@@ -175,9 +178,9 @@ $querySesionesDisponibles = "SELECT sesiones.id, sesiones.fecha_hora_inicio, ses
 $resultSesiones = mysqli_query($conexion, $querySesionesDisponibles);
 
 if (mysqli_num_rows($resultSesiones) > 0) {
-  // Mostrar formulario de inscripción
+  // Mostrar formulario de inscripción PRUEBA
   ?>
-  <form action="procesar_inscripcion.php" method="POST">
+  <form action="" method="POST">
     <label for="sesion">Seleccione una sesión:</label>
     <select name="sesion" id="sesion">
       <?php

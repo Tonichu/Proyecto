@@ -8,16 +8,15 @@
 <body>
   <h2>Modificar Clase</h2>
   <?php
-  // Iniciamos la sesión
-  session_start();
-  require_once(__DIR__ . "/../../../ConexionBdd/conexionBdd.Php");
-  require_once(__DIR__ . "/../../../librerias/utils/usuario_profesor.php");
-  usuarioProfesor();
-  echo "Bienvenido " . $_SESSION['nombre'];
-
-  // Si el usuario no ha iniciado sesión o es de otro tipo, redirigir a la página de inicio de sesión
-
-  $conexion = mysqli_connect($host, $user, $password, $database, $port);
+ session_start();
+ require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+ require_once(__DIR__ . "/../../librerias/utils/usuario_profesor.php");
+ usuarioProfesor();
+ 
+ $conexion = mysqli_connect($host, $user, $password, $database, $port);
+ if (!$conexion) {
+   die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
+ }
 
   // Si se recibió un ID de clase válido, recuperar los datos de la clase y mostrar el formulario de edición
   if (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -41,9 +40,9 @@
   } else {
     // Si no se recibió un ID de clase válido, mostrar un mensaje de error
     echo "<p>Error: ID de clase no válido</p>";
-    header("refresh:2;../../usuarios/usuario_profe.php");
+    header("refresh:2;../usuarios/usuario_profe.php");
   }
   ?>
-  <a href="../../usuarios/usuario_profe.php"><button>Cancelar</button></a>
+  <a href="../usuarios/usuario_profe.php"><button>Cancelar</button></a>
 </body>
 </html>

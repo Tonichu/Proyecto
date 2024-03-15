@@ -14,9 +14,8 @@
   session_start();
   require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
   usuarioAdmin();
-  echo "Bienvenido " . $_SESSION['nombre'];
   // Si el usuario no ha iniciado sesión o es de otro tipo, redirigir a la página de inicio de sesión
- 
+
 
   require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
   $conexion = mysqli_connect($host, $user, $password, $database, $port);
@@ -31,10 +30,10 @@
 
     <form action="modificacion_usuario.php" method="POST" enctype="multipart/form-data">
 
-      <input name="id" value="<?php echo $usuario['id_usuarios']; ?>">
-
-      <input type="text" name="nombre" value="<?php echo $usuario['nombre']; ?>">
-      <label for="nombre">nombre:</label>
+      <input type="hidden" name="id" value="<?php echo $id; ?>">
+      <p> <strong>Nombre:</strong> <?php echo $usuario['nombre']; ?></p>
+      <p><strong>Apellido:</strong> <?php echo $usuario['apellidos']; ?></p>
+      <p><strong>E-mail:</strong> <?php echo $usuario['correo_electronico']; ?></p>
 
       <label for="tipo_usuario">Tipo de usuario:</label>
       <select name="tipo_usuario">
@@ -44,15 +43,15 @@
       </select>
 
       <input type="submit" value="Guardar cambios">
-      </form>
-    <?php
+    </form>
+  <?php
   } else {
     // Si no se recibió un ID de usuario válido, mostrar un mensaje de error
     echo "<p>Error: ID de usuario no válido</p>";
   }
-    ?>
+  ?>
+  <a href="panel_de_control.php"><button>Cancelar</button></a>
 
-   
 </body>
 
 </html>

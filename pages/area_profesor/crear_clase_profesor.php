@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../../../ConexionBdd/conexionBdd.Php");
-require_once(__DIR__ . "/../../../librerias/utils/usuario_profesor.php");
+require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../librerias/utils/usuario_profesor.php");
 usuarioProfesor();
 
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
@@ -24,7 +24,7 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre']) && isset($_POST['descrip
     if ($result->num_rows > 0) {
       // Si la clase ya existe, mostrar un mensaje de error y volver a intentarlo
       echo "La clase ya existe. Por favor, intenta con otro nombre de clase o habla con un administrador.";
-      header("refresh:2;../../usuarios/usuario_profe.php");
+      header("refresh:2;../usuarios/usuario_profe.php");
       exit();
     } else {
       // Insertar los datos de la nueva clase en la tabla "clases"
@@ -32,11 +32,11 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre']) && isset($_POST['descrip
       if ($conexion->query($sql1) === TRUE) {
         // Mostrar un mensaje de éxito y redirigir al usuario a la página "panel_de_control.php"
         echo "clase creada con éxito.";
-        header("refresh:2;../../usuarios/usuario_profe.php");
+        header("refresh:2;../usuarios/usuario_profe.php");
         exit();
       } else {
         echo "Error al crear la clase : " . $conexion->error;
-        header("refresh:2;../../usuarios/usuario_profe.php");
+        header("refresh:2;../usuarios/usuario_profe.php");
       }
     }
   }

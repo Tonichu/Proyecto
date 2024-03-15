@@ -45,7 +45,7 @@ CREATE TABLE USUARIOS_SESIONES (
     id_sesion INT NOT NULL,
     id_usuario INT NOT NULL,
     PRIMARY KEY (id_sesion, id_usuario),
-    FOREIGN KEY (id_sesion) REFERENCES SESIONES(id),
+    FOREIGN KEY (id_sesion) REFERENCES SESIONES(id) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuarios)
 );
 
@@ -76,9 +76,9 @@ VALUES ('Yoga', 'Clase de yoga para principiantes'),
        ('Spinning', 'Clase de spinning para mejorar la resistencia cardiovascular');
 
 INSERT INTO SALAS (nombre, aforo)
-VALUES ('Sala 1', 30),
-       ('Sala 2', 20),
-       ('Sala 3', 25);
+VALUES ('Sala 1', 5),
+       ('Sala 2', 8),
+       ('Sala 3', 10);
 
 INSERT INTO Maquinas (nombre, foto, descripcion, fecha_adquisicion, ultima_revision, id_sala)
 VALUES ('Máquina 1', NULL, 'Máquina de pesas', '2023-01-15', '2024-02-28', 1),
