@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
 usuarioAdmin();
 // Si el usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
 
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
 
 if (!empty($_POST['id']) && !empty($_POST['nombre']) && !empty($_POST['aforo'])) {

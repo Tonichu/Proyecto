@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__."/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__."/../../ConexionBdd/conexion_bdd.php");
 
 session_start();
 $conexion = mysqli_connect($host, $user, $password, $database, $port);

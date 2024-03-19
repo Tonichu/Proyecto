@@ -17,7 +17,7 @@
   // Si el usuario no ha iniciado sesión o es de otro tipo, redirigir a la página de inicio de sesión
 
 
-  require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+  require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
   $conexion = mysqli_connect($host, $user, $password, $database, $port);
 
   // Si se recibió un ID de usuario válido, recuperar los datos del usuario y mostrar el formulario de edición

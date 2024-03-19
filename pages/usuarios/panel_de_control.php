@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
 session_start();
 $tipo_usuario = $_SESSION["tipo_usuarios"];
@@ -68,7 +68,8 @@ $resultSesiones = mysqli_query($conexion, $querySesiones);
 if (!$resultSesiones) {
   die("Error en la consulta: " . mysqli_error($conexion));
 }
-$queryUserSesiones = "SELECT 
+
+$queryUserInscripciones = "SELECT 
                     U.nombre AS nombre_usuario,
                     U.apellidos AS apellidos_usuario,
                     U.correo_electronico AS email_usuario,
@@ -80,7 +81,7 @@ $queryUserSesiones = "SELECT
                     SE.fecha_hora_inicio,
                     SE.fecha_hora_fin
                   FROM 
-                    USUARIOS_SESIONES US
+                  INSCRIPCIONES US
                   JOIN 
                     USUARIOS U ON US.id_usuario = U.id_usuarios
                   JOIN 
@@ -90,9 +91,9 @@ $queryUserSesiones = "SELECT
                   JOIN 
                     SALAS S ON SE.id_salas = S.id_salas";
 
-$resultUserSesiones = mysqli_query($conexion, $queryUserSesiones);
+$resultUserInscripciones = mysqli_query($conexion, $queryUserInscripciones);
 
-if (!$resultUserSesiones) {
+if (!$resultUserInscripciones) {
   die("Error en la consulta: " . mysqli_error($conexion));
 }
 
@@ -271,7 +272,7 @@ if (!$resultUserSesiones) {
       </tr>
     <?php } ?>
   </table>
-  <h2>Tabla de user sesiones</h2>
+  <h2>Tabla de Inscripciones</h2>
   <a href="../sesiones/formulario_nueva_sesion.php"><button>Crear Sesión</button></a>
   <table class="tabla">
     <tr>
@@ -286,7 +287,7 @@ if (!$resultUserSesiones) {
       <th>Fecha y Hora de Inicio</th>
       <th>Fecha y Hora de Fin</th>
     </tr>
-    <?php while ($row = mysqli_fetch_assoc($resultUserSesiones)) { ?>
+    <?php while ($row = mysqli_fetch_assoc($resultUserInscripciones)) { ?>
       <tr>
         <td><?php echo $row['nombre_usuario']; ?></td>
         <td><?php echo $row['apellidos_usuario']; ?></td>

@@ -2,8 +2,8 @@
 session_start();
 // Datos de conexión a la base de datos
 require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
-require_once(__DIR__ . "/../../librerias/utils/usuario_profesor.php");
-usuarioProfesor();
+require_once(__DIR__ . "/../../librerias/utils/usuario_normal.php");
+usuarioNormal();
 
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
 // Comprobar si la conexión ha sido exitosa
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 $_SESSION['nombre'] = $nombre;
 echo "perfil modificado con éxito.";
-header("refresh:2;../usuarios/usuario_profe.php");
+header("refresh:2;../usuarios/usuario.php");
 mysqli_close($conexion);
 exit;
 // Cerrar la conexión a la base de datos

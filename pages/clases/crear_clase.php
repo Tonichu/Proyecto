@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
 usuarioAdmin(); // solo acceso admin
 

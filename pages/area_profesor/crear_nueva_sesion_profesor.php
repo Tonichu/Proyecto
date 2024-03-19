@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_profesor.php");
 usuarioProfesor();
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       // Insertar una nueva fila en la tabla USUARIOS_SESIONES con el ID de sesión y el ID del profesor
 
-      $sql_usuarios_sesiones = "INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario) VALUES ('$id_sesion', '$id_profesor')";
+      $sql_usuarios_sesiones = "INSERT INTO INSCRIPCIONES (id_sesion, id_usuario) VALUES ('$id_sesion', '$id_profesor')";
 
       if ($conexion->query($sql_usuarios_sesiones) === TRUE) {
         // Mostrar un mensaje de éxito

@@ -1,6 +1,7 @@
 Comandos para entrar en mysql por shell
 \sql
 \connect root@localhost
+select * from usuarios\G; para ver las consultas de manera vertical 
 
 CREATE DATABASE Gym;
 USE Gym;
@@ -70,10 +71,10 @@ VALUES
        ('Ana', 'Pérez', '333333333', 'ana@example.com', 'Carretera 789', '$2y$10$Dpb5y8OkdJ.TA60LAnp9kuvkbYfiI7ZbLhIi.xcemaLF2TlEfYBVa', 2),
        ('yeray', 'Ruiz', '777777777', 'yeary@example.com', 'Bulevar 012', '$2y$10$Dpb5y8OkdJ.TA60LAnp9kuvkbYfiI7ZbLhIi.xcemaLF2TlEfYBVa', 2);
 
-INSERT INTO CLASES (nombre, descripcion)
-VALUES ('Yoga', 'Clase de yoga para principiantes'),
-       ('Pilates', 'Clase de pilates enfocada en la flexibilidad y el fortalecimiento'),
-       ('Spinning', 'Clase de spinning para mejorar la resistencia cardiovascular');
+INSERT INTO CLASES (nombre, descripcion, id_profesor)
+VALUES ('Yoga', 'Clase de yoga para principiantes',2),
+       ('Pilates', 'Clase de pilates enfocada en la flexibilidad y el fortalecimiento',2),
+       ('Spinning', 'Clase de spinning para mejorar la resistencia cardiovascular',6);
 
 INSERT INTO SALAS (nombre, aforo)
 VALUES ('Sala 1', 5),

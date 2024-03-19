@@ -1,7 +1,7 @@
 <?php
 // Iniciamos la sesión
 session_start();
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_profesor.php");
 usuarioProfesor();
 
@@ -9,7 +9,7 @@ $conexion = mysqli_connect($host, $user, $password, $database, $port);
 if (!$conexion) {
   die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
 }
-usuarioProfesor();
+
 // Verificar si se envió el formulario de modificación
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verificar que los datos necesarios están presentes

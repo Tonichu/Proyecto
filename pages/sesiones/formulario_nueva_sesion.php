@@ -14,7 +14,7 @@
     <select name="id_clase" id="id_clase">
       <?php
       session_start();
-      require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+      require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
       require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
       usuarioAdmin(); // solo acceso admin
       $conexion = mysqli_connect($host, $user, $password, $database, $port);

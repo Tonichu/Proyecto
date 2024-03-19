@@ -6,7 +6,7 @@ usuarioAdmin();
 
 // Verificar si se envió el formulario de modificación
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+    require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
     $conexion = mysqli_connect($host, $user, $password, $database, $port);
 
     // Verificar que los datos necesarios están presentes

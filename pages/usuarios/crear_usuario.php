@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__."/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__."/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__."/../../Handlers/vuelta_index.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
 usuarioAdmin();// solo acceso de admin

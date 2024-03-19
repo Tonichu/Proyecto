@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modificar usuario</title>
+  <title>Document</title>
 </head>
-
 <body>
-  <h2>Modificar datos</h2>
+
+<h2>Modificar datos</h2>
   <?php
   // iniciamos la sesion
   session_start();
   // Datos de conexión a la base de datos
 
   require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
-   require_once(__DIR__ . "/../../librerias/utils/usuario_profesor.php");
-  usuarioProfesor(); // solo acceso profesor
+   require_once(__DIR__ . "/../../librerias/utils/usuario_normal.php");
+   usuarioNormal(); // solo acceso profesor
   // Crear conexión a la base de datos
   $conexion = mysqli_connect($host, $user, $password, $database, $port);
 
@@ -33,7 +32,7 @@
   $resultado = mysqli_query($conexion, $query);
   $usuario = mysqli_fetch_assoc($resultado);
   ?>
-  <form action="modificacion_perfil_profesor.php" method="POST" enctype="multipart/form-data">
+  <form action="modificacion_datos.php" method="POST" enctype="multipart/form-data">
 
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" value="<?php echo $usuario['nombre']; ?>"><br>
@@ -62,8 +61,8 @@
 
     <br><input type="submit" value="Guardar cambios">
   </form>
-  <a href="../usuarios/usuario_profe.php"><button>Cancelar</button></a>
+  <a href="../usuarios/usuario.php"><button>Cancelar</button></a>
 
 </body>
-
+</body>
 </html>

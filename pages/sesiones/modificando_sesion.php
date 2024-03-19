@@ -5,7 +5,7 @@ usuarioAdmin();
 
 // Verificar si se recibió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+    require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
     $conexion = mysqli_connect($host, $user, $password, $database, $port);
 
     // Obtener los datos del formulario
