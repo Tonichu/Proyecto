@@ -273,7 +273,6 @@ if (!$resultUserInscripciones) {
     <?php } ?>
   </table>
   <h2>Tabla de Inscripciones</h2>
-  <a href="../sesiones/formulario_nueva_sesion.php"><button>Crear Sesión</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
