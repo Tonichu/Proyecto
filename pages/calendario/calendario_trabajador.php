@@ -22,7 +22,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php include 'generar_calendario_cliente.php'; ?>
+            <?php include 'generar_calendario_trabajador.php'; ?>
         </tbody>
     
 </body>
