@@ -12,8 +12,8 @@
   session_start();
   require_once(__DIR__ . "/../controllers/role_controller.php");
 
-  $roleController = new RoleController();
-  $roleController->isTeacher($_SESSION);
+  $roleController = RoleController::getInstance();
+  $roleController->isUser($_SESSION);
 
 
   echo "Bienvenido a tu panel " . $_SESSION['nombre'];

@@ -14,7 +14,7 @@
   require_once(__DIR__ . "/../models/database.php");
   require_once(__DIR__ . "/../models/admin_queries.php");
 
-  $roleController = new RoleController();
+  $roleController = RoleController::getInstance();
   $roleController->isAdmin($_SESSION);
 
   $database = new Database();
@@ -22,6 +22,7 @@
 
   $adminQueries = new AdminQueries($db);
 
+  
   if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["numero_filas"])) {
     // Obtener el número de filas del formulario
     $numeroFilas = $_POST["numero_filas"];
@@ -37,6 +38,7 @@
     }
 }
 
+
   $resultUser = $adminQueries->getAllUsers();
   $resultClasses = $adminQueries->getAllClasses();
   $resultRooms = $adminQueries->getAllRoom();
@@ -45,13 +47,16 @@
   ?>
 
   <h1>Bienvenido al Panel de Administrador <?php echo $_SESSION['nombre'] ?></h1>
+  <form action="../controllers/logout_controller.php" method="post">
+    <input type="submit" value="Cerrar sesión">
+  </form>
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <label for="numero_filas">Selecciona el número de filas que quieres ver (1-10:)</label>
     <input type="number" id="numero_filas" name="numero_filas" min="1" max="10">
     <button type="submit" name="mostrar">Mostrar</button>
   </form>
   <h2>Tabla de Usuarios</h2>
-  <a href="formulario_nuevo_user.html"><button>Crear usuario</button></a>
+  <a href="admin/new_user_from_admin.php"><button>Crear usuario</button></a>
   <table class="tabla">
     <tr>
       <th>ID</th>

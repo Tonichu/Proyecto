@@ -3,20 +3,27 @@
 class AdminQueries
 {
   private $db;
-  private $limit =3;
+  private $limit = 3;
 
   public function __construct($db)
   {
     $this->db = $db;
   }
 
+
   public function setLimit($limit)
   {
     if (is_numeric($limit) && $limit >= 1 && $limit <= 10) {
       $this->limit = $limit;
+      //echo "El límite se ha actualizado correctamente a: " . $limit;
     } else {
       echo "Por favor ingrese un número válido entre 1 y 10.";
     }
+  }
+
+  public function getLimit()
+  {
+    return $this->limit;
   }
 
   public function getAllUsers()
