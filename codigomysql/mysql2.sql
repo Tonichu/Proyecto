@@ -37,8 +37,8 @@ CREATE TABLE SESIONES (
     FOREIGN KEY (id_clases) REFERENCES CLASES(id_clases),
     FOREIGN KEY (id_salas) REFERENCES SALAS(id_salas)
 );
---INSERT INTO ejemplo (fecha_hora) VALUES (NOW()); meter la fecha actual*
---INSERT INTO ejemplo (fecha_hora) VALUES ('2024-03-01 15:30:00');
+/*--INSERT INTO ejemplo (fecha_hora) VALUES (NOW()); meter la fecha actual*
+--INSERT INTO ejemplo (fecha_hora) VALUES ('2024-03-01 15:30:00');*/
 
 CREATE TABLE USUARIOS_SESIONES (
     id_sesion INT NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE USUARIOS_SESIONES (
     FOREIGN KEY (id_sesion) REFERENCES SESIONES(id),
     FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuarios)
 );
---INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario) VALUES (1, 123);
+/*--INSERT INTO USUARIOS_SESIONES (id_sesion, id_usuario) VALUES (1, 123);*/
 
 CREATE TABLE Maquinas (
     id_maquina INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,18 +59,18 @@ CREATE TABLE Maquinas (
     id_sala INT,
     FOREIGN KEY (id_sala) REFERENCES SALAS(id_salas)
 );
-INSERT INTO SESIONES (id_clases, id_salas, fecha) 
+/*INSERT INTO SESIONES (id_clases, id_salas, fecha_hora) 
 VALUES 
 (1, 1, '2024-02-22'),
 (2, 2, '2024-02-23'),
-(3, 3, '2024-02-24');
+(3, 3, '2024-02-24');*/
 
 
 INSERT INTO USUARIOS (nombre, apellidos, telefono, correo_electronico, direccion, pass, tipo_usuarios)
 VALUES ('Juan', 'López', '123456789', 'juan@example.com', 'Calle Principal 123', '$2y$10$Dpb5y8OkdJ.TA60LAnp9kuvkbYfiI7ZbLhIi.xcemaLF2TlEfYBVa', 2),
        ('María', 'González', '987654321', 'maria@example.com', 'Avenida Central 456', '$2y$10$Dpb5y8OkdJ.TA60LAnp9kuvkbYfiI7ZbLhIi.xcemaLF2TlEfYBVa', 1),
        ('Pedro', 'Martínez', '555555555', 'pedro@example.com', 'Plaza Mayor 789', '$2y$10$Dpb5y8OkdJ.TA60LAnp9kuvkbYfiI7ZbLhIi.xcemaLF2TlEfYBVa', 0);
---la pass es 1234
+/*--la pass es 1234*/
 INSERT INTO CLASES (nombre, descripcion)
 VALUES ('Yoga', 'Clase de yoga para principiantes'),
        ('Pilates', 'Clase de pilates enfocada en la flexibilidad y el fortalecimiento'),
