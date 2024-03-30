@@ -5,20 +5,31 @@
 
 .calendario th,     /*Aplica a filas y columnas*/
 .calendario td {
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     padding: 8px;
+    text-align: center;
+    /*background-color: rgba(161, 159, 156, 0.377);*/
 }
 
 
-
-.calendario td.sin-sesion {         /* Estilos específicos para las celdas del calendario. Para esto tengo que modificar como crea las celdas */
-    background-color: #4b4747dc;    
+.chora{
+    background-color: rgb(248, 222, 203);
 }
 
-.calendario td.con-sesion {
-    background-color: #eee5b2;
+.ctrabajador{
+    background-color: seashell;  
+}
+.sin-sesion{         /* Estilos específicos para las celdas del calendario. Para esto tengo que modificar como crea las celdas */
+    background-color: rgb(180, 174, 164);  
+}
+/*no se si importa hacer el . directo o con el recorrido largo la verdad.*/
+.con-sesion {
+    background-color: rgba(147, 255, 120, 0.664);
+}
+.reg{
+    background-color: rgb(230, 235, 191);
 }
 
-.calendario td.apuntado {
-    background-color: #42dbc7;
+.calendario td.apuntado { /*no esta puesto aún*/
+    background-color: #000000;
 }

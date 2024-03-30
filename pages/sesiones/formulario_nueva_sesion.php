@@ -14,7 +14,7 @@
     <select name="id_clase" id="id_clase">
       <?php
       session_start();
-      require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+      require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
       require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
       usuarioAdmin(); // solo acceso admin
       $conexion = mysqli_connect($host, $user, $password, $database, $port);
@@ -57,8 +57,12 @@
       ?>
     </select>
 
-    <label for="fecha_hora">Fecha y Hora:</label>
-    <input type="datetime-local" id="fecha_hora" name="fecha_hora"><br><br>
+
+    <label for="fecha_hora_inicio">Fecha y Hora de Inicio:</label>
+    <input type="datetime-local" id="fecha_hora_inicio" name="fecha_hora_inicio" required>
+
+    <label for="fecha_hora_fin">Fecha y Hora de Fin:</label>
+    <input type="datetime-local" id="fecha_hora_fin" name="fecha_hora_fin" required><br>
 
     <input type="submit" value="Enviar">
 

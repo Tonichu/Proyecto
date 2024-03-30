@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
 usuarioAdmin(); // solo acceso admin
 
@@ -11,6 +11,8 @@ if (!$conexion) {
 if (isset($_POST['nombre']) && !empty($_POST['nombre']) && isset($_POST['descripcion']) && !empty($_POST['descripcion']) && ($_SERVER['REQUEST_METHOD'] == 'POST')) {
   $nombre = $_POST['nombre'];
   $descripcion = $_POST['descripcion'];
+  $id_profesor = $_POST['Asignar_Profesor']; // Obtener el id del profesor seleccionado
+
   // Insertar la nueva clase en la base de datos
   // Verificar si la clase existe estoy comparando con nombre
   $sql = "SELECT * FROM clases WHERE nombre='$nombre'";
@@ -25,12 +27,10 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre']) && isset($_POST['descrip
       header("refresh:2;../usuarios/panel_de_control.php");
       exit();
     } else {
-
       // Insertar los datos de la nueva clase en la tabla "clases"
-
-      $sql1 = "INSERT INTO clases (nombre, descripcion) VALUES ('$nombre','$descripcion')";
+      $sql1 = "INSERT INTO clases (nombre, descripcion, id_profesor) VALUES ('$nombre','$descripcion', '$id_profesor')";
       if ($conexion->query($sql1) === TRUE) {
-      // Mostrar un mensaje de éxito y redirigir al usuario a la página "panel_de_control.php"
+        // Mostrar un mensaje de éxito y redirigir al usuario a la página "panel_de_control.php"
         echo "clase creada con éxito.";
         header("refresh:2;../usuarios/panel_de_control.php");
         exit();
@@ -42,3 +42,4 @@ if (isset($_POST['nombre']) && !empty($_POST['nombre']) && isset($_POST['descrip
 }
 // Verificar si se insertó correctamente
 $conexion->close();
+?>

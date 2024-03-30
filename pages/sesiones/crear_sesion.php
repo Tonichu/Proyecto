@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
 usuarioAdmin();
 // Si el usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
 
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
 
 if (!$conexion) {
@@ -15,10 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['id_clase']) && !empty($_POST['id_clase']) && isset($_POST['id_sala']) && !empty($_POST['id_sala'])) {
     $id_clase = $_POST['id_clase'];
     $id_sala = $_POST['id_sala'];
-    $fecha_hora = $_POST['fecha_hora'];
+    $fecha_hora_inicio = $_POST['fecha_hora_inicio'];
+    $fecha_hora_fin = $_POST['fecha_hora_fin'];
 
     // Insertar la nueva sesión en la base de datos
-    $sql = "INSERT INTO SESIONES (id_clases, id_salas, fecha_hora) VALUES ($id_clase, $id_sala, '$fecha_hora')";
+    $sql = "INSERT INTO SESIONES (id_clases, id_salas, fecha_hora_inicio, fecha_hora_fin) VALUES ($id_clase, $id_sala, '$fecha_hora_inicio', '$fecha_hora_fin')";
+
     $result = $conexion->query($sql);
 
     if (!$result) {

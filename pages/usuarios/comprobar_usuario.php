@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__ . "/../../Handlers/vuelta_index.php");
 
 session_start();
@@ -16,7 +16,7 @@ $resultado = mysqli_query($conexion, $sql);
 
 if (!$resultado || mysqli_num_rows($resultado) == 0) {
   // Usuario no encontrado en la base de datos
-  $_SESSION['error_message'] = "Credenciales inválidas. Verifica tu correo electrónico y contraseña.";
+  echo $_SESSION['error_message'] = "Credenciales inválidas. Tu correo electrónico no esta dado de alta.";
   header("Location: $Primerapagina");
   exit;
 } else {
@@ -36,10 +36,10 @@ if (!$resultado || mysqli_num_rows($resultado) == 0) {
         $pagina_redireccion = "usuario_profe.php";
         break;
       case 2: // Usuario
-        $pagina_redireccion = "area_usuario.php";
+        $pagina_redireccion = "usuario.php";
         break;
       default:
-        $_SESSION['error_message'] = "Error: Tipo de usuario no válido.";
+        echo $_SESSION['error_message'] = "Error: Tipo de usuario no válido.";
         header("Location: $Primerapagina");
         exit;
     }
@@ -52,7 +52,7 @@ if (!$resultado || mysqli_num_rows($resultado) == 0) {
     exit;
   } else {
     // Contraseña incorrecta
-    $_SESSION['error_message'] = "Credenciales inválidas. Verifica tu correo electrónico y contraseña.";
+    echo $_SESSION['error_message'] = "Credenciales inválidas.Tu contraseña es invalida.";
     header("Location: $Primerapagina");
     exit;
   }

@@ -2,7 +2,7 @@
 session_start();
 // Datos de conexión a la base de datos
 require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
-require_once(__DIR__ . "/../../ConexionBdd/conexionBdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 usuarioAdmin();// solo acceso admin
 // Crear conexión a la base de datos
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
