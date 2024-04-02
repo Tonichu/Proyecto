@@ -29,7 +29,7 @@ if (is_array($usuario)) {
     $_SESSION["nombre"] = $usuario['nombre'];
     $_SESSION["tipo_usuarios"] = $usuario['tipo_usuarios'];
     $_SESSION["id_usuarios"] = $usuario['id_usuarios'];
-    $pagina_redireccion = determinarPaginaRedireccion($usuario['tipo_usuarios']);
+    $pagina_redireccion = determinePageRedirection($usuario['tipo_usuarios']);
     header("Location: $pagina_redireccion");
     exit;
 } else {
@@ -38,7 +38,7 @@ if (is_array($usuario)) {
     exit;
 }
 
-function determinarPaginaRedireccion($tipo_usuario) {
+function determinePageRedirection($tipo_usuario) {
     switch ($tipo_usuario) {
         case 0: // Admin
             return "../views/admin_panel.php";

@@ -23,21 +23,23 @@ class UserModel {
             return false;
         }
     }
-    
-    public function createUser($nombre, $apellidos, $telefono, $correo, $direccion, $pass_hash, $tipo_usuario) {
-        $sql = "INSERT INTO usuarios (nombre, apellidos, telefono, correo_electronico, direccion, pass, tipo_usuarios, foto) VALUES (:nombre, :apellidos, :telefono, :correo, :direccion, :pass, :tipo_usuario, NULL)";
-        $statement = $this->connection->prepare($sql);
-        $success = $statement->execute(array(
-            ':nombre' => $nombre,
-            ':apellidos' => $apellidos,
-            ':telefono' => $telefono,
-            ':correo' => $correo,
-            ':direccion' => $direccion,
-            ':pass' => $pass_hash,
-            ':tipo_usuario' => $tipo_usuario
-        ));
-        
-        return $success;
-    }
+
+    public function createUser($nombre, $apellidos, $telefono, $correo, $direccion, $pass_hash, $tipo_usuario, $foto)
+  {
+    $sql = "INSERT INTO usuarios (nombre, apellidos, telefono, correo_electronico, direccion, pass, tipo_usuarios, foto) VALUES (:nombre, :apellidos, :telefono, :correo, :direccion, :pass, :tipo_usuario, :foto)";
+    $statement = $this->connection->prepare($sql);
+    $success = $statement->execute(array(
+      ':nombre' => $nombre,
+      ':apellidos' => $apellidos,
+      ':telefono' => $telefono,
+      ':correo' => $correo,
+      ':direccion' => $direccion,
+      ':pass' => $pass_hash,
+      ':tipo_usuario' => $tipo_usuario,
+      ':foto' => $foto
+    ));
+
+    return $success;
+  }
 }
 ?>
