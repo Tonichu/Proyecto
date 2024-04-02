@@ -3,7 +3,7 @@
 class AdminQueries
 {
   private $db;
-  private $limit = 3;
+  private $limit = 5;
 
   public function __construct($db)
   {

@@ -15,7 +15,7 @@
 
   ?>
 <h2>Registro de Usuario</h2>
-<form action="../../controllers/admin_controller/user_controller.php" method="post" enctype="multipart/form-data">
+<form action="../../controllers/admin_controller/new_user.php" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre"><br><br>
 

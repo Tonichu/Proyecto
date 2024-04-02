@@ -22,7 +22,6 @@
 
   $adminQueries = new AdminQueries($db);
 
-  
   if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["numero_filas"])) {
     // Obtener el número de filas del formulario
     $numeroFilas = $_POST["numero_filas"];
@@ -38,12 +37,10 @@
     }
 }
 
-
   $resultUser = $adminQueries->getAllUsers();
   $resultClasses = $adminQueries->getAllClasses();
   $resultRooms = $adminQueries->getAllRoom();
   $resultMachines = $adminQueries->getAllMachines();
-
   ?>
 
   <h1>Bienvenido al Panel de Administrador <?php echo $_SESSION['nombre'] ?></h1>
@@ -59,7 +56,6 @@
   <a href="admin/new_user_from_admin.php"><button>Crear usuario</button></a>
   <table class="tabla">
     <tr>
-      <th>ID</th>
       <th>Nombre</th>
       <th>Apellidos</th>
       <th>Tipo de usuario</th>
@@ -70,7 +66,6 @@
     </tr>
     <?php while ($row = $resultUser->fetch(PDO::FETCH_ASSOC)) { ?>
       <tr>
-        <td><?php echo $row['id_usuarios']; ?></td>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['apellidos']; ?></td>
         <td><?php
@@ -87,37 +82,33 @@
         <td><?php echo $row['direccion']; ?></td>
         <td>
           <!-- Botón para eliminar el usuario -->
-          <?php echo "<input type='hidden' name='id' value='" . $row['id_usuarios'] . "'>"; ?>
-          <a href="eliminar_usuario.php?id=<?php echo $row['id_usuarios']; ?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/delete_user.php?id=<?php echo $row['id_usuarios'];;?>"><button>Eliminar</button></a>
           <!-- Botón para modificar el usuario -->
-          <a href="formulario_modificar_user.php?id=<?php echo $row['id_usuarios']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/user_modification_from_admin.php?id=<?php echo $row['id_usuarios']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
   </table>
   <h2>Tabla de Clases</h2>
-  <a href="../clases/formulario_nuevo_clase.php"><button>Crear clases</button></a>
+  <a href="../views/admin/new_class_from_admin.php"><button>Crear clases</button></a>
   <table class="tabla">
     <tr>
-      <th>ID</th>
       <th>Nombre</th>
       <th>Descripcion</th>
       <th>Profesor</th>
       <th>Email Profesor</th>
     </tr>
-    <?php while ($row = $resultClasses->fetch(PDO::FETCH_ASSOC)) { ?>
+    <?php while ($row = $resultClasses->fetch(PDO::FETCH_ASSOC)) {?>
       <tr>
-        <td><?php echo $row['id_clases']; ?></td>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['descripcion']; ?></td>
         <td><?php echo $row['nombre_profesor'] ?? ' Sin profesor'; ?></td>
         <td><?php echo $row['email_profesor'] ?? ' Sin Email'; ?></td>
         <td>
           <!-- Botón para eliminar la clase -->
-          <?php echo "<input type='hidden' name='id' value='" . $row['id_clases'] . "'>"; ?>
-          <a href="../clases/eliminar_clase.php?id=<?php echo $row['id_clases']; ?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/delete_class.php?id=<?php echo $row['id_clases'];;?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la clase -->
-          <a href="../clases/modificar_clase.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/class_modification_from_admin.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
@@ -126,13 +117,11 @@
   <a href="../salas/formulario_nueva_sala.html"><button>Crear sala</button></a>
   <table class="tabla">
     <tr>
-      <th>ID</th>
       <th>Nombre</th>
       <th>Aforo</th>
     </tr>
     <?php while ($row = $resultRooms->fetch(PDO::FETCH_ASSOC)) { ?>
       <tr>
-        <td><?php echo $row['id_salas']; ?></td>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['aforo']; ?></td>
         <td>
@@ -149,7 +138,6 @@
   <a href="../maquinas/formulario_nueva_maquina.php"><button>Crear Máquina</button></a>
   <table class="tabla">
     <tr>
-      <th>ID</th>
       <th>Nombre</th>
       <th>Descripcion</th>
       <th>Fecha de adquisición</th>
@@ -158,7 +146,6 @@
     </tr>
     <?php while ($row = $resultMachines->fetch(PDO::FETCH_ASSOC)) { ?>
       <tr>
-        <td><?php echo $row['id_maquina']; ?></td>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['descripcion']; ?></td>
         <td><?php echo $row['fecha_adquisicion']; ?></td>
