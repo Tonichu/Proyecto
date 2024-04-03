@@ -1,16 +1,16 @@
 <?php
-require_once(__DIR__ . "/class_controller.php");
+require_once(__DIR__ . "/room_controller.php");
 
-$idClass = $_GET['id'];
+$id = $_GET['id'];
 
 // Verificar si se ha enviado el formulario de eliminación
 if (isset($_GET['id'])) {
 
     // Crear una instancia de UserController
-    $classController = new ClassController();
+    $roomController = new roomController();
 
     // Llamar al método eliminarUsuario del UserController
-    $mensaje = $classController->deleteClass($idClass);
+    $mensaje = $roomController->deleteRoom($id);
 
     // Mostrar el mensaje en la vista
     echo $mensaje;

@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../../models/admin_models/class_model.php");
+require_once(__DIR__ . "/../../models/admin_models/room_model.php");
 
 // Verificar si se ha enviado el formulario de modificación
 
@@ -7,20 +7,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
     // Obtener los datos del formulario
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $id_profesor = $_POST['profesor'];
+    $aforo = $_POST['aforo'];
 
     // Crear una instancia
-    $classModel = new ClassModel();
+    $roomModel = new roomModel();
 
-    $resultado = $classModel->updateClass($id, $nombre, $descripcion, $id_profesor);
+    $resultado = $roomModel->updateRoom($id, $nombre, $aforo);
     
     header("refresh:2;url=../../views/admin_panel.php");
     if ($resultado) {
-        echo "clase actualizada.";
+        echo "sala actualizada.";
         exit();
     } else {
-        echo "Error al actualizar la clase.";
+        echo "Error al actualizar la sala.";
     }
 } else {
     echo "Error: No se ha enviado el formulario de modificación.";

@@ -52,8 +52,8 @@
     <input type="number" id="numero_filas" name="numero_filas" min="1" max="10">
     <button type="submit" name="mostrar">Mostrar</button>
   </form>
-  <h2>Tabla de Usuarios</h2>
-  <a href="admin/new_user_from_admin.php"><button>Crear usuario</button></a>
+  <h2>Usuarios</h2>
+  <a href="admin/new_user_from_admin.php"><button>Crear nuevo usuario</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -89,8 +89,8 @@
       </tr>
     <?php } ?>
   </table>
-  <h2>Tabla de Clases</h2>
-  <a href="../views/admin/new_class_from_admin.php"><button>Crear clases</button></a>
+  <h2>Clases</h2>
+  <a href="../views/admin/new_class_from_admin.php"><button>Crear nueva clase</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -113,8 +113,8 @@
       </tr>
     <?php } ?>
   </table>
-  <h2>Tabla de Salas</h2>
-  <a href="../salas/formulario_nueva_sala.html"><button>Crear sala</button></a>
+  <h2>Salas</h2>
+  <a href="../views/admin/new_room_from_admin.php"><button>Crear nueva sala</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -126,16 +126,15 @@
         <td><?php echo $row['aforo']; ?></td>
         <td>
           <!-- Botón para eliminar la sala -->
-          <?php echo "<input type='hidden' name='id' value='" . $row['id_salas'] . "'>"; ?>
-          <a href="../salas/eliminar_sala.php?id=<?php echo $row['id_salas']; ?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/delete_room.php?id=<?php echo $row['id_salas']; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la sala -->
-          <a href="../salas/modificar_sala.php?id=<?php echo $row['id_salas']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/room_modification_from_admin.php?id=<?php echo $row['id_salas']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
   </table>
-  <h2>Tabla de maquinas</h2>
-  <a href="../maquinas/formulario_nueva_maquina.php"><button>Crear Máquina</button></a>
+  <h2>Maquinas</h2>
+  <a href="../views/admin/new_machine_from_admin.php"><button>Crear nueva Máquina</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>

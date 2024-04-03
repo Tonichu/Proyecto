@@ -1,10 +1,7 @@
 <?php
 
 require_once(__DIR__ . "/../../controllers/admin_controller/class_controller.php");
-require_once(__DIR__ . "/../../models/admin_models/class_model.php");
-require_once(__DIR__ . "/../../models/database.php");
 
-$database = new Database();
 
 // Crear una instancia del controlador de clase
 $classController = new ClassController();
