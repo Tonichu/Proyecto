@@ -30,7 +30,7 @@
     <input type="text" id="descripcion" name="descripcion"><br><br>
 
     <label for="foto">Foto:</label>
-    <input type="file" id="foto" name="foto"><br><br>
+    <input type="file" id="foto" name="foto" value="null"><br><br>
 
     <label for="fecha_adquisicion">Fecha de Adquisición:</label>
     <input type="date" id="fecha_adquisicion" name="fecha_adquisicion"><br><br>

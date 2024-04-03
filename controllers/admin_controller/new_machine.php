@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
     $resultado = $machineController->addMachine($nombre, $descripcion, $foto,$fecha_adquisicion,$ultima_revision, $id_sala);
 
-    header("refresh:9;url=../../views/admin_panel.php");
+    header("refresh:2;url=../../views/admin_panel.php");
     if ($resultado) {
         echo "La maquina se ha creado correctamente.";
     } else {

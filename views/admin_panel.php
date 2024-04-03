@@ -152,10 +152,10 @@
         <td><?php echo $row['nombre_sala']; ?></td>
         <td>
           <!-- Botón para eliminar la maquina -->
-          <?php echo "<input type='hidden' name='id' value='" . $row['id_maquina'] . "'>"; ?>
-          <a href="../maquinas/eliminar_maquina.php?id=<?php echo $row['id_maquina']; ?>"><button>Eliminar</button></a>
+
+          <a href="../controllers/admin_controller/delete_machine.php?id=<?php echo $row['id_maquina']; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la maquina -->
-          <a href="../maquinas/modificar_maquina.php?id=<?php echo $row['id_maquina']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/machine_modification_from_admin.php?id=<?php echo $row['id_maquina']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
