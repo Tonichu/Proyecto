@@ -5,15 +5,14 @@ require_once(__DIR__ . "/../../controllers/admin_controller/class_controller.php
 if (isset($_GET['id'])) {
   // Obtener el ID de la clase
   $idClase = $_GET['id'];
-
   // Crear una instancia del controlador ClassController
   $classController = new ClassController();
-
-  // Obtener los detalles de la clase por su ID
-  $clase = $classController->getClassById($idClase);
 }
-$userModel = new UserModel();
-$professors = $userModel->getProfessors();
+
+$data = $classController->getViewData($idClase);
+$professors = $data["professors"];
+$clase = $data["class"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,13 +37,11 @@ $professors = $userModel->getProfessors();
       <select id="profesor" name="profesor">
         <?php
         // Obtener la lista de profesores
-
         foreach ($professors as $professor) {
           echo "<option value='" . $professor['id_usuarios'] . "'>" . $professor['nombre'] . " " . $professor['apellidos'] . "</option>";
         }
         ?>
       </select><br><br>
-
       <input type="submit" value="Guardar cambios">
     </form>
   <?php else : ?>

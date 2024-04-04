@@ -19,19 +19,28 @@ class ClassController
 
   public function getClassById($id)
   {
-      try {
-          // Llamar al método getClassById del modelo
-          return $this->classModel->getClassById($id);
-      } catch (Exception $e) {
-          // Capturar y mostrar cualquier excepción ocurrida
-          return "Error: " . $e->getMessage();
-      }
+    try {
+      // Llamar al método getClassById del modelo
+      return $this->classModel->getClassById($id);
+    } catch (Exception $e) {
+      // Capturar y mostrar cualquier excepción ocurrida
+      return "Error: " . $e->getMessage();
+    }
+  }
+  public function getViewData($idClase)
+  {
+    $userModel = new UserModel();
+    $professors = $userModel->getProfessors();
+    return [
+      "professors" => $professors,
+      "class" => $this->getClassById($idClase)
+    ];
   }
 
   public function deleteClass($id)
   {
     try {
-      
+
       // Llamar al método eliminar clase del modelo
       header("refresh:2;url=../../views/admin_panel.php");
       if ($this->classModel->deleteClass($id)) {

@@ -4,10 +4,10 @@ require_once(__DIR__ . "/../../models/database.php");
 
 class UserController
 {
-    private $userModel;
-    private $db;
+    private UserModel $userModel;
+    private Database $db;
 
-    public function __construct($database)
+    public function __construct(Database $database)
     {
         $this->userModel = new UserModel();
         $this->db = $database;
@@ -63,7 +63,7 @@ class UserController
             }
         } 
     }
-    public function deleteUser($id)
+    public function deleteUser(int $id)
     {
         try {
             // Llamar al método eliminarUsuario del modelo

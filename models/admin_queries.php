@@ -2,18 +2,17 @@
 
 class AdminQueries
 {
-  private $db;
-  private $limit = 5;
+  private PDO $db;
+  private int $limit = 5;
 
-  public function __construct($db)
+  public function __construct(PDO $db)
   {
     $this->db = $db;
   }
 
-
-  public function setLimit($limit)
+  public function setLimit(int $limit)
   {
-    if (is_numeric($limit) && $limit >= 1 && $limit <= 10) {
+    if ($limit >= 1 && $limit <= 10) {
       $this->limit = $limit;
       //echo "El límite se ha actualizado correctamente a: " . $limit;
     } else {
@@ -21,12 +20,12 @@ class AdminQueries
     }
   }
 
-  public function getLimit()
+  public function getLimit(): int
   {
     return $this->limit;
   }
 
-  public function getAllUsers()
+  public function getAllUsers() :PDOStatement
   {
     $id_usuarios = $_SESSION["id_usuarios"];
     $query = "SELECT * FROM usuarios WHERE id_usuarios != ? LIMIT " . $this->limit;
