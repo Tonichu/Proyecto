@@ -3,7 +3,6 @@
 require_once(__DIR__."/../../ConexionBdd/conexion_bdd.php");
 require_once(__DIR__."/../../Handlers/vuelta_index.php");
 require_once(__DIR__ . "/../../librerias/utils/usuario_admin.php");
-usuarioAdmin();// solo acceso de admin
 session_start();
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
 if (!$conexion) {

@@ -1,0 +1,30 @@
+/* Estilos para el header */
+header {
+  background-color: #343a40;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Estilos para la bienvenida */
+.bienvenida h1 {
+  margin: 0;
+  color: white;
+}
+
+/* Estilos para los botones de opciones */
+.opciones form {
+  margin: 0;
+  display: flex;
+}
+
+/* Estilos para las tablas */
+table {
+  width: 100%;
+}
+
+/* Estilos para el hover de los botones */
+.btn:hover {
+  opacity: 0.8;
+}
