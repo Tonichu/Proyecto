@@ -22,15 +22,14 @@ usuarioNormal();
 </head>
 
 <body>
-  <div id="content-wrapper"> <!-- Contenedor para centrar el contenido -->
-    <div id="header"> <!-- Encabezado centrado horizontalmente -->
-      <div class="welcome-container"> <!-- Contenedor para la bienvenida -->
+  <div id="content-wrapper">
+    <div id="header">
+      <div class="welcome-container">
         <h1>Bienvenido a tu panel
           <?php echo $_SESSION['nombre']; ?>
         </h1>
       </div>
-      <div class="button-container"> <!-- Contenedor para los botones -->
-        <!-- Botones de cerrar sesión y modificar datos -->
+      <div class="button-container">
         <form action="../../Handlers/logout.php" method="post">
           <input type="submit" value="Cerrar sesión" class="btn btn-custom">
         </form>
@@ -89,7 +88,7 @@ usuarioNormal();
           <th>Hora de inicio</th>
           <th>Hora de fin</th>
           <th>Profesor</th>
-          <th></th> <!-- Celda vacía para el botón de inscripción -->
+          <th></th>
         </tr>
         <?php while ($row = mysqli_fetch_assoc($resultSesionesNoInscritas)) { ?>
           <tr>
@@ -127,7 +126,7 @@ usuarioNormal();
           <th>Hora de inicio</th>
           <th>Hora de fin</th>
           <th>Profesor</th>
-          <th></th> <!-- Celda vacía para el botón de cancelar inscripción -->
+          <th></th>
         </tr>
         <?php while ($row = mysqli_fetch_assoc($resultSesionesInscritas)) { ?>
           <tr>
