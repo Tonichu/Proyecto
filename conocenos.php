@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +8,12 @@
 
   <link rel="stylesheet" href="librerias/css/estilo_pag_principal.css" />
   <link rel="stylesheet" href="librerias/css/modal.css" />
+  <link rel="stylesheet" href="librerias/css/conocenos.css" />
 
 </head>
+
 <body>
-<div class="header">
+  <div class="header">
     <div class="container">
       <div class="navbar">
         <div class="logo">
@@ -31,45 +34,104 @@
 
   <div class="bg-img">
     <div class="container">
-      <div class="text-center text-white">
+      <div class="experiencia">
+        <p>EXPERIENCIA</p>
+      </div>
+      <div class="comportamiento">
+        <p>COMPORTAMIENTO</p>
+      </div>
+      <div class="text-center text-white quien-somos">
         <h1>Quiénes somos nosotros</h1>
-        <h3>... nosotros somos un nuevo gimnasio de apertura en tu pueblo donde podrás vivir experiencias únicas con nuestros profesores.</h3>
+        <h3>... nosotros somos un nuevo gimnasio de apertura en tu pueblo donde podrás vivir experiencias únicas con
+          nuestros profesores.</h3>
+      </div>
+      <div class="conciencia">
+        <p>CONCIENCIA</p>
+      </div>
+      <div class="clientes">
+        <p>LO IMPORTANTE ERES TÚ</p>
       </div>
     </div>
   </div>
 
-  <div class="container mt-5">
-    <div class="text-center">
-      <h1>¿POR QUÉ ESCOGER BUNKAY?</h1>
-      <p>¡Ven a descubrir una nueva forma de entrenar y cuidar tu cuerpo!</p>
+  <div class="por-que">
+    <h1>¿POR QUÉ ESCOGER BUNKAY?</h1>
+    <h2>¡Ven a descubrir una nueva forma de entrenar y cuidar tu cuerpo! ¡Juntos superaremos tus limites mediante la
+      construcción de la mejor versión de ti! </h2>
+    <h2>UNIÓN CUERPO - MENTE</h2>
+  </div>
+
+  <div class="explicacion">
+    <div class="clase-izquierda">
+      <h1>Lo que nos hace únicos y diferentes</h1>
+      <p class="p-enfoque">Tenemos un enfoque personalizado en cada uno de nuestros clientes, adaptando nuestros
+        programas a tus
+        necesidades individuales.</p>
+      <p class="p-enfoque">¡Tú decides cuándo te vienes y cuándo te vas, pero te va a enganchar!</p>
+      <p class="p-center">Puntos a tener en cuenta:</p>
+      <p class="p-izquierda">
+        ★ Entrenadores certificados
+      </p>
+      <p class="p-derecha">
+        ★ Equipamiento de última generación
+      </p>
+      <p class="p-izquierda">
+        ★ Ambiente motivador
+      </p>
+      <p class="p-derecha">
+        ★ Variedad de clases
+      </p>
+      <p class="p-izquierda">
+        ★ Resultados garantizados
+      </p>
+    </div>
+    <div class="clase-derecha">
+      <img
+        src="https://previews.123rf.com/images/ayphoto/ayphoto1605/ayphoto160500024/56636002-hombre-muscular-en-el-gimnasio-despu%C3%A9s-de-su-entrenamiento-de-peso-muerto.jpg"
+        class="img-fluid" alt="Imagen de gimnasio" />
     </div>
 
-    <div class="row mt-5">
-      <div class="col-md-6">
-        <h1>Lo que nos hace únicos y diferentes</h1>
-        <p>Tenemos un enfoque personalizado en cada uno de nuestros clientes, adaptando nuestros programas a tus necesidades individuales.</p>
-        <p><strong>¡Tú decides cuándo te vienes y cuándo te vas, pero te va a enganchar!</strong></p>
-        <p>★★★★★ Puntos a tener en cuenta: Entrenadores certificados, Equipamiento de última generación, Ambiente motivador, Variedad de clases, Resultados garantizados.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="ruta_de_la_segunda_imagen.jpg" class="img-fluid" alt="Imagen de gimnasio" />
-      </div>
+    <div class="clase-izquierda-abajo">
+      <img src="https://img.freepik.com/fotos-premium/entrenamiento-ejercicio-hombre-gimnasio-fitness_972478-519.jpg"
+        class="img-fluid" alt="Imagen de gimnasio" />
     </div>
-
-    <div class="row mt-5">
-      <div class="col-md-6">
-        <h2>Nuestro pronóstico</h2>
-        <p>Nuestra visión es crear una comunidad activa y saludable, donde cada persona pueda alcanzar sus metas de fitness de manera divertida y sostenible.</p>
-      </div>
-      <div class="col-md-6">
-        <h2>Nuestra misión</h2>
-        <p>Nuestra misión es inspirar y guiar a nuestros miembros hacia un estilo de vida más activo y saludable, proporcionando un entorno seguro y motivador para su desarrollo físico y mental.</p>
-      </div>
+    <div class="clase-derecha-abajo">
+      <h1>Nuestros valores</h1>
+      <p class="p-trabajo">Lo más importante es nuestro trabajo y tu satisfacción. Trabajamos en equipo para motivarte y
+        sacar tú mejor
+        versión</p>
+      <p class="p-trabajo">¡Llegaras cansada y te recargaremos las pilas!¡Te marcharas motivado siempre!</p>
+      <p class="p-izquierda">
+        ★ Trabajo en equipo
+      </p>
+      <p class="p-derecha">
+        ★ Innovación y superación
+      </p>
+      <p class="p-izquierda">
+        ★ Felicidad de la gente
+      </p>
+      <p class="p-derecha">
+        ★ Totalmente involucrados en tu desarrollo
+      </p>
+      <p class="p-izquierda">
+        ★ Pasión y compromiso
+      </p>
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/" target="_blank"><img src="librerias/iconos/instagram.png"
+          alt="Instagram"></a>
+      <a href="https://www.facebook.com/" target="_blank"><img src="librerias/iconos/facebook.png" alt="Facebook"></a>
+      <a href="https://twitter.com/?lang=es" target="_blank"><img src="librerias/iconos/twitter.png" alt="Twitter"></a>
+      <a href="https://www.linkedin.com/" target="_blank"><img src="librerias/iconos/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://www.youtube.com/" target="_blank"><img src="librerias/iconos/youtube.png" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/" target="_blank"><img src="librerias/iconos/tiktok.png" alt="TikTok"></a>
+    </div>
+    <div class="divider"></div>
+  </footer>
+
 </body>
+
 </html>
