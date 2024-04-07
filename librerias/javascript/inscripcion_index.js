@@ -43,30 +43,64 @@ function validarFormulario(event) {
   var passError = document.getElementById("pass-error");
   var fotoError = document.getElementById("foto-error");
 
-  // Validar cada campo individualmente
-  validarCampo(
-    nombreInput,
-    nombreError,
-    "Por favor, ingresa un nombre válido (mín. 2 caracteres y solo letras).",
-    contieneSoloLetras
-  );
-  validarCampo(
-    apellidosInput,
-    apellidosError,
-    "Por favor, ingresa apellidos válidos (mín. 2 caracteres y solo letras).",
-    contieneSoloLetras
-  );
-  validarCampo(
-    telefonoInput,
-    telefonoError,
-    "Por favor, ingresa un número de teléfono válido (solo números y 9 dígitos).",
-    contieneSoloNumeros
-  );
-  validarCampo(
-    correoInput,
-    correoError,
-    "Por favor, ingresa un correo electrónico válido."
-  );
+  let valid = true;
+
+    // Validar nombre
+    const nombreRegex = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]+$/;
+    if (
+      nombre.value.trim().length < 2 ||
+      !nombreRegex.test(nombre.value.trim())
+    ) {
+      nombreError.textContent =
+        "El nombre debe tener al menos 2 caracteres y no puede contener números.";
+      valid = false;
+    } else {
+      nombreError.textContent = "";
+    }
+
+    // Validar apellidos
+    const apellidosRegex = /^[A-Za-záéíóúüñÁÉÍÓÚÜÑ\s]+$/;
+    if (
+      apellidos.value.trim().length < 2 ||
+      !apellidosRegex.test(apellidos.value.trim())
+    ) {
+      apellidosError.textContent =
+        "Los apellidos deben tener al menos 2 caracteres y no pueden contener números.";
+      valid = false;
+    } else {
+      apellidosError.textContent = "";
+    }
+
+    // Validar teléfono
+    const telefonoRegex = /^\d{9}$/;
+    const telefonoNumerico = /^\d+$/;
+    if (!telefonoNumerico.test(telefono.value.trim())) {
+      telefonoError.textContent = "El teléfono solo puede contener números.";
+      valid = false;
+    } else if (!telefonoRegex.test(telefono.value.trim())) {
+      telefonoError.textContent =
+        "Introduce un número de teléfono válido (9 dígitos).";
+      valid = false;
+    } else {
+      telefonoError.textContent = "";
+    }
+
+    // Validar correo electrónico
+    const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!correoRegex.test(correo.value.trim())) {
+      correoError.textContent = "Introduce un correo electrónico válido.";
+      valid = false;
+    } else {
+      correoError.textContent = "";
+    }
+
+    // Validar dirección
+    if (direccion.value.trim().length === 0) {
+      direccionError.textContent = "Introduce tu dirección.";
+      valid = false;
+    } else {
+      direccionError.textContent = "";
+    }
   validarCampo(passInput, passError, "Por favor, ingresa una contraseña.");
 
   // Si algún campo tiene un mensaje de error, no enviar el formulario
@@ -83,7 +117,7 @@ function validarFormulario(event) {
   event.target.submit();
 }
 
-var formulario = document.querySelector("form");
+var formulario = document.getElementById("registroFormulario");
 formulario.addEventListener("submit", validarFormulario);
 
 var campos = document.querySelectorAll("input, textarea");

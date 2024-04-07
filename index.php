@@ -24,7 +24,7 @@
             <ul>
               <?php include 'librerias/navbar/menu_principal.php'; ?>
               <?php include 'librerias/navbar/area_clientes.php'; ?>
-              <?php include 'librerias/navbar/registro_usuario.html'; ?>
+              <?php include 'librerias/navbar/registro_usuario.php'; ?>
             </ul>
           </nav>
         </div>
@@ -45,7 +45,7 @@
   <?php include 'librerias/navbar/footer.php'; ?>
 
   <script src="librerias/javascript/pagina_principal_carrusel.js"></script>
-  <script src="librerias/javascript/validacion_formulario_inicial"></script>
+  <script src="librerias/javascript/inscripcion_index.js"></script>
 
 </body>
 
