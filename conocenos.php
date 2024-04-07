@@ -24,7 +24,7 @@
             <ul>
               <?php include 'librerias/navbar/menu_principal.php'; ?>
               <?php include 'librerias/navbar/area_clientes.php'; ?>
-              <?php include 'librerias/navbar/registro_usuario.html'; ?>
+              <?php include 'librerias/navbar/registro_usuario.php'; ?>
             </ul>
           </nav>
         </div>
