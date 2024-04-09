@@ -5,9 +5,9 @@ require_once(__DIR__ . "/../../controllers/admin_controller/class_controller.php
 if (isset($_GET['id'])) {
   // Obtener el ID de la clase
   $idClase = $_GET['id'];
-  // Crear una instancia del controlador ClassController
-  $classController = new ClassController();
 }
+
+$classController = new ClassController();
 
 $data = $classController->getViewData($idClase);
 $professors = $data["professors"];

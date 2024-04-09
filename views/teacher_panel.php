@@ -30,7 +30,7 @@
   $id_usuario = $_SESSION['id_usuarios'];
 
   echo "Bienvenido a tu panel de profesor " . $_SESSION['nombre'];
-  
+
   ?>
 
   <h1>Bienvenido teacher</h1>
@@ -43,7 +43,7 @@
   </form>
 
   <h2>Crear nueva clase</h2>
-  <form action="../../pages/area_profesor/crear_clase_profesor.php" method="post">
+  <form action="../controllers/teacher_controller/class/new_class.php" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" required><br><br>
 
@@ -55,55 +55,55 @@
     <input type="submit" value="Crear nueva clase">
   </form>
   <h2>Tus clases</h2>
-<?php
-// Verificar si hay clases para este profesor
-if ($resultClasses->rowCount() > 0) {
-?>
-  <table class="tabla">
-    <tr>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Opciones</th>
-    </tr>
-    <?php while ($row = $resultClasses->fetch(PDO::FETCH_ASSOC)) { ?>
-      <tr>
-        <td><?php echo $row['nombre']; ?></td>
-        <td><?php echo $row['descripcion']; ?></td>
-        <td>
-          <!-- Botón para eliminar la clase -->
-          <?php echo "<input type='hidden' name='id' value='" . $row['id_clases'] . "'>"; ?>
-          <a href="../../pages/area_profesor/eliminar_clase_profesor.php?id=<?php echo $row['id_clases']; ?>"><button>Eliminar</button></a>
-          <!-- Botón para modificar la clase -->
-          <a href="../../pages/area_profesor/modificar_clase_profesor.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
-        </td>
-      </tr>
-    <?php } ?>
-  </table>
-<?php } else { ?>
-  <p>No tienes clases aún.</p>
-<?php } ?>
-  <h2>Registro de nueva sesión</h2>
-  <form action="../../pages/area_profesor/crear_nueva_sesion_profesor.php" method="post">
-  <span>Clases</span>
-<select name="id_clase" id="id_clase">
   <?php
-  // Verificar si hay resultados
-  if ($resultClasses2->rowCount() > 0) {
-    // Iterar sobre cada fila de resultados
-    while ($row = $resultClasses2->fetch(PDO::FETCH_ASSOC)) {
-      // Imprimir una opción para cada clase
-      echo "<option value='" . $row['id_clases'] . "'>" . $row['nombre'] . "</option>";
-    }
-  } else {
-    echo "<option value='' disabled>No hay clases disponibles</option>";
-  }
+  // Verificar si hay clases para este profesor
+  if ($resultClasses->rowCount() > 0) {
   ?>
-</select>
+    <table class="tabla">
+      <tr>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Opciones</th>
+      </tr>
+      <?php while ($row = $resultClasses->fetch(PDO::FETCH_ASSOC)) { ?>
+        <tr>
+          <td><?php echo $row['nombre']; ?></td>
+          <td><?php echo $row['descripcion']; ?></td>
+          <td>
+            <!-- Botón para eliminar la clase -->
+            <input type='hidden' name='id' value='<?php echo $row['id_profesor']; ?>'>
+            <a href="../controllers/teacher_controller/class/delete_class.php?id=<?php echo $row['id_clases']; ?>"><button>Eliminar</button></a>
+            <!-- Botón para modificar la clase -->
+            <a href="../views/teacher/class_modification_from_teacher.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
+          </td>
+        </tr>
+      <?php } ?>
+    </table>
+  <?php } else { ?>
+    <p>No tienes clases aún.</p>
+  <?php } ?>
+  <h2>Registro de nueva sesión</h2>
+  <form action="../controllers/teacher_controller/sessions/new_session.php" method="post">
+    <span>Clases</span>
+    <select name="id_clase" id="id_clase">
+      <?php
+      // Verificar si hay resultados
+      if ($resultClasses2->rowCount() > 0) {
+        // Iterar sobre cada fila de resultados
+        while ($row = $resultClasses2->fetch(PDO::FETCH_ASSOC)) {
+          // Imprimir una opción para cada clase
+          echo "<option value='" . $row['id_clases'] . "'>" . $row['nombre'] . "</option>";
+        }
+      } else {
+        echo "<option value='' disabled>No hay clases disponibles</option>";
+      }
+      ?>
+    </select>
     <span>Salas</span>
     <select name="id_sala" id="id_sala">
       <?php
       // Verificar si hay resultados
-      if ($resultRooms->rowCount()> 0) {
+      if ($resultRooms->rowCount() > 0) {
         // Iterar sobre cada fila de resultados
         while ($row = $resultRooms->fetch(PDO::FETCH_ASSOC)) {
           // Imprimir una opción para cada sala
@@ -114,7 +114,7 @@ if ($resultClasses->rowCount() > 0) {
       }
       ?>
     </select>
-    
+
     <input type="hidden" id="id_profesor" name="id_profesor" value="<?php echo $id_usuario; ?>">
 
     <label for="fecha_hora_inicio">Fecha y Hora de Inicio:</label>
@@ -134,7 +134,7 @@ if ($resultClasses->rowCount() > 0) {
       <th>Hora ---- Inicio</th>
       <th>Hora ---- Fin</th>
     </tr>
-    
+
     <?php while ($row = $resultInscription->fetch(PDO::FETCH_ASSOC)) { ?>
       <tr>
         <td><?php echo $row['nombre_clase']; ?></td>
@@ -144,12 +144,12 @@ if ($resultClasses->rowCount() > 0) {
         <td>
           <!-- Botón para eliminar la sesion -->
           <?php echo "<input type='hidden' name='id' value='" . $row['id'] . "'>"; ?>
-          <a href="../../pages/area_profesor/eliminar_sesion_profesor.php?id=<?php echo $row['id']; ?>"><button>Eliminar</button></a>
+          <a href="../controllers/teacher_controller/sessions/delete_session.php?id=<?php echo $row['id']; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la sesion -->
-          <a href="../../pages/area_profesor/modificar_sesion_profesor.php?id=<?php echo $row['id']; ?>"><button>Modificar</button></a>
+          <a href="../views/teacher/session_modification_from_teacher.php?id=<?php echo $row['id']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
-    <?php }?>
+    <?php } ?>
   </table>
 </body>
 

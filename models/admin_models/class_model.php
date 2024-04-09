@@ -12,7 +12,7 @@ class ClassModel
         $this->connection = $db->getConnection();
     }
 
-    public function addClass($nombre, $descripcion, $id_profesor)
+    public function newClass($nombre, $descripcion, $id_profesor)
     {
         try {
             $sql = "INSERT INTO clases (nombre, descripcion, id_profesor) VALUES (?, ?, ?)";

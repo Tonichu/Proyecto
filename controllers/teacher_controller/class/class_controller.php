@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . "/../../models/admin_models/class_model.php");
-require_once(__DIR__ . "/../../models/admin_models/user_model.php");
+require_once(__DIR__ . "/../../../models/teacher_models/class_model.php");
+
 
 
 class ClassController
@@ -40,18 +40,16 @@ class ClassController
   public function deleteClass($id)
   {
     try {
-
       // Llamar al método eliminar clase del modelo
-      header("refresh:2;url=../../views/admin_panel.php");
+      header("refresh:2;url=../../../views/teacher_panel.php");
       if ($this->classModel->deleteClass($id)) {
-        // Usuario eliminado exitosamente
-        return "clase eliminado correctamente.";
+        // clase eliminado exitosamente
+        return "clase eliminada correctamente.";
       } else {
-        // Error al eliminar usuario
+        // Error al eliminar la clase
         return "Error al eliminar la clase.";
       }
     } catch (Exception $e) {
-      header("refresh:2;url=../../views/admin_panel.php");
       // Capturar y mostrar cualquier excepción ocurrida
       return "Error: " . $e->getMessage();
     }

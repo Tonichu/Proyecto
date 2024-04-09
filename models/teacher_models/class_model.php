@@ -12,7 +12,7 @@ class ClassModel
         $this->connection = $db->getConnection();
     }
 
-    public function addClass($nombre, $descripcion, $id_profesor)
+    public function newClass($nombre, $descripcion, $id_profesor)
     {
         try {
             $sql = "INSERT INTO clases (nombre, descripcion, id_profesor) VALUES (?, ?, ?)";
@@ -28,16 +28,16 @@ class ClassModel
 
     public function deleteClass($id)
     {
-      $sql = "DELETE FROM clases WHERE id_clases = ?";
-  
-      $statement = $this->connection->prepare($sql);
-      $statement->bindParam(1, $id, PDO::PARAM_INT); // Usamos PDO::PARAM_INT para indicar que el parámetro es un entero
-  
-      if ($statement->execute()) {
-        return true;
-      } else {
-        return false;
-      }
+        $sql = "DELETE FROM clases WHERE id_clases = ?";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $id, PDO::PARAM_INT); // Usamos PDO::PARAM_INT para indicar que el parámetro es un entero
+
+        if ($statement->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getClassById($id)
@@ -71,5 +71,18 @@ class ClassModel
             return false;
         }
     }
+    public function checkNameClassExists($nombre)
+{
+    try {
+        $query = "SELECT COUNT(*) as count FROM clases WHERE nombre=:nombre";
+        $statement = $this->connection->prepare($query);
+        $statement->bindParam(":nombre", $nombre);
+        $statement->execute();
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+        return $row['count'] > 0;
+    } catch (PDOException $e) {
+        echo "Error al verificar si la clase existe: " . $e->getMessage();
+        return false;
+    }
 }
-?>
+}

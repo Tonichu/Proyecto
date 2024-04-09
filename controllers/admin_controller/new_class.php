@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descripcion = $_POST['descripcion'];
     $id_profesor = $_POST['profesor'];
     // Llamar al método para agregar una nueva clase del controlador de clase
-    $resultado = $classController->addClass($nombre, $descripcion, $id_profesor);
+    $resultado = $classController->newClass($nombre, $descripcion, $id_profesor);
 
     // Verificar el resultado y mostrar un mensaje
     header("refresh:2;url=../../views/admin_panel.php");
