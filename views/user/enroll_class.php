@@ -8,5 +8,5 @@ require_once(__DIR__ . "/../../controllers/user/user_controller.php");
   $idSesion = $_GET['id'];
   $idUsuario = $_SESSION['id_usuarios'];
 
-  $inscripcionController = new InscripcionController();
-  $inscripcionController->enrollClass($idUsuario, $idSesion);
+  $EnrollmentController = new EnrollmentController();
+  $EnrollmentController->enrollClass($idUsuario, $idSesion);

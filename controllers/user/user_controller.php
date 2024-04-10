@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . "/../../models/user_models/user_queries.php");
 
-class InscripcionController
+class EnrollmentController
 {
     public function enrollClass($idUsuario, $idSesion)
     {

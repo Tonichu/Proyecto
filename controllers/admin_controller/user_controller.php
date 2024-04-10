@@ -26,9 +26,10 @@ class UserController
             $pass_confirm = $_POST["pass1"];
             $tipo_usuario = $_POST["tipo_usuario"];
 
+            header("refresh:2;url=../../views/admin_panel.php");
             // Verificar si las contraseñas coinciden
             if ($pass !== $pass_confirm) {
-                // Manejar el error de contraseñas no coincidentes
+                // contraseñas no coinciden
                 return "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
             } else {
                 // Verificar si el correo electrónico ya está en uso
@@ -53,11 +54,10 @@ class UserController
                 // Intentar registrar al usuario
                 $registro_exitoso = $this->userModel->createUser($nombre, $apellidos, $telefono, $correo, $direccion, $pass_hash, $tipo_usuario, $foto, $this->db);
 
-                header("refresh:2;url=../../views/admin_panel.php");
+                
                 if ($registro_exitoso) {
                     return "¡Registro exitoso!";
                 } else {
-                    // Manejar errores de registro
                     return "Error al registrar el usuario. Por favor, inténtalo de nuevo.";
                 }
             }

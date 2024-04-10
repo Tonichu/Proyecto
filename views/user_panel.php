@@ -12,6 +12,7 @@
   session_start();
   require_once(__DIR__ . "/../controllers/role_controller.php");
   require_once(__DIR__ . "/../models/user_models/user_queries.php");
+
   $id_usuario = $_SESSION['id_usuarios'];
 
   $roleController = RoleController::getInstance();
@@ -24,10 +25,11 @@
 
   echo "Bienvenido a tu panel " . $_SESSION['nombre'];
   ?>
-  <form action="../../Handlers/logout.php" method="post">
+  <form action="../controllers/logout_controller.php" method="post">
     <input type="submit" value="Cerrar sesión">
   </form>
-  <form action="../area_user/modificar_perfil_user.php" method="post">
+  <form action="../views/user/modifyUserData.php" method="post">
+
     <input type="submit" value="Modificar datos">
   </form>
   <h2>Clases disponibles</h2>
