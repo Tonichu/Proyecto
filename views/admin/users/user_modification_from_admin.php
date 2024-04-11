@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__ . "/../../models/admin_models/user_model.php");
+require_once(__DIR__ . "/../../../models/admin_models/user_model.php");
+
 
 // Verificar si se ha enviado el ID del usuario a modificar
 if (isset($_GET['id'])) {
@@ -23,8 +24,7 @@ if (isset($_GET['id'])) {
 <body>
   <h2>Modificar Usuario</h2>
   <?php if (isset($usuario)) :?>
-   
-    <form action="../../controllers/admin_controller/user_modification.php" method="POST">
+    <form action="../../../controllers/admin_controller/user/user_modification.php" method="POST">
       <input type="hidden" name="id" value="<?php echo $usuario['id_usuarios']; ?>">
       <p><strong>Nombre:</strong> <?php echo $usuario['nombre']; ?></p>
       <p><strong>Apellido:</strong> <?php echo $usuario['apellidos']; ?></p>

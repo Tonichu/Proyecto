@@ -28,7 +28,7 @@
   <form action="../controllers/logout_controller.php" method="post">
     <input type="submit" value="Cerrar sesión">
   </form>
-  <form action="../views/user/modifyUserData.php" method="post">
+  <form action="../views/user/modify_user_data.php" method="post">
 
     <input type="submit" value="Modificar datos">
   </form>

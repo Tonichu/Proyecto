@@ -1,7 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../../controllers/admin_controller/class_controller.php");
-
+require_once(__DIR__ . "/../../../controllers/admin_controller/class/class_controller.php");
 
 // Crear una instancia del controlador de clase
 $classController = new ClassController();
@@ -17,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $classController->newClass($nombre, $descripcion, $id_profesor);
 
     // Verificar el resultado y mostrar un mensaje
-    header("refresh:2;url=../../views/admin_panel.php");
+    header("refresh:2;url=../../../views/admin_panel.php");
     if ($resultado) {
         echo "La clase se ha creado correctamente.";
     } else {

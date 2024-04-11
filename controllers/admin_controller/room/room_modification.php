@@ -1,5 +1,6 @@
 <?php
-require_once(__DIR__ . "/../../models/admin_models/room_model.php");
+
+require_once(__DIR__ . "/../../../models/admin_models/room_model.php");
 
 // Verificar si se ha enviado el formulario de modificación
 
@@ -14,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
 
     $resultado = $roomModel->updateRoom($id, $nombre, $aforo);
     
-    header("refresh:2;url=../../views/admin_panel.php");
+    header("refresh:2;url=../../../views/admin_panel.php");
     if ($resultado) {
         echo "sala actualizada.";
         exit();

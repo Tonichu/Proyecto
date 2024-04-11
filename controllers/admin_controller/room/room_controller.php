@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../../models/admin_models/room_model.php");
+require_once(__DIR__ . "/../../../models/admin_models/room_model.php");
 
 class roomController
 {
@@ -19,8 +19,7 @@ class roomController
   public function deleteRoom($id)
   {
     try {
-
-      header("refresh:2;url=../../views/admin_panel.php");
+      header("refresh:2;url=../../../views/admin_panel.php");
       if ($this->roomModel->deleteRoom($id)) {
         return "sala eliminada correctamente.";
       } else {

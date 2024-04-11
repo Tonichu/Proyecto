@@ -49,9 +49,13 @@ class ClassController
         // Error al eliminar la clase
         return "Error al eliminar la clase.";
       }
-    } catch (Exception $e) {
-      // Capturar y mostrar cualquier excepción ocurrida
-      return "Error: " . $e->getMessage();
+    } catch (PDOException $e) {
+      if ($e->getCode() == '23000' && strpos($e->getMessage(), '1451') !== false) {
+        return "No se puede eliminar la clase porque tiene sesiones asociadas, Borra primero las sesiones (Error de integridad de la base de datos) .";
+      } else {
+        // Otra excepción que no esperabas
+        return "Error: " . $e->getMessage();
+      }
     }
   }
 }

@@ -36,7 +36,6 @@ class UserQueries
 
             $statement = $this->connection->prepare($sql);
 
-
             // Asignar valores a los parámetros
             $statement->bindParam(':nombre', $nombre, PDO::PARAM_STR);
             $statement->bindParam(':apellidos', $apellidos, PDO::PARAM_STR);
@@ -45,17 +44,9 @@ class UserQueries
             $statement->bindParam(':direccion', $direccion, PDO::PARAM_STR);
             $statement->bindParam(':hash_pass', $pass_confirm, PDO::PARAM_STR);
 
-
             // Asignar el parámetro de ID
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
-            echo "ID: $id <br>";
-            echo "Nombre: $nombre <br>";
-            echo "Apellidos: $apellidos <br>";
-            echo "Teléfono: $telefono <br>";
-            echo "Correo electrónico: $correo_electronico <br>";
-            echo "Dirección: $direccion <br>";
-            echo "Confirmar Contraseña: $pass_confirm <br>";
             // Ejecutar la consulta
             $statement->execute();
 

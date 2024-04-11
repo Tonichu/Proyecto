@@ -1,13 +1,14 @@
 <?php
+session_start();
 require_once(__DIR__ . "/../../models/teacher_models/class_model.php");
 
 // Verificar si se ha enviado el ID de la clase a modificar
 
-$idClase = $_GET['id'];
+$id_clases = $_GET['id'];
 
 $classModel = new ClassModel();
 
-$clase = $classModel->getClassById($idClase);
+$clase = $classModel->getClassById($id_clases);
 
 ?>
 

@@ -26,6 +26,7 @@ class SessionModel
       die("Error al insertar la sesion: " . $e->getMessage());
     }
   }
+
   public function deleteSession($id)
   {
     $sql = "DELETE FROM sesiones WHERE id = ?";
@@ -39,6 +40,7 @@ class SessionModel
       return false;
     }
   }
+
   public function updateSession($id, $id_clases, $id_salas, $fecha_hora_inicio, $fecha_hora_fin)
   {
     try {
@@ -56,29 +58,8 @@ class SessionModel
       echo "Error al actualizar la clase: " . $e->getMessage();
       return false;
     }
-
   }
-/*
-public function getSessionById($id)
-{
-    try {
-        // Preparar la consulta SQL para obtener los detalles de la sesión por su ID
-        $sql = "SELECT * FROM sesiones WHERE id = ?";
-        $statement = $this->connection->prepare($sql);
-        $statement->bindParam(1, $id, PDO::PARAM_INT);
-        $statement->execute();
-        
-        // Obtener el resultado de la consulta
-        $session = $statement->fetch(PDO::FETCH_ASSOC);
-        
-        // Devolver la sesión encontrada
-        return $session;
-    } catch (PDOException $e) {
-        echo "Error al obtener la sesión: " . $e->getMessage();
-        return null;
-    }
-}
-*/
+
 public function getSessionById($id)
 {
     try {

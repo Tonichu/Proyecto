@@ -1,8 +1,9 @@
 <?php
-require_once(__DIR__ . "/user_controller.php");
-require_once(__DIR__ . "/../../models/admin_models/user_model.php");
-require_once(__DIR__ . "/../../models/database.php");
 
+
+require_once(__DIR__ . "/user_controller.php");
+require_once(__DIR__ . "/../../../models/admin_models/user_model.php");
+require_once(__DIR__ . "/../../../models/database.php");
 
 $database = new Database();
 

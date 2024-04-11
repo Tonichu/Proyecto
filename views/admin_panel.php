@@ -12,7 +12,7 @@
   session_start();
   require_once(__DIR__ . "/../controllers/role_controller.php");
   require_once(__DIR__ . "/../models/database.php");
-  require_once(__DIR__ . "/../models/admin_queries.php");
+  require_once(__DIR__ . "/../models/admin_models/admin_queries.php");
 
   $roleController = RoleController::getInstance();
   $roleController->isAdmin($_SESSION);
@@ -53,7 +53,7 @@
     <button type="submit" name="mostrar">Mostrar</button>
   </form>
   <h2>Usuarios</h2>
-  <a href="admin/new_user_from_admin.php"><button>Crear nuevo usuario</button></a>
+  <a href="admin/users/new_user_from_admin.php"><button>Crear nuevo usuario</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -82,15 +82,15 @@
         <td><?php echo $row['direccion']; ?></td>
         <td>
           <!-- Botón para eliminar el usuario -->
-          <a href="../controllers/admin_controller/delete_user.php?id=<?php echo $row['id_usuarios'];;?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/user/delete_user.php?id=<?php echo $row['id_usuarios'];;?>"><button>Eliminar</button></a>
           <!-- Botón para modificar el usuario -->
-          <a href="../views/admin/user_modification_from_admin.php?id=<?php echo $row['id_usuarios']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/users/user_modification_from_admin.php?id=<?php echo $row['id_usuarios']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
   </table>
   <h2>Clases</h2>
-  <a href="../views/admin/new_class_from_admin.php"><button>Crear nueva clase</button></a>
+  <a href="../views/admin/class/new_class_from_admin.php"><button>Crear nueva clase</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -106,15 +106,15 @@
         <td><?php echo $row['email_profesor'] ?? ' Sin Email'; ?></td>
         <td>
           <!-- Botón para eliminar la clase -->
-          <a href="../controllers/admin_controller/delete_class.php?id=<?php echo $row['id_clases'];;?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/class/delete_class.php?id=<?php echo $row['id_clases'];;?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la clase -->
-          <a href="../views/admin/class_modification_from_admin.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/class/class_modification_from_admin.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
   </table>
   <h2>Salas</h2>
-  <a href="../views/admin/new_room_from_admin.php"><button>Crear nueva sala</button></a>
+  <a href="../views/admin/room/new_room_from_admin.php"><button>Crear nueva sala</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -126,15 +126,15 @@
         <td><?php echo $row['aforo']; ?></td>
         <td>
           <!-- Botón para eliminar la sala -->
-          <a href="../controllers/admin_controller/delete_room.php?id=<?php echo $row['id_salas']; ?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/room/delete_room.php?id=<?php echo $row['id_salas']; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la sala -->
-          <a href="../views/admin/room_modification_from_admin.php?id=<?php echo $row['id_salas']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/room/room_modification_from_admin.php?id=<?php echo $row['id_salas']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>
   </table>
   <h2>Maquinas</h2>
-  <a href="../views/admin/new_machine_from_admin.php"><button>Crear nueva Máquina</button></a>
+  <a href="../views/admin/machine/new_machine_from_admin.php"><button>Crear nueva Máquina</button></a>
   <table class="tabla">
     <tr>
       <th>Nombre</th>
@@ -152,10 +152,9 @@
         <td><?php echo $row['nombre_sala']; ?></td>
         <td>
           <!-- Botón para eliminar la maquina -->
-
-          <a href="../controllers/admin_controller/delete_machine.php?id=<?php echo $row['id_maquina']; ?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/machine/delete_machine.php?id=<?php echo $row['id_maquina']; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la maquina -->
-          <a href="../views/admin/machine_modification_from_admin.php?id=<?php echo $row['id_maquina']; ?>"><button>Modificar</button></a>
+          <a href="../views/admin/machine/machine_modification_from_admin.php?id=<?php echo $row['id_maquina']; ?>"><button>Modificar</button></a>
         </td>
       </tr>
     <?php } ?>

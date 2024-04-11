@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . "/../../controllers/admin_controller/class_controller.php");
 
+require_once(__DIR__ . "/../../../controllers/admin_controller/class/class_controller.php");
 // Verificar si se ha enviado el ID de la clase a modificar
 if (isset($_GET['id'])) {
   // Obtener el ID de la clase
@@ -26,8 +26,8 @@ $clase = $data["class"];
 <body>
   <h2>Modificar Clase</h2>
   <?php if (isset($clase)) : ?>
-
-    <form action="../../controllers/admin_controller/class_modification.php" method="POST">
+    
+    <form action="../../../controllers/admin_controller/class/class_modification.php" method="POST">
       <input type="hidden" name="id" value="<?php echo $clase['id_clases']; ?>">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" value="<?php echo $clase['nombre']; ?>"><br><br>
@@ -47,7 +47,7 @@ $clase = $data["class"];
   <?php else : ?>
     <p>Error: ID de clase no válido</p>
   <?php endif; ?>
-  <a href="../admin_panel.php"><button>Cancelar</button></a>
+  <a href="../../admin_panel.php"><button>Cancelar</button></a>
 </body>
 
 </html>

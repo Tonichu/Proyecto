@@ -1,7 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../../controllers/admin_controller/machine_controller.php");
-
+require_once(__DIR__ . "/machine_controller.php");
 
 $machineController = new machineController();
 
@@ -16,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
     $resultado = $machineController->addMachine($nombre, $descripcion, $foto,$fecha_adquisicion,$ultima_revision, $id_sala);
 
-    header("refresh:2;url=../../views/admin_panel.php");
+    header("refresh:2;url=../../../views/admin_panel.php");
     if ($resultado) {
         echo "La maquina se ha creado correctamente.";
     } else {

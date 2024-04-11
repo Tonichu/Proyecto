@@ -28,7 +28,6 @@
   $resultInscription = $teacherQueries->inscriptionResult();
 
   $id_usuario = $_SESSION['id_usuarios'];
-
   echo "Bienvenido a tu panel de profesor " . $_SESSION['nombre'];
 
   ?>
@@ -38,7 +37,7 @@
     <input type="submit" value="Cerrar sesión">
   </form>
 
-  <form action="../area_profesor/modificar_perfil_profesor.php" method="post">
+  <form action="../views/teacher/modify_teacher_data.php" method="post">
     <input type="submit" value="Modificar datos">
   </form>
 
@@ -71,7 +70,6 @@
           <td><?php echo $row['descripcion']; ?></td>
           <td>
             <!-- Botón para eliminar la clase -->
-            <input type='hidden' name='id' value='<?php echo $row['id_profesor']; ?>'>
             <a href="../controllers/teacher_controller/class/delete_class.php?id=<?php echo $row['id_clases']; ?>"><button>Eliminar</button></a>
             <!-- Botón para modificar la clase -->
             <a href="../views/teacher/class_modification_from_teacher.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>

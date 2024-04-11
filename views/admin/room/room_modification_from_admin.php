@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../../controllers/admin_controller/room_controller.php");
+require_once(__DIR__ . "/../../../controllers/admin_controller/room/room_controller.php");
 
 if (isset($_GET['id'])) {
 
@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
   <h2>Modificar Sala</h2>
   <?php if (isset($room)) : ?>
 
-    <form action="../../controllers/admin_controller/room_modification.php" method="POST">
+    <form action="../../../controllers/admin_controller/room/room_modification.php" method="POST">
       <input type="hidden" name="id" value="<?php echo $room['id_salas']; ?>">
 
       <label for="nombre">Nombre:</label>
@@ -39,7 +39,7 @@ if (isset($_GET['id'])) {
   <?php else : ?>
     <p>Error: ID de sala no válido</p>
   <?php endif; ?>
-  <a href="../admin_panel.php"><button>Cancelar</button></a>
+  <a href="../../../views/admin_panel.php"><button>Cancelar</button></a>
 </body>
 
 </html>

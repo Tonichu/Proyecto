@@ -1,6 +1,10 @@
 <?php
-require_once(__DIR__ . "/../../models/user_models/user_queries.php");
+require_once(__DIR__ . "/../../models/teacher_models/teacher_queries.php");
+require_once(__DIR__ . "/../../models/database.php");
 session_start();
+
+$database = new Database();
+$db = $database->getConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -25,14 +29,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
     exit();
   }
-
+  
   // Crear una instancia de UserQueries
-  $userQueries = new UserQueries();
+  $teacherQueries = new teacherQueries($db);
 
   // Actualizar el usuario
-  $update_successful = $userQueries->updateUser($id, $nombre, $apellidos, $telefono, $correo_electronico, $direccion, $hash_pass);
+  $update_successful = $teacherQueries->updateTeacher($id, $nombre, $apellidos, $telefono, $correo_electronico, $direccion, $hash_pass);
 
-  header("refresh:2;url=../../views/user_panel.php");
+  header("refresh:2;url=../../views/teacher_panel");
 
   $_SESSION['nombre'] = $nombre;
 

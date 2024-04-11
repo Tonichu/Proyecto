@@ -11,8 +11,8 @@
   <?php
   session_start();
 
-  require_once(__DIR__ . "/../../controllers/role_controller.php");
-  require_once(__DIR__ . "/../../models/admin_models/room_model.php");
+  require_once(__DIR__ . "/../../../controllers/role_controller.php");
+  require_once(__DIR__ . "/../../../models/admin_models/room_model.php");
 
   $roleController = RoleController::getInstance();
   $roleController->isAdmin($_SESSION);
@@ -22,9 +22,9 @@
   ?>
 
   <h2>Registro de Máquina</h2>
-  <form action="../../controllers/admin_controller/new_machine.php" method="post" enctype="multipart/form-data">
+  <form action="../../../controllers/admin_controller/machine/new_machine.php" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre"><br><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
 
     <label for="descripcion">Descripción:</label>
     <input type="text" id="descripcion" name="descripcion"><br><br>
@@ -33,10 +33,10 @@
     <input type="file" id="foto" name="foto" value="null"><br><br>
 
     <label for="fecha_adquisicion">Fecha de Adquisición:</label>
-    <input type="date" id="fecha_adquisicion" name="fecha_adquisicion"><br><br>
+    <input type="date" id="fecha_adquisicion" name="fecha_adquisicion" required><br><br>
 
     <label for="ultima_revision">Última Revisión:</label>
-    <input type="date" id="ultima_revision" name="ultima_revision"><br><br>
+    <input type="date" id="ultima_revision" name="ultima_revision" required><br><br>
 
 
     <label for="sala">Sala:</label>
@@ -51,7 +51,7 @@
 
     <input type="submit" value="Registrar">
   </form>
-  <a href="../admin_panel.php"><button>Cancelar</button></a>
+  <a href="../../../views/admin_panel.php"><button>Cancelar</button></a>
 </body>
 
 </html>

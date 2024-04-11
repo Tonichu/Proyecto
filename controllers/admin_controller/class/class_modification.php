@@ -1,6 +1,5 @@
 <?php
-require_once(__DIR__ . "/../../models/admin_models/class_model.php");
-
+require_once(__DIR__ . "/../../../models/admin_models/class_model.php");
 // Verificar si se ha enviado el formulario de modificación
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
@@ -15,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
 
     $resultado = $classModel->updateClass($id, $nombre, $descripcion, $id_profesor);
     
-    header("refresh:2;url=../../views/admin_panel.php");
+    header("refresh:2;url=../../../views/admin_panel.php");
     if ($resultado) {
         echo "clase actualizada.";
         exit();

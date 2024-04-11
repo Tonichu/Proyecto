@@ -1,6 +1,7 @@
 <?php
-require_once(__DIR__ . "/../../controllers/admin_controller/machine_controller.php");
-require_once(__DIR__ . "/../../models/admin_models/room_model.php");
+
+require_once(__DIR__ . "/../../../controllers/admin_controller/machine/machine_controller.php");
+require_once(__DIR__ . "/../../../models/admin_models/room_model.php");
 
 // Verificar si se ha enviado el ID de la máquina a modificar
 if (isset($_GET['id'])) {
@@ -30,7 +31,7 @@ $rooms = $roomModel->getRooms();
   <?php if (isset($maquina)) :
     //enctype="multipart/form-data" es para permitir la carga de archivos pero en controller la pongo en null ?>
 
-    <form action="../../controllers/admin_controller/machine_modification.php" method="POST" enctype="multipart/form-data">
+    <form action="../../../controllers/admin_controller/machine/machine_modification.php" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="id" value="<?php echo $maquina['id_maquina']; ?>">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" value="<?php echo $maquina['nombre']; ?>"><br><br>
@@ -58,7 +59,7 @@ $rooms = $roomModel->getRooms();
   <?php else : ?>
     <p>Error: ID de máquina no válido</p>
   <?php endif; ?>
-  <a href="../admin_panel.php"><button>Cancelar</button></a>
+  <a href="../../../views/admin_panel.php"><button>Cancelar</button></a>
 </body>
 
 </html>

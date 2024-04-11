@@ -1,16 +1,22 @@
 <?php
 session_start();
-require_once(__DIR__ . "/../../models/user_models/user_queries.php");
+require_once(__DIR__ . "/../../models/teacher_models/teacher_queries.php");
+require_once(__DIR__ . "/../../models/database.php");
 
 $id_usuario = $_SESSION['id_usuarios'];
-$userQueries = new UserQueries();
-$user = $userQueries->getUserById($id_usuario);
-echo $user['pass']
+
+$database = new Database();
+$db = $database->getConnection();
+
+$teacherQueries = new TeacherQueries($db);
+
+$user = $teacherQueries->getTeacherById($id_usuario);
+
 ?>
 
 <body>
   <h2>Modificar Usuario</h2>
-  <form action="../../controllers/user/user_modification.php" method="POST" enctype="multipart/form-data">
+  <form action="../../controllers/teacher_controller/teacher_modification.php" method="POST" enctype="multipart/form-data">
 
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" value="<?php echo $user['nombre']; ?>"><br>
@@ -41,5 +47,5 @@ echo $user['pass']
     <br><input type="submit" value="Guardar cambios">
   </form>
 
-  <a href="../user_panel.php"><button>Cancelar</button></a>
+  <a href="../../views/teacher_panel.php"><button>Cancelar</button></a>
 </body>

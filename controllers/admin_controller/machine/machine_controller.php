@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . "/../../models/admin_models/machine_model.php");
+require_once(__DIR__ . "/../../../models/admin_models/machine_model.php");
 
 class machineController
 {
@@ -19,7 +19,7 @@ class machineController
     public function deleteMachine($id)
     {
         try {
-            header("refresh:2;url=../../views/admin_panel.php");
+            header("refresh:2;url=../../../views/admin_panel.php");
             if ($this->machineModel->deleteMachine($id)) {
                 return "Máquina eliminada correctamente.";
             } else {
@@ -39,4 +39,3 @@ class machineController
         }
     }
 }
-?>

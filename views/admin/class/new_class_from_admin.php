@@ -9,8 +9,8 @@
 <?php
 session_start();
 
-require_once(__DIR__ . "/../../controllers/role_controller.php");
-require_once(__DIR__ . "/../../models/admin_models/user_model.php");
+require_once(__DIR__ . "/../../../controllers/role_controller.php");
+require_once(__DIR__ . "/../../../models/admin_models/user_model.php");
 
 $roleController = RoleController::getInstance();
 $roleController->isAdmin($_SESSION);
@@ -20,7 +20,7 @@ $userModel = new UserModel();
 $professors = $userModel->getProfessors();
 ?>
 <h2>Registro de Clase</h2>
-<form action="../../controllers/admin_controller/new_class.php" method="post" enctype="multipart/form-data">
+<form action="../../../controllers/admin_controller/class/new_class.php" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre"><br><br>
 
@@ -40,6 +40,6 @@ $professors = $userModel->getProfessors();
 
     <input type="submit" value="Registrar">
 </form>
-<a href="../admin_panel.php"><button>Cancelar</button></a>
+<a href="../../../views/admin_panel.php"><button>Cancelar</button></a>
 </body>
 </html>

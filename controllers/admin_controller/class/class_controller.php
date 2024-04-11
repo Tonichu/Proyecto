@@ -1,6 +1,6 @@
 <?php
-require_once(__DIR__ . "/../../models/admin_models/class_model.php");
-require_once(__DIR__ . "/../../models/admin_models/user_model.php");
+require_once(__DIR__ . "/../../../models/admin_models/class_model.php");
+require_once(__DIR__ . "/../../../models/admin_models/user_model.php");
 
 
 class ClassController
@@ -42,7 +42,7 @@ class ClassController
     try {
 
       // Llamar al método eliminar clase del modelo
-      header("refresh:2;url=../../views/admin_panel.php");
+      header("refresh:2;url=../../../views/admin_panel.php");
       if ($this->classModel->deleteClass($id)) {
         // Usuario eliminado exitosamente
         return "clase eliminado correctamente.";
@@ -50,10 +50,13 @@ class ClassController
         // Error al eliminar usuario
         return "Error al eliminar la clase.";
       }
-    } catch (Exception $e) {
-      header("refresh:2;url=../../views/admin_panel.php");
-      // Capturar y mostrar cualquier excepción ocurrida
-      return "Error: " . $e->getMessage();
+    } catch (PDOException $e) {
+      if ($e->getCode() == '23000' && strpos($e->getMessage(), '1451') !== false) {
+        return "No se puede eliminar la clase porque tiene sesiones asociadas, Borra primero las sesiones(Debe ser un profesor) (Error de integridad de la base de datos) .";
+      } else {
+        // Otra excepción que no esperabas
+        return "Error: " . $e->getMessage();
+      }
     }
   }
 }

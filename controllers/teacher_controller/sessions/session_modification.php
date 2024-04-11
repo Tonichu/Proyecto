@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $result = $SessionModel->updateSession($id, $id_clases, $id_salas, $fecha_hora_inicio, $fecha_hora_fin);
 
-  header("refresh:10;url=../../../views/teacher_panel.php");
+  header("refresh:2;url=../../../views/teacher_panel.php");
   if ($result) {
     echo "sesión actualizada.";
     exit();
