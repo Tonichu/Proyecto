@@ -40,6 +40,6 @@ if (isset($_GET['id'])) {
   <?php else : ?>
     <p>Error: ID de usuario no válido</p>
   <?php endif; ?>
-  <a href="../admin_panel.php"><button>Cancelar</button></a>
+  <a href="../../admin_panel.php"><button>Cancelar</button></a>
 </body>
 </html>

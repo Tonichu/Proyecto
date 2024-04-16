@@ -1,14 +1,14 @@
 <?php
 
 class LoginController {
-    private $usuarioModel;
+    private $userModel;
 
-    public function __construct($usuarioModel) {
-        $this->usuarioModel = $usuarioModel;
+    public function __construct($userModel) {
+        $this->userModel = $userModel;
     }
 
-    public function comprobarUsuario($correo, $pass) {
-        $usuario = $this->usuarioModel->getUserByEmail($correo);
+    public function checkUser($mail, $pass) {
+        $usuario = $this->userModel->getUserByEmail($mail);
 
         if (!$usuario) {
             return "Credenciales inválidas. Tu correo electrónico no está dado de alta.";

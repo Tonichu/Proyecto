@@ -13,8 +13,8 @@ $usuarioModel = new UsuarioModel($db);
 $loginController = new LoginController($usuarioModel);
 
 // Validación y saneamiento del correo electrónico
-$correo = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_EMAIL);
-if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+$mail = filter_input(INPUT_POST, 'Email', FILTER_SANITIZE_EMAIL);
+if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
     // Correo electrónico no válido
     // Manejar el error o redirigir al usuario
 }
@@ -22,19 +22,19 @@ if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
 // Escapado de la contraseña
 $pass = htmlspecialchars($_POST['password'], ENT_QUOTES);
 
-$usuario = $loginController->comprobarUsuario($correo, $pass);
+$user = $loginController->checkUser($mail, $pass);
 
-if (is_array($usuario)) {
+if (is_array($user)) {
     // Almacenar información de sesión y redirigir
-    $_SESSION["nombre"] = $usuario['nombre'];
-    $_SESSION["tipo_usuarios"] = $usuario['tipo_usuarios'];
-    $_SESSION["id_usuarios"] = $usuario['id_usuarios'];
-    $pagina_redireccion = determinePageRedirection($usuario['tipo_usuarios']);
-    header("Location: $pagina_redireccion");
+    $_SESSION["nombre"] = $user['nombre'];
+    $_SESSION["tipo_usuarios"] = $user['tipo_usuarios'];
+    $_SESSION["id_usuarios"] = $user['id_usuarios'];
+    $page_redirection = determinePageRedirection($user['tipo_usuarios']);
+    header("Location: $page_redirection");
     exit;
 } else {
-    echo $_SESSION['error_message'] = $usuario;
-    header("refresh:2; ../../index.php");
+    echo $_SESSION['error_message'] = $user;
+    header("refresh:2; ../index.php");
     exit;
 }
 
@@ -50,7 +50,7 @@ function determinePageRedirection($tipo_usuario) {
             return "../views/user_panel.php";
             break;
         default:
-            return "/index.php"; // Redirigir a la página por defecto
+            return "../index.php"; // Redirigir a la página por defecto
             break;
     }
 }
