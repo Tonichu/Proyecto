@@ -1,0 +1,184 @@
+.bg-img {
+  background-image: url("https://c8.alamy.com/compes/hdmx0d/el-hombre-y-la-mujer-con-las-pesas-en-el-gimnasio-hdmx0d.jpg");
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  color: white;
+  margin-top: 9vh;
+}
+
+.experiencia,
+.comportamiento,
+.conciencia,
+.clientes {
+  position: absolute;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.experiencia {
+  top: 11vh;
+  left: 10px;
+}
+
+.comportamiento {
+  top: 11vh;
+  right: 10px;
+}
+
+.conciencia {
+  bottom: 10px;
+  left: 10px;
+}
+
+.clientes {
+  bottom: 10px;
+  right: 10px;
+}
+
+.quien-somos {
+  font-size: 34px;
+}
+
+.quien-somos h1 {
+  background-color: rgb(134, 127, 127);
+}
+
+.quien-somos h3 {
+  background-color: rgb(134, 127, 127);
+  margin-left: 30vh;
+  margin-right: 30vh;
+}
+
+.por-que {
+  text-align: center;
+  margin: 10vh;
+}
+
+.por-que h1 {
+  font-size: 42px;
+}
+
+/* Unicos y diferentes */
+.clase-izquierda {
+  width: 45%;
+  float: left;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 2vh;
+}
+
+.clase-izquierda h1 {
+  font-size: 44px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 7vh;
+}
+
+.p-enfoque {
+  text-align: center;
+}
+
+.p-center {
+  text-align: center;
+}
+
+.clase-izquierda p {
+  font-size: 18px;
+  color: #333;
+}
+
+.p-izquierda {
+  margin-top: 4vh;
+  text-align: left;
+  margin-left: 10vh;
+}
+
+.p-derecha {
+  text-align: right;
+  margin-right: 10vh;
+}
+
+.clase-izquierda {
+  font-weight: bold;
+}
+
+.clase-derecha {
+  width: 55%;
+  float: left;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.clase-derecha img {
+  max-width: 100vh;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Nuestros valores */
+.clase-derecha-abajo {
+  width: 45%;
+  float: left;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 5vh;
+}
+
+.clase-derecha-abajo h1 {
+  font-size: 44px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 7vh;
+}
+
+.p-trabajo {
+  text-align: center;
+}
+
+.clase-derecha-abajo p {
+  font-size: 18px;
+  color: #333;
+}
+
+.p-derecha-abajo {
+  margin-top: 4vh;
+  text-align: left;
+  margin-left: 10vh;
+}
+
+.p-izquierda-abajo {
+  text-align: right;
+  margin-right: 10vh;
+}
+
+.clase-derecha-abajo {
+  font-weight: bold;
+}
+
+.clase-izquierda-abajo {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-left: 5vh;
+}
+
+.clase-izquierda-abajo img {
+  max-width: 100vh;
+  height: auto;
+  width: 65vh;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    margin-top: 152vh;
+}
