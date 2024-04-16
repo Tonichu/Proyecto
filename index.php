@@ -1,13 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="librerias/css/estilo_pag_principal.css">
-    <link rel="stylesheet" href="librerias/css/modal.css">
-    <link rel="stylesheet" href="librerias/css/card-carrusel.css">
-    <link rel="stylesheet" href="librerias/css/carrusel-imagenes.css">
-    <link rel="stylesheet" href="librerias/css/carrusel-profesor.css">
+    <link rel="stylesheet" href="public/css/Homepage/Homepage.css">
+    <link rel="stylesheet" href="public/css/Homepage/modal.css">
+    <link rel="stylesheet" href="public/css/Homepage/card_carousel.css">
+    <link rel="stylesheet" href="public/css/Homepage/carousel_images.css">
+    <link rel="stylesheet" href="public/css/Homepage/carousel_teacher.css">
 
 </head>
 
@@ -22,31 +24,30 @@
                 <div class="menu">
                     <nav>
                         <ul>
-                            <?php include 'librerias/navbar/menu_principal.php'; ?>
-                            <?php include 'librerias/navbar/area_clientes.php'; ?>
-                            <?php include 'librerias/navbar/registro_usuario.php'; ?>
+                            <?php include 'views/navbar/homepage.php'; ?>
+                            <?php include 'views/navbar/customer_area.php'; ?>
+                            <?php include 'views/navbar/user_registration.php'; ?>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
+    
+    <?php include 'views/index/description.html'; ?>
 
-    <?php include 'librerias/index/descripcion.html'; ?>
+    <?php include 'views/index/hours.html'; ?>
 
-    <?php include 'librerias/index/horarios.html'; ?>
+    <?php include 'views/index/carousel.html'; ?>
 
-    <?php include 'librerias/index/carousel.html'; ?>
+    <?php include 'views/index/slider_carousel.html'; ?>
 
-    <?php include 'librerias/index/slider_carrousel.html'; ?>
+    <?php include 'views/index/teachers.html'; ?>
 
-    <?php include 'librerias/index/profesores.html'; ?>
+    <?php include 'views/navbar/footer.php'; ?>
 
-    <?php include 'librerias/navbar/footer.php'; ?>
-
-    <script src="librerias/javascript/pagina_principal_carrusel.js"></script>
-    <script src="librerias/javascript/inscripcion_index.js"></script>
-
+    <script src="public/js/homepage/homepage_carrusel.js"></script>
+    <script src="public/js/homepage/inscription_index.js"></script>
 </body>
 
 </html>
