@@ -25,7 +25,7 @@ class AdminQueries
     return $this->limit;
   }
 
-  public function getAllUsers() :PDOStatement
+  public function getAllUsers(): PDOStatement
   {
     $id_usuarios = $_SESSION["id_usuarios"];
     $query = "SELECT * FROM usuarios WHERE id_usuarios != ? LIMIT " . $this->limit;

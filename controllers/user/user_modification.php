@@ -14,6 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $new_pass = $_POST["new_pass"];
   $pass_confirm = $_POST["pass_confirm"];
 
+  header("refresh:2;url=../../views/user_panel.php");
+
   if (!empty($new_pass) && $new_pass === $pass_confirm) {
     // Hashear la nueva contraseña solo si es válida y coincide con la confirmación
     $hash_pass = password_hash($new_pass, PASSWORD_DEFAULT);
@@ -31,8 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Actualizar el usuario
   $update_successful = $userQueries->updateUser($id, $nombre, $apellidos, $telefono, $correo_electronico, $direccion, $hash_pass);
-
-  header("refresh:2;url=../../views/user_panel.php");
 
   $_SESSION['nombre'] = $nombre;
 
