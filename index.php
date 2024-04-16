@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="public/css/Homepage/card_carousel.css">
     <link rel="stylesheet" href="public/css/Homepage/carousel_images.css">
     <link rel="stylesheet" href="public/css/Homepage/carousel_teacher.css">
-
 </head>
 
 <body>
