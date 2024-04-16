@@ -1,0 +1,111 @@
+.precios {
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+}
+
+.contenedor-precios {
+  width: 90%;
+  max-width: 600vh;
+  margin: 50px auto 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.plan-gimnasio {
+  background-color: rgb(220, 232, 239);
+  width: 30%;
+  height: 375px;
+  margin: 15px;
+  border: 1px solid #343759;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 0px #343759;
+  padding: 60px;
+  text-align: center;
+  flex-grow: 1;
+  color: #343759;
+}
+
+.plan-gimnasio > h2 {
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+
+.plan-gimnasio img {
+  width: 64px;
+  margin-bottom: 35px;
+}
+
+.plan-gimnasio > h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.plan-gimnasio > p {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.boton-comprar {
+  display: inline-block;
+  width: 150px;
+  padding: 12px;
+  background: #a5f059;
+  text-decoration: none;
+  color: #343759;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin: auto;
+}
+
+.plan-gimnasio:hover {
+  background: #343759;
+  color: #f1f1f2;
+  transition: 0.5s all;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+  .plan-gimnasio {
+    width: 45%;
+    max-width: none;
+    margin-bottom: 40px;
+    flex-grow: initial;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .plan-gimnasio {
+    width: 45%;
+    padding: 30px;
+  }
+  .plan-gimnasio > h2 {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .plan-gimnasio {
+    width: 85%;
+    padding: 20px;
+  }
+}
+
+.footer {
+  text-align: center; 
+  margin-bottom: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgb(220, 232, 239);
+  padding: 10px;
+}
+
+#frase-motivacional {
+  font-family: 'Comic Sans MS', cursive; 
+  font-size: 24px; 
+}
