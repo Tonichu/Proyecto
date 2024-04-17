@@ -39,7 +39,7 @@
     <div class="contenedor-precios">
       <div class="plan-gimnasio">
         <h2>Básico</h2>
-        <img src="librerias/iconos/basico.png" alt="">
+        <img src="../../public/img/icons/basico.png" alt="">
         <h3>60 <sup>€</sup></h3>
         <p>Escoge a que servicio te quieres apuntar y disfruta de todas las ventajas de entrenar con nuestros mejores
           profesores</p>
@@ -47,7 +47,7 @@
       </div>
       <div class="plan-gimnasio">
         <h2>Estándar</h2>
-        <img src="librerias/iconos/estandar.png" alt="">
+        <img src="../../public/img/icons/estandar.png" alt="">
         <h3>100 <sup>€</sup></h3>
         <p>Apuntate ahora y tendras acceso a 3 de nuestros servicios a tu elección. Disfruta de las ventajas de nuestras
           instalaciones</p>
@@ -55,7 +55,7 @@
       </div>
       <div class="plan-gimnasio">
         <h2>Premium</h2>
-        <img src="librerias/iconos/premium.png" alt="">
+        <img src="../../public/img/icons/premium.png" alt="">
         <h3>200 <sup>€</sup></h3>
         <p><strong>Acceso ilimitado a todas las clases. Paga ahora y ahorrate hasta un 20% de descuento.</strong> </p>
         <p>

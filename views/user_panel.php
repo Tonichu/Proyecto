@@ -4,10 +4,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Perfil de usuario</title>
+  <link rel="stylesheet" href="../public/css/user/user_profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
 </head>
 
 <body>
+
+    <section class="user-profile-section">
+      <div class="user-profile-header">
+        <div class="user-profile-cover">
+          <div class="user-profile-avatar">
+            <img
+              src="https://img.freepik.com/foto-gratis/chico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpg"
+              alt="Foto de perfil"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="user-profile-body">
+        <div class="user-profile-bio">
+          <h3 class="title">Nombre y apellidos de la persona</h3>
+        </div>
+        <div class="user-profile-footer">
+          <ul class="data-list">
+            <li><i class="icon fas fa-envelope"></i> Correo electrónico:</li>
+            <li><i class="icon fas fa-phone-alt"></i> Teléfono:</li>
+            <li><i class="icon fas fa-map-signs"></i> Dirección de usuario:</li>
+          </ul>
+          <ul class="data-list">
+            <li>juan@gmail.com</li>
+            <li>659444586</li>
+            <li>Madrid calle Tom</li>
+          </ul>
+        </div>
+        <div class="social-media">
+          <a href="https://www.facebook.com/" target="_blank"
+            ><img src="librerias/iconos/facebook.png" alt="Facebook"
+          /></a>
+          <a href="https://twitter.com/?lang=es" target="_blank"
+            ><img src="librerias/iconos/twitter.png" alt="Twitter"
+          /></a>
+          <a href="https://www.instagram.com/" target="_blank"
+            ><img src="librerias/iconos/instagram.png" alt="Instagram"
+          /></a>
+        </div>
+      </div>
+    </section>
+
   <?php
   session_start();
   require_once(__DIR__ . "/../controllers/role_controller.php");

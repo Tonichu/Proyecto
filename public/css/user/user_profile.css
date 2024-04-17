@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  color: black;
+  font-family: "Arial";
+}
+
+.user-profile-section .user-profile-body,
+.user-profile-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile-section .user-profile-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.user-profile-section .user-profile-cover {
+  display: block;
+  position: relative;
+  width: 90%;
+  height: 17rem;
+  border-radius: 0 0 20px 20px;
+}
+
+.user-profile-section .user-profile-cover .profile-cover-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  cursor: pointer;
+}
+
+.user-profile-section .user-profile-cover .profile-cover-button i {
+  margin-right: 1rem;
+}
+
+.user-profile-section .user-profile-avatar {
+  display: flex;
+  width: 180px;
+  height: 180px;
+  align-items: center;
+  justify-content: center;
+  background-color: #dfe5f2;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: -40px;
+  left: calc(50% - 90px);
+  z-index: 1;
+}
+
+.user-profile-section .user-profile-avatar img {
+  width: 100%;
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.user-profile-section .user-profile-avatar .profile-avatar-button {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  border: 0;
+  background-color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.user-profile-section .user-profile-body {
+  width: 70%;
+  position: relative;
+  max-width: 750px;
+}
+
+.user-profile-section .user-profile-body .title {
+  display: block;
+  width: 100%;
+  font-size: 1.75em;
+  margin-bottom: 0.5rem;
+}
+
+.user-profile-section .user-profile-body .text {
+  color: #848484;
+  font-size: 0.95em;
+}
+
+.user-profile-section .user-profile-footer,
+.user-profile-section .user-profile-bio {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.user-profile-section .user-profile-bio {
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.user-profile-section .data-list {
+  width: 50%;
+  list-style: none;
+}
+
+.user-profile-section .data-list li {
+  padding: 5px 0;
+}
+
+.user-profile-section .data-list li > .icon {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.user-profile-section .social-media {
+  position: absolute;
+  right: calc(0px - 50px - 1rem);
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-section .social-media a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.user-profile-section .social-media a + a {
+  margin-top: 3rem;
+}
+
+.user-profile-section .social-media a img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.user-profile-section .social-button.facebook {
+  background-color: #5955ff;
+}
+
+.user-profile-section .social-button.twitter {
+  background-color: #35e1bf;
+}
+
+.user-profile-section .social-button.instagram {
+  background: linear-gradient(45deg, #ff2dfd, #40a7ff);
+}
+
+@media (max-width: 750px) {
+  .user-profile-section .data-list {
+    width: 100%;
+  }
+
+  .user-profile-section .user-profile-cover,
+  .user-profile-section .user-profile-body {
+    width: 95%;
+  }
+
+  .user-profile-section .social-media {
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-profile-section .social-media .social-button + .social-button {
+    margin-left: 1rem;
+    margin-top: 0;
+  }
+}
