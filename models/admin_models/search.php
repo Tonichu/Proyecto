@@ -18,16 +18,16 @@ class Search
         $selectedFields = "";
         switch ($table) {
             case 'usuarios':
-                $selectedFields = "nombre, apellidos, telefono, correo_electronico, direccion, tipo_usuarios";
+                $selectedFields = "id_usuarios, nombre, apellidos, telefono, correo_electronico, direccion, tipo_usuarios";
                 break;
             case 'clases':
-                $selectedFields = "nombre, descripcion, id_profesor";
+                $selectedFields = "id_clases, nombre, descripcion, id_profesor";
                 break;
             case 'salas':
-                $selectedFields = "nombre, aforo";
+                $selectedFields = "id_salas, nombre, aforo";
                 break;
             case 'maquinas':
-                $selectedFields = "nombre, descripcion, fecha_adquisicion, ultima_revision, id_sala";
+                $selectedFields = "id_maquina, nombre, descripcion, fecha_adquisicion, ultima_revision, id_sala";
                 break;
             default:
                 $selectedFields = "*"; // Si la tabla no está definida, seleccionar todos los campos
