@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Si no se proporciona una nueva contraseña, utiliza la contraseña actual del usuario
     $hash_pass = $current_pass;
   } else {
-    // Si las contraseñas no coinciden, muestra un mensaje de error y sale del script
+    // Si las contraseñas no coinciden, muestra un mensaje de error y sal del script
     echo "Las contraseñas no coinciden. Por favor, inténtalo de nuevo.";
     exit();
   }

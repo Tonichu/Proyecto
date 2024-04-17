@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Panel de Profesor</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/css/teacher/teacher_profile.css">
 </head>
 
 <body>
@@ -26,33 +28,37 @@
   $resultClasses2 = $teacherQueries->getAllClasses();
   $resultRooms = $teacherQueries->getAllRooms();
   $resultInscription = $teacherQueries->inscriptionResult();
-
   $id_usuario = $_SESSION['id_usuarios'];
-  echo "Bienvenido a tu panel de profesor " . $_SESSION['nombre'];
 
   ?>
+  <header style="background-color: #343a40; padding: 10px;">
+    <div class="container text-white">
+      <h1>Bienvenido al Panel de Profesor <?php echo $_SESSION['nombre']?></h1>
+      <div class="float-right">
+        <form action="../controllers/logout_controller.php" method="post">
+          <input type="submit" value="Cerrar sesión" class="btn btn-custom">
+        </form>
+        <form action="../views/teacher/modify_teacher_data.php" method="post">
+          <input type="submit" value="Modificar datos" class="btn btn-custom">
+        </form>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container mt-5">
+    <h2>Crear nueva clase</h2>
+    <form action="../controllers/teacher_controller/class/new_class.php" method="post">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
 
-  <h1>Bienvenido teacher</h1>
-  <form action="../controllers/logout_controller.php" method="post">
-    <input type="submit" value="Cerrar sesión">
-  </form>
+      <label for="descripcion">Descripción:</label>
+      <input type="text" id="descripcion" name="descripcion" required><br><br>
 
-  <form action="../views/teacher/modify_teacher_data.php" method="post">
-    <input type="submit" value="Modificar datos">
-  </form>
+      <input type="hidden" id="id_profesor" name="id_profesor" value="<?php echo $id_usuario; ?>">
 
-  <h2>Crear nueva clase</h2>
-  <form action="../controllers/teacher_controller/class/new_class.php" method="post">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br><br>
+      <input type="submit" value="Crear nueva clase" class="btn btn-primary">
+    </form>
 
-    <label for="descripcion">Descripción:</label>
-    <input type="text" id="descripcion" name="descripcion" required><br><br>
-
-    <input type="hidden" id="id_profesor" name="id_profesor" value="<?php echo $id_usuario; ?>">
-
-    <input type="submit" value="Crear nueva clase">
-  </form>
   <h2>Tus clases</h2>
   <?php
   // Verificar si hay clases para este profesor
@@ -149,6 +155,7 @@
       </tr>
     <?php } ?>
   </table>
+  </div>
 </body>
 
 </html>

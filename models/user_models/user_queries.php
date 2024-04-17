@@ -11,6 +11,21 @@ class UserQueries
         $db = new Database();
         $this->connection = $db->getConnection();
     }
+    
+    public function userExistsByEmail($email)
+    {
+        // Consulta SQL para verificar si existe un usuario con el correo electrónico dado
+        $sql = "SELECT COUNT(*) AS count FROM usuarios WHERE correo_electronico = ?";
+        $statement = $this->connection->prepare($sql);
+        $statement->bindParam(1, $email, PDO::PARAM_STR);
+        $statement->execute();
+
+        // Obtener el resultado de la consulta
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+        // Si el contador es mayor que cero, significa que el usuario existe
+        return $row['count'] > 0;
+    }
 
     public function getUserById($id)
     {
@@ -25,7 +40,34 @@ class UserQueries
         // Devolver el usuario encontrado
         return $usuario;
     }
+    
+    public function insertNewUser($nombre, $apellidos, $telefono, $correo_electronico, $direccion, $pass)
+{
+    try {
+        // Construir la consulta SQL para insertar un nuevo usuario
+        $sql = "INSERT INTO usuarios (nombre, apellidos, telefono, correo_electronico, direccion, pass) VALUES (:nombre, :apellidos, :telefono, :correo_electronico, :direccion, :hash_pass)";
 
+        $statement = $this->connection->prepare($sql);
+
+        // Asignar valores a los parámetros
+        $statement->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $statement->bindParam(':apellidos', $apellidos, PDO::PARAM_STR);
+        $statement->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+        $statement->bindParam(':correo_electronico', $correo_electronico, PDO::PARAM_STR);
+        $statement->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+        $statement->bindParam(':hash_pass', $pass, PDO::PARAM_STR);
+
+        // Ejecutar la consulta
+        $statement->execute();
+
+        // Devolver verdadero si la inserción fue exitosa
+        return true;
+    } catch (PDOException $e) {
+        // Manejar cualquier error que ocurra durante la inserción
+        echo "Error al insertar un nuevo usuario: " . $e->getMessage();
+        return false;
+    }
+}
 
     public function updateUser($id, $nombre, $apellidos, $telefono, $correo_electronico, $direccion, $pass_confirm = null)
     {

@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="card">
                     <h2 class="modal-title">Registro de Usuario</h2>
-                    <form id="registroFormulario" action="../../proyecto/pages/usuarios/crear_usuario.php" method="post"
+                    <form id="registroFormulario" action="controllers/new_user_from_index.php" method="post"
                         enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>

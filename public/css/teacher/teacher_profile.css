@@ -1,0 +1,35 @@
+ /* Estilo para las tablas */
+ .tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.tabla th {
+  text-align: center;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  background-color: #343a40;
+  color: white;
+}
+
+.tabla td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Estilo para los botones */
+.btn-custom {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

@@ -25,17 +25,17 @@
   if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["numero_filas"])) {
     // Obtener el número de filas del formulario
     $numeroFilas = $_POST["numero_filas"];
-    
+
     // Verificar si el número de filas es válido y llamar a setLimit si es así
     if (is_numeric($numeroFilas) && $numeroFilas >= 1 && $numeroFilas <= 10) {
 
-        $adminQueries->setLimit($numeroFilas);
-        
-        // Redirigir a la página donde se muestra la lista de usuarios u otra acción
+      $adminQueries->setLimit($numeroFilas);
+
+      // Redirigir a la página donde se muestra la lista de usuarios u otra acción
     } else {
-        echo "Por favor ingrese un número válido entre 1 y 10.";
+      echo "Por favor ingrese un número válido entre 1 y 10.";
     }
-}
+  }
 
   $resultUser = $adminQueries->getAllUsers();
   $resultClasses = $adminQueries->getAllClasses();
@@ -51,6 +51,19 @@
     <label for="numero_filas">Selecciona el número de filas que quieres ver (1-10:)</label>
     <input type="number" id="numero_filas" name="numero_filas" min="1" max="10">
     <button type="submit" name="mostrar">Mostrar</button>
+  </form>
+  <form method="post" action="../controllers/admin_controller/search/search_controller.php">
+    <p>¿En qué tabla quieres buscar?</p>
+    <label for="tabla">Tabla:</label>
+    <select name="tabla" id="tabla">
+      <option value="usuarios">Usuarios</option>
+      <option value="clases">Clases</option>
+      <option value="salas">Salas</option>
+      <option value="maquinas">Máquinas</option>
+    </select>
+    <label for="busqueda">Busqueda por nombre:</label>
+    <input type="text" id="busqueda" name="busqueda">
+    <input type="submit" value="Buscar">
   </form>
   <h2>Usuarios</h2>
   <a href="admin/users/new_user_from_admin.php"><button>Crear nuevo usuario</button></a>
@@ -82,7 +95,7 @@
         <td><?php echo $row['direccion']; ?></td>
         <td>
           <!-- Botón para eliminar el usuario -->
-          <a href="../controllers/admin_controller/user/delete_user.php?id=<?php echo $row['id_usuarios'];;?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/user/delete_user.php?id=<?php echo $row['id_usuarios'];; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar el usuario -->
           <a href="../views/admin/users/user_modification_from_admin.php?id=<?php echo $row['id_usuarios']; ?>"><button>Modificar</button></a>
         </td>
@@ -98,7 +111,7 @@
       <th>Profesor</th>
       <th>Email Profesor</th>
     </tr>
-    <?php while ($row = $resultClasses->fetch(PDO::FETCH_ASSOC)) {?>
+    <?php while ($row = $resultClasses->fetch(PDO::FETCH_ASSOC)) { ?>
       <tr>
         <td><?php echo $row['nombre']; ?></td>
         <td><?php echo $row['descripcion']; ?></td>
@@ -106,7 +119,7 @@
         <td><?php echo $row['email_profesor'] ?? ' Sin Email'; ?></td>
         <td>
           <!-- Botón para eliminar la clase -->
-          <a href="../controllers/admin_controller/class/delete_class.php?id=<?php echo $row['id_clases'];;?>"><button>Eliminar</button></a>
+          <a href="../controllers/admin_controller/class/delete_class.php?id=<?php echo $row['id_clases'];; ?>"><button>Eliminar</button></a>
           <!-- Botón para modificar la clase -->
           <a href="../views/admin/class/class_modification_from_admin.php?id=<?php echo $row['id_clases']; ?>"><button>Modificar</button></a>
         </td>
