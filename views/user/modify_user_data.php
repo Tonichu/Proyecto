@@ -8,39 +8,98 @@ $userQueries = new UserQueries();
 $user = $userQueries->getUserById($id_usuario);
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modificación datos usuario</title>
+  <link rel="stylesheet" href="../../public/css/user/modify_profile.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
 <body>
-  <h2>Modificar Usuario</h2>
-  <form action="../../controllers/user/user_modification.php" method="POST" enctype="multipart/form-data">
 
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" value="<?php echo $user['nombre']; ?>"><br>
+  <div class="container">
 
-    <label for="apellidos">Apellidos:</label>
-    <input type="text" name="apellidos" value="<?php echo $user['apellidos']; ?>"><br>
+    <div id="header">
+      <div>
+        <span>Bienvenido
+          <?php echo $_SESSION['nombre']; ?>. Va a modificar sus datos
+        </span>
+      </div>
+    </div>
 
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" name="telefono" value="<?php echo $user['telefono']; ?>"><br>
 
-    <label for="correo_electronico">Correo electrónico:</label>
-    <input type="text" name="correo_electronico" value="<?php echo $user['correo_electronico']; ?>"><br>
+    <form action="../../controllers/user/user_modification.php" method="POST" enctype="multipart/form-data" class="mt-3">
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" class="form-control" value="<?php echo $user['nombre']; ?>">
+        <span id="nombre-error" class="error"></span>
+      </div>
 
-    <label for="direccion">Dirección:</label>
-    <input type="text" name="direccion" value="<?php echo $user['direccion']; ?>"><br>
-    <input type="hidden" name="current_pass" value="<?php echo $user['pass']; ?>">
+      <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" name="apellidos" class="form-control" value="<?php echo $user['apellidos']; ?>">
+        <span id="apellidos-error" class="error"></span>
+      </div>
 
-    <label for="new_pass">Nueva contraseña:</label>
-    <input type="password" name="new_pass" value=""><br>
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="text" name="telefono" class="form-control" value="<?php echo $user['telefono']; ?>">
+        <span id="telefono-error" class="error"></span>
+      </div>
 
-    <label for="pass_confirm">Confirmar nueva contraseña:</label>
-    <input type="password" name="pass_confirm" value=""><br>
+      <div class="form-group">
+        <label for="correo_electronico">Correo electrónico:</label>
+        <input type="text" name="correo_electronico" class="form-control" value="<?php echo $user['correo_electronico']; ?>">
+        <span id="correo-error" class="error"></span>
+      </div>
 
-    <label for="foto">Foto:</label>
-    <input type="file" name="foto">
-    <!-- Por el momento la foto esta off -->
+      <div class="form-group">
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" class="form-control" value="<?php echo $user['direccion']; ?>">
+        <span id="direccion-error" class="error"></span>
+      </div>
 
-    <br><input type="submit" value="Guardar cambios">
+
+      <input type="hidden" name="current_pass" value="<?php echo $user['pass']; ?>">
+
+      <div class="form-group">
+        <label for="new_pass">Nueva contraseña:</label>
+        <input type="password" name="new_pass" class="form-control" value="">
+        <span id="pass-error" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="pass_confirm">Confirmar nueva contraseña:</label>
+        <input type="password" name="pass_confirm" class="form-control" value="">
+        <span id="confirm-pass-error" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="foto">Foto:</label>
+        <input type="file" name="foto" class="form-control-file">
+        <span id="foto-error" class="error"></span>
+      </div>
+      <!-- Por el momento la foto esta off -->
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <a href="../user_panel.php" class="btn btn-secondary">Cancelar</a>
+      </div>
+    </form>
+  </div>
+
   </form>
 
-  <a href="../user_panel.php"><button>Cancelar</button></a>
+  </div>
+  <!-- Scripts de Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Verificación de datos con js -->
+  <script src="../../public/js/user/modify_user_profile.js" defer></script>
 </body>

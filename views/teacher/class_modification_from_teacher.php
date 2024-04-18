@@ -32,6 +32,7 @@ $clase = $classModel->getClassById($id_clases);
 
     <input type="submit" value="Guardar cambios">
   </form>
+  <a href="../teacher_panel.php"><button>Cancelar</button></a>
 </body>
 
 </html>

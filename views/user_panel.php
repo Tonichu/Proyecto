@@ -1,3 +1,19 @@
+<?php
+  session_start();
+  require_once(__DIR__ . "/../controllers/role_controller.php");
+  require_once(__DIR__ . "/../models/user_models/user_queries.php");
+
+  $id_usuario = $_SESSION['id_usuarios'];
+
+  $roleController = RoleController::getInstance();
+  $roleController->isUser($_SESSION);
+
+  $userQueries = new UserQueries();
+  $user = $userQueries->getUserById($id_usuario);
+  $UnenrolledSessions = $userQueries->getUnenrolledSessions($id_usuario);
+  $EnrolledSessions = $userQueries->getEnrolledSessions($id_usuario);
+
+  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +39,7 @@
     </div>
     <div class="user-profile-body">
       <div class="user-profile-bio">
-        <h3 class="title">Nombre y apellidos de la persona</h3>
+        <h3 class="title"><?php echo $user['nombre']; echo " "; echo $user['apellidos']; ?> </h3>
       </div>
       <div class="user-profile-footer">
         <ul class="data-list">
@@ -32,9 +48,9 @@
           <li><i class="icon fas fa-map-signs"></i> Dirección de usuario:</li>
         </ul>
         <ul class="data-list">
-          <li>juan@gmail.com</li>
-          <li>659444586</li>
-          <li>Madrid calle Tom</li>
+          <li><?php echo $user['correo_electronico']; ?></li>
+          <li><?php echo $user['telefono']; ?></li>
+          <li><?php echo $user['direccion']; ?></li>
         </ul>
       </div>
       <div class="social-media">
@@ -44,21 +60,7 @@
       </div>
     </div>
   </section>
-  <?php
-  session_start();
-  require_once(__DIR__ . "/../controllers/role_controller.php");
-  require_once(__DIR__ . "/../models/user_models/user_queries.php");
-
-  $id_usuario = $_SESSION['id_usuarios'];
-
-  $roleController = RoleController::getInstance();
-  $roleController->isUser($_SESSION);
-
-  $userQueries = new UserQueries();
-  $UnenrolledSessions = $userQueries->getUnenrolledSessions($id_usuario);
-  $EnrolledSessions = $userQueries->getEnrolledSessions($id_usuario);
-
-  ?>
+  
   <div id="content-wrapper">
     <div id="header">
       <div class="welcome-container">

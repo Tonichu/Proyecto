@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var frasesMotivacionales = [
+  let frasesMotivacionales = [
     "El éxito llega a aquellos que están demasiado ocupados buscándolo.",
     "El dolor que sientes hoy será la fuerza que sientas mañana.",
     "No te preocupes por los resultados, preocúpate por el trabajo que tienes que hacer.",
@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "El mejor proyecto en el que trabajar eres tú mismo; ve al gimnasio y comienza a construirlo.",
   ];
 
-  var fraseAleatoria =
+  let fraseAleatoria =
     frasesMotivacionales[
       Math.floor(Math.random() * frasesMotivacionales.length)
     ];
-  var footerElement = document.getElementById("frase-motivacional");
+  let footerElement = document.getElementById("frase-motivacional");
   if (footerElement) {
     footerElement.textContent = fraseAleatoria;
   }

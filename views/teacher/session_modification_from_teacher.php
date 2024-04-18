@@ -84,6 +84,7 @@ $SessionByIdi = $sessionModel->getSessionById($id);
         <input type="datetime-local" id="fecha_hora_fin" name="fecha_hora_fin" value="<?php echo $SessionByIdi['fecha_hora_fin']; ?>"><br><br>
         <input type="submit" value="Guardar cambios">
     </form>
+    <a href="../teacher_panel.php"><button>Cancelar</button></a>
 </body>
 
 </html>
