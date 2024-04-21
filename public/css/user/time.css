@@ -1,0 +1,22 @@
+.reloj {
+  font-family: "DS-Digital", sans-serif;
+  background: linear-gradient(to top, #87ceeb, #0f0c29);
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.9);
+  width: 40%;
+  margin: 20px auto 0 auto;
+  padding: 0.5rem;
+}
+
+.reloj #date {
+  font-size: 1.5rem;
+  margin-top: 0.3rem;
+  letter-spacing: 0.3rem;
+}
+
+.reloj #time {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.1rem;
+}
