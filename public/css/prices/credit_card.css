@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 60%;
+    max-width: 800px;
+    padding: 50px 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.payment-card {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    color: #fff;
+    transition: .3s ease all;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.payment-card.active {
+    transform: rotateY(180deg);
+}
+
+.payment-card > div {
+    padding: 30px;
+    border-radius: 15px;
+    min-height: 315px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 10px 0 rgba(90,116,148,0.3);
+}
+
+/* ---------- Tarjeta Delantera y Trasera ----------*/
+
+.payment-card .front {
+    width: 100%;
+    background-color: #93BDED;
+    background-size: cover;
+}
+
+.front .brand-logo {
+    text-align: right;
+    min-height: 50px;
+}
+
+.front .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 80px;
+}
+
+.front .chip {
+    width: 100%;
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.front .group .label {
+    font-size: 16px;
+    color: #7d8994;
+    margin-bottom: 5px;
+}
+
+.front .group .number,
+.front .group .name,
+.front .group .expiration {
+    color: #fff;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+.front .flexbox {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.back {
+    background-color: #93BDED;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.back .magnetic-stripe {
+    height: 40px;
+    background: #000;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+}
+
+.back .details {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back .details p {
+    margin-bottom: 5px;
+}
+
+.back .details #signature {
+    width: 70%;
+}
+
+.back .details #signature .signature {
+    height: 40px;
+    background: repeating-linear-gradient(skyblue 0, skyblue 5px, orange 5px, orange 10px);
+}
+
+.back .details #signature .signature p {
+    line-height: 40px;
+    font-family: 'Liu Jian Mao Cao', cursive;
+    color: #000;
+    font-size: 30px;
+    padding: 0 10px;
+    text-transform: capitalize;
+}
+
+.back .details #cvv {
+    width: 20%;
+}
+
+.back .details #cvv .cvv {
+    background: #fff;
+    height: 40px;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.back .disclaimer {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.back .bank-link {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ---------- Botón ----------*/
+.btn-container .btn-open-form {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 20px;
+    background: #010408;
+    color: #ebdddd;
+    position: relative;
+    top: -25px;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+    padding: 5px;
+    transition: all .2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-container .btn-open-form:hover {
+    background: #1850b1;
+}
+
+.btn-container .btn-open-form.active {
+    transform: rotate(45deg);
+}
+
+/* ---------- Formulario ----------*/
+.payment-form {
+    background-color: rgb(220, 232, 239);
+    width: 100%;
+    max-width: 500px;
+    padding: 150px 30px 30px 30px;
+    border-radius: 20px;
+    position: relative;
+    top: -150px;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .3s ease-out;
+}
+
+.payment-form.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+.payment-form input,
+.payment-form select,
+.btn-submit {
+    border: 2px solid #CED6E0;
+    font-size: 18px;
+    height: 50px;
+    width: 100%;
+    padding: 5px 12px;
+    transition: .3s ease all;
+    border-radius: 5px;
+}
+
+.payment-form input:hover,
+.payment-form select:hover {
+    border: 2px solid #93BDED;
+}
+
+.payment-form input:focus,
+.payment-form select:focus {
+    outline: rgb(4,4,4);
+    box-shadow: 1px 7px 10px -5px rgba(90,116,148,0.3);
+}
+
+.payment-form input {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.payment-form .flexbox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.payment-form .expire {
+    width: 100%;
+}
+
+.payment-form .cvv {
+    min-width: 100px;
+}
+
+.payment-form .select-group {
+    width: 100%;
+    margin-right: 15px;
+    position: relative;
+}
+
+.payment-form select {
+    -webkit-appearance: none;
+}
+
+.payment-form .select-group i {
+    position: absolute;
+    color: #CED6E0;
+    top: 18px;
+    right: 15px;
+    transition: .3s ease all;
+}
+
+.payment-form .btn-submit {
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    color: #fff;
+    background: #3f76d6;
+    cursor: pointer;
+}
+
+.footer {
+    text-align: center; 
+    margin-bottom: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgb(220, 232, 239);
+    padding: 10px;
+  }
+
+#frase-motivacional {
+    font-family: 'Comic Sans MS', cursive; 
+    font-size: 24px; 
+  }
