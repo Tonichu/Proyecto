@@ -7,6 +7,7 @@
   <title>Panel de Profesor</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="../public/css/teacher/teacher_profile.css">
+  <script src="../public/js/teacher/validate_hours.js" defer></script>
 </head>
 
 <body>
@@ -87,7 +88,7 @@
     <p>No tienes clases aún.</p>
   <?php } ?>
   <h2>Registro de nueva sesión</h2>
-  <form action="../controllers/teacher_controller/sessions/new_session.php" method="post">
+  <form action="../controllers/teacher_controller/sessions/new_session.php" id="form_sessions" method="post">
     <span>Clases</span>
     <select name="id_clase" id="id_clase">
       <?php
@@ -131,30 +132,34 @@
 
   </form>
   <h2>Tabla de sesiones</h2>
-  <table class="tabla">
-    <tr>
-      <th>Nombre clase</th>
-      <th>Nombre sala</th>
-      <th>Hora ---- Inicio</th>
-      <th>Hora ---- Fin</th>
-    </tr>
+<?php if ($resultInscription->rowCount() > 0) { ?>
+    <table class="tabla">
+        <tr>
+            <th>Nombre clase</th>
+            <th>Nombre sala</th>
+            <th>Hora ---- Inicio</th>
+            <th>Hora ---- Fin</th>
+        </tr>
+        <?php while ($row = $resultInscription->fetch(PDO::FETCH_ASSOC)) { ?>
+            <tr>
+                <td><?php echo $row['nombre_clase']; ?></td>
+                <td><?php echo $row['nombre_sala']; ?></td>
+                <td><?php echo $row['fecha_hora_inicio']; ?></td>
+                <td><?php echo $row['fecha_hora_fin']; ?></td>
+                <td>
+                    <!-- Botón para eliminar la sesión -->
+                    <?php echo "<input type='hidden' name='id' value='" . $row['id'] . "'>"; ?>
+                    <a href="../controllers/teacher_controller/sessions/delete_session.php?id=<?php echo $row['id']; ?>"><button>Eliminar</button></a>
+                    <!-- Botón para modificar la sesión -->
+                    <a href="../views/teacher/session_modification_from_teacher.php?id=<?php echo $row['id']; ?>"><button>Modificar</button></a>
+                </td>
+            </tr>
+        <?php } ?>
+    </table>
+<?php } else { ?>
+    <p>No hay sesiones disponibles.</p>
+<?php } ?>
 
-    <?php while ($row = $resultInscription->fetch(PDO::FETCH_ASSOC)) { ?>
-      <tr>
-        <td><?php echo $row['nombre_clase']; ?></td>
-        <td><?php echo $row['nombre_sala']; ?></td>
-        <td><?php echo $row['fecha_hora_inicio']; ?></td>
-        <td><?php echo $row['fecha_hora_fin']; ?></td>
-        <td>
-          <!-- Botón para eliminar la sesion -->
-          <?php echo "<input type='hidden' name='id' value='" . $row['id'] . "'>"; ?>
-          <a href="../controllers/teacher_controller/sessions/delete_session.php?id=<?php echo $row['id']; ?>"><button>Eliminar</button></a>
-          <!-- Botón para modificar la sesion -->
-          <a href="../views/teacher/session_modification_from_teacher.php?id=<?php echo $row['id']; ?>"><button>Modificar</button></a>
-        </td>
-      </tr>
-    <?php } ?>
-  </table>
   </div>
 </body>
 

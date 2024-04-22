@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Máquina</title>
+  <script src="../../../public/js/admin/validateRevision.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +21,6 @@
   $roomModel = new roomModel();
   $rooms = $roomModel->getRooms();
   ?>
-
   <h2>Registro de Máquina</h2>
   <form action="../../../controllers/admin_controller/machine/new_machine.php" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre:</label>
@@ -44,8 +44,8 @@
       <?php
       // Obtener la lista de salas
       foreach ($rooms as $room) {
-        echo "<option value='" . $room['id_salas'] . "'>" . $room['nombre'] ."  Aforo " . $room['aforo'] . "</option>";
-    }
+        echo "<option value='" . $room['id_salas'] . "'>" . $room['nombre'] . "  Aforo " . $room['aforo'] . "</option>";
+      }
       ?>
     </select><br><br>
 
