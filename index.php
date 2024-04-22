@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,27 +22,34 @@
                 <div class="menu">
                     <nav>
                         <ul>
-                            <?php include 'views/navbar/homepage.php'; ?>
-                            <?php include 'views/navbar/customer_area.php'; ?>
-                            <?php include 'views/navbar/user_registration.php'; ?>
+                            <?php
+                            session_start();
+
+                            // Ruta base relativa al archivo actual
+                            $basePath = dirname($_SERVER['PHP_SELF']);
+                            
+                            // Almacenamos la ruta base en la sesión
+                            $_SESSION['root'] = $basePath;
+
+                            include 'views/navbar/homepage.php';
+                            include 'views/navbar/customer_area.php';
+                            include 'views/navbar/user_registration.php';
+                            ?>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
-    
-    <?php include 'views/index/description.html'; ?>
 
-    <?php include 'views/index/hours.html'; ?>
-
-    <?php include 'views/index/carousel.html'; ?>
-
-    <?php include 'views/index/slider_carousel.html'; ?>
-
-    <?php include 'views/index/teachers.html'; ?>
-
-    <?php include 'views/navbar/footer.php'; ?>
+    <?php
+    include 'views/index/description.html';
+    include 'views/index/hours.html';
+    include 'views/index/carousel.html';
+    include 'views/index/slider_carousel.html';
+    include 'views/index/teachers.html';
+    include 'views/navbar/footer.php'; 
+    ?>
 
     <script src="public/js/homepage/homepage_carrusel.js"></script>
     <script src="public/js/homepage/inscription_index.js"></script>

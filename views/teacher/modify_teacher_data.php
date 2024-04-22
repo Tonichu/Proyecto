@@ -2,6 +2,11 @@
 session_start();
 require_once(__DIR__ . "/../../models/teacher_models/teacher_queries.php");
 require_once(__DIR__ . "/../../models/database.php");
+require_once(__DIR__ . "/../../controllers/role_controller.php");
+
+// Verificar si se ha enviado el ID de la clase a modificar
+$roleController = RoleController::getInstance();
+$roleController->isTeacher($_SESSION);
 
 $id_usuario = $_SESSION['id_usuarios'];
 

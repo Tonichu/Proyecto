@@ -1,9 +1,11 @@
 <?php
 session_start();
 require_once(__DIR__ . "/../../models/teacher_models/class_model.php");
+require_once(__DIR__ . "/../../controllers/role_controller.php");
 
 // Verificar si se ha enviado el ID de la clase a modificar
-
+$roleController = RoleController::getInstance();
+$roleController->isTeacher($_SESSION);
 $id_clases = $_GET['id'];
 
 $classModel = new ClassModel();

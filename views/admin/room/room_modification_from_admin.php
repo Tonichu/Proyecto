@@ -1,5 +1,10 @@
 <?php
+session_start();
 require_once(__DIR__ . "/../../../controllers/admin_controller/room/room_controller.php");
+require_once(__DIR__ . "/../../../controllers/role_controller.php");
+
+$roleController = RoleController::getInstance();
+$roleController->isAdmin($_SESSION);
 
 if (isset($_GET['id'])) {
 

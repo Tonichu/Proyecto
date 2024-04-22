@@ -1,6 +1,10 @@
 <?php
+session_start();
 require_once(__DIR__ . "/../../../models/admin_models/user_model.php");
+require_once(__DIR__ . "/../../../controllers/role_controller.php");
 
+$roleController = RoleController::getInstance();
+$roleController->isAdmin($_SESSION);
 
 // Verificar si se ha enviado el ID del usuario a modificar
 if (isset($_GET['id'])) {

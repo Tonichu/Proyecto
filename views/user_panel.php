@@ -9,6 +9,7 @@
   $roleController->isUser($_SESSION);
 
   $userQueries = new UserQueries();
+  
   $user = $userQueries->getUserById($id_usuario);
   $UnenrolledSessions = $userQueries->getUnenrolledSessions($id_usuario);
   $EnrolledSessions = $userQueries->getEnrolledSessions($id_usuario);
@@ -70,6 +71,7 @@
         <form action="../controllers/logout_controller.php" method="post">
           <input type="submit" value="Cerrar sesión" class="btn btn-custom">
         </form>
+        <a href="games/minigames.php"><button>Minijuegos</button></a>
         <form action="../views/user/modify_user_data.php" method="post">
           <input type="submit" value="Modificar datos" class="btn btn-custom">
         </form>

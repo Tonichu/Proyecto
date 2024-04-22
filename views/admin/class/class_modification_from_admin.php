@@ -1,11 +1,15 @@
 <?php
-
+session_start();
 require_once(__DIR__ . "/../../../controllers/admin_controller/class/class_controller.php");
+require_once(__DIR__ . "/../../../controllers/role_controller.php");
 // Verificar si se ha enviado el ID de la clase a modificar
 if (isset($_GET['id'])) {
   // Obtener el ID de la clase
   $idClase = $_GET['id'];
 }
+
+$roleController = RoleController::getInstance();
+$roleController->isAdmin($_SESSION);
 
 $classController = new ClassController();
 

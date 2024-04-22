@@ -1,7 +1,11 @@
 <?php
-
+session_start();
 require_once(__DIR__ . "/../../../controllers/admin_controller/machine/machine_controller.php");
 require_once(__DIR__ . "/../../../models/admin_models/room_model.php");
+require_once(__DIR__ . "/../../../controllers/role_controller.php");
+
+$roleController = RoleController::getInstance();
+$roleController->isAdmin($_SESSION);
 
 // Verificar si se ha enviado el ID de la máquina a modificar
 if (isset($_GET['id'])) {

@@ -1,7 +1,13 @@
 <?php
 
 // Incluir el modelo de búsqueda
+session_start();
 require_once(__DIR__ . "/../../../models/admin_models/search.php");
+
+  
+require_once(__DIR__ . "/../../../controllers/role_controller.php");
+$roleController = RoleController::getInstance();
+$roleController->isAdmin($_SESSION);
 
 // Función para obtener el nombre del tipo de usuario
 function getUserType($type) {
