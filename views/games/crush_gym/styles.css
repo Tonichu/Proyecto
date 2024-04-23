@@ -1,0 +1,28 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+ 
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 200px); /* Tres columnas de 200px cada una */
+  grid-auto-rows: 200px; /* Altura automática de 200px para las filas */
+  gap: 10px; /* Espacio entre las imágenes */
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  max-width: 100%; /* Ajustar la imagen al ancho máximo del contenedor */
+  max-height: 100%; /* Ajustar la imagen a la altura máxima del contenedor */
+  object-fit: cover;
+}
+.score-container > div {
+  margin-bottom: 10px;
+}

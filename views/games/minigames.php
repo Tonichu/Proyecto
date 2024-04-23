@@ -6,9 +6,10 @@
   <title>Mini Games</title>
 </head>
 <body>
-<a href="space_invaders/index.html"><button>Space invaders!</button></a>
-<a href="whac-a-mole/index.html"><button>whac a mole!</button></a>
-<a href="snake/index.html"><button>snake</button></a>
-<a href="frogger/index.html"><button>froger</button></a>
+  <h1>Crush gym</h1>
+  <p>Este pequeño minijuego se basa en clicear encima de las imagenes.
+    Hay 3 niveles y si completas el último te llevas puntos extra
+  </p>
+<a href="crush_gym/index.html"><button>Crush Gym!</button></a>
 </body>
 </html>
