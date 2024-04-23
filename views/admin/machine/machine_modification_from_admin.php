@@ -32,32 +32,7 @@ $rooms = $roomModel->getRooms();
   <title>Modificar Máquina</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f8f9fa;
-    }
-
-    .card {
-      width: 400px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="../../../public/css/admin/machine/machine_modification.css">
 </head>
 
 <body>

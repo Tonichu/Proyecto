@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
 session_start();
 require_once(__DIR__ . "/../../../models/admin_models/user_model.php");
 require_once(__DIR__ . "/../../../controllers/role_controller.php");
-=======
 require_once (__DIR__ . "/../../../models/admin_models/user_model.php");
->>>>>>> ac0acabf3f05a3439e08234f49fbfa628513151f
 
 $roleController = RoleController::getInstance();
 $roleController->isAdmin($_SESSION);
@@ -32,17 +29,8 @@ if (isset($_GET['id'])) {
   <title>Modificar usuario</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    
-    .card {
-      margin: auto;
-      margin-top: 50px;
-      max-width: 500px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="../../../public/css/admin/user/user_modification.css">
+
 </head>
 
 <body>

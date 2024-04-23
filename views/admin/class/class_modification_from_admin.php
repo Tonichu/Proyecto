@@ -1,12 +1,9 @@
 <?php
-<<<<<<< HEAD
 session_start();
 require_once(__DIR__ . "/../../../controllers/admin_controller/class/class_controller.php");
 require_once(__DIR__ . "/../../../controllers/role_controller.php");
-=======
 
 require_once (__DIR__ . "/../../../controllers/admin_controller/class/class_controller.php");
->>>>>>> ac0acabf3f05a3439e08234f49fbfa628513151f
 // Verificar si se ha enviado el ID de la clase a modificar
 if (isset($_GET['id'])) {
   // Obtener el ID de la clase
@@ -33,22 +30,7 @@ $clase = $data["class"];
   <title>Modificar Clase</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .card {
-      width: 400px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  <link rel="stylesheet" href="../../../public/css/admin/class/classs_modification.css">
 </head>
 
 <body>

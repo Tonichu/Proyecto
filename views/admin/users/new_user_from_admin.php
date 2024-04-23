@@ -6,58 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crear usuario desde administrador</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f8f9fa;
-      /* Cambiar color de fondo */
-    }
-
-    .card {
-      width: 80%;
-      /* Ancho ajustado al 80% del tamaño de la ventana */
-      max-width: 600px;
-      /* Máximo ancho de 600px */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-      /* Cambiar color de fondo de la tarjeta */
-    }
-
-    .card-title {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    label {
-      font-weight: bold;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-
-    
-    .btn-primary,
-    .btn-secondary {
-      width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="../../../public/css/admin/user/new_user.css">
 </head>
 
 <body>
