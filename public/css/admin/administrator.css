@@ -1,0 +1,27 @@
+body {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.titulo {
+    margin-bottom: 30px;
+    background-color: aliceblue;
+    padding: 20px;
+}
+
+h1,
+h2 {
+  margin-bottom: 50px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+.table thead tr {
+  text-align: center;
+}
+
+.table tbody tr {
+  text-align: center;
+}

@@ -6,12 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Precios del Gimnasio</title>
 
-
-
   <link rel="stylesheet" href="../../public/css/Homepage/Homepage.css" />
   <link rel="stylesheet" href="../../public/css/Homepage/modal.css" />
   <link rel="stylesheet" href="../../public/css/prices/prices.css" />
-
 
 </head>
 
@@ -43,7 +40,7 @@
         <h3>60 <sup>€</sup></h3>
         <p>Escoge a que servicio te quieres apuntar y disfruta de todas las ventajas de entrenar con nuestros mejores
           profesores</p>
-        <a href="" class="boton-comprar">Comprar ahora</a>
+        <a href="credit_card.php" class="boton-comprar">Comprar ahora</a>
       </div>
       <div class="plan-gimnasio">
         <h2>Estándar</h2>
@@ -51,7 +48,7 @@
         <h3>100 <sup>€</sup></h3>
         <p>Apuntate ahora y tendras acceso a 3 de nuestros servicios a tu elección. Disfruta de las ventajas de nuestras
           instalaciones</p>
-        <a href="" class="boton-comprar">Comprar ahora</a>
+        <a href="credit_card.php" class="boton-comprar">Comprar ahora</a>
       </div>
       <div class="plan-gimnasio">
         <h2>Premium</h2>
@@ -63,7 +60,7 @@
           mejores entrenamientos juntos a nuestros profesores de confianza y tendrás un asesoramiento personal de
           nuestro entrenador personal.
         </p>
-        <a href="" class="boton-comprar">Comprar ahora</a>
+        <a href="credit_card.php" class="boton-comprar">Comprar ahora</a>
       </div>
     </div>
   </div>
