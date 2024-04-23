@@ -1,5 +1,5 @@
 <?php
-require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.Php");
+require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
 session_start();
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
 if (!$conexion) {
@@ -16,9 +16,7 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
     echo "<tr>"; //Abro la fila de la hora
     echo "<td class='chora'<div >$hora:00</div></td>";
     for ($dia = 2; $dia <= 7; $dia++) {
-        //echo "<td>"; //abro la columna del día en la fila de la hora
-        //consulta bbdd vieja, 
-        //$sql = "SELECT * FROM sesiones WHERE DAYOFWEEK(fecha_hora_inicio) = $dia AND HOUR(fecha_hora_inicio) = $hora";
+        //echo "<td>"; //abro la columna del día en la fila de la hora;
         //Consulta en la base de datos compleja
         $sql = "SELECT 
                     C.nombre AS nombre_clase,
@@ -37,10 +35,14 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
             $date1 = new DateTime($sesion['hora_inicio']); //guardamos la hora de inicio y final en una variable
             $date = new DateTime($sesion['hora_fin']);
             //meto en un div por probar porque no me va bien el css, no funciono. Al date le doy formato para que me de solo horas y minutos.
-            echo "<td class='con-sesion'><div><p >{$sesion['nombre_clase']} en {$sesion['nombre_sala']} - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} <button>test</button> </p></div>";
+
+            //-  I M P O R T A N T E  - Si el usuario ya está apuntado, tendría que hacer un echo distinto. Bucle if que compare las sesiones a las que esta apuntado el usuario con 
+            // la sesión que se enseña. Dudas de como hacer esto.
+          
+            echo "<td class='con-sesion'><div><p >{$sesion['nombre_clase']} en {$sesion['nombre_sala']} - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} <a><button>Apuntarse a la clase</button><a></p></div>";
         } else {
             // Si no hay una sesión programada, deja la celda vacía. Esta en un div por testear cosas
-            echo "<td class='sin-sesion'><div ><p>-- <button class='reg'>registro</button> </p></div>";
+            echo "<td class='sin-sesion'><div ><p>--</p></div>";
         }
         echo "</td>";
     }

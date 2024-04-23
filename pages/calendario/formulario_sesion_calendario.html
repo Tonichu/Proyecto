@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario calendario trabajador</title>
+</head>
+<body>
+<h2>Registro de Sesión</h2>
+<form action="../calendario/generar_calendario_trabajador.php" method="post" enctype="multipart/form-data"> 
+    <label for="id_clases">id_clases:</label>
+    <input type="text" id="id_clases" name="id_clases"><br><br>
+
+    <label for="id_salas">id_salas:</label>
+    <input type="text" id="id_salas" name="id_salas"><br><br>
+<!--Añadir restricción al meter la fecha, formato necesario para que funcione todo.No se si solo con datetime funciona-->>
+    <label for="fecha_hora_inicio">Fecha inicio:</label>
+    <input type="datetime" id="fecha_hora_inicio" name="fecha_hora_inicio"><br><br>
+
+    <label for="fecha_hora_fin">Fecha fin:</label>
+    <input type="datetime" id="fecha_hora_fin" name="fecha_hora_fin"><br><br>
+
+    <input type="submit" value="Registrar">
+</form>
+<a href="../calendario/calendario_trabajador.php"><button>Cancelar</button></a>
+</body>
+</html>

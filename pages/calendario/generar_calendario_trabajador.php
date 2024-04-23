@@ -30,16 +30,15 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
         if ($sesion) {
             $date1 = new DateTime($sesion['hora_inicio']); //guardamos la hora de inicio y final en una variable
             $date = new DateTime($sesion['hora_fin']);
-            //meto en un div por probar porque no me va bien el css, no funciono. Al date le doy formato para que me de solo horas y minutos.
-            echo "<div class='ctrabajador'><p>{$sesion['nombre_clase']} en {$sesion['nombre_sala']} - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} <button>test</button> </p></div>";
+            echo "<div class='ctrabajador'><p>{$sesion['nombre_clase']} en {$sesion['nombre_sala']} - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} </p></div>";
         } else {
-            // Si no hay una sesión programada, deja la celda vacía. Esta en un div por testear cosas
-            echo "<div class='ctrabajador'><p>--</p></div>";
+            // Si no hay una sesión programada, deja la celda vacía. Esta en un div y un p por testear cosas
+            echo "<div class='ctrabajador'><p><a href='formulario_sesion_calendario.html'><button>Registrar clase</button></a></p></div>";
         }
         echo "</td>";
     }
-    // Para el día domingo (1) se repite lo anterior modificando el día a 1
-    echo "<td>";
+    // Para el día domingo (1) se repite lo anterior modificando el día a 1      S I N     A C T U A L I Z A R      E L     D O M I N G O
+    /*echo "<td>";
     $dia = 1;
     $sql = "SELECT 
                     C.nombre AS nombre_clase,
@@ -64,7 +63,7 @@ for ($hora = 8; $hora <= 20; $hora++) { //La hora, es decir la fila
         echo "<div class='ctrabajador'><p>--</p></div>";
     }
     echo "</td>"; // Cerrar la columna del domingo
-    echo "</tr>"; // Cerrar la tablaS
+    echo "</tr>"; // Cerrar la tablaS*/
 }
     
 

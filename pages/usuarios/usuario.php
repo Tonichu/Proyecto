@@ -18,7 +18,7 @@
   session_start();
   require_once(__DIR__ . "/../../librerias/utils/usuario_normal.php");
   require_once(__DIR__ . "/../../ConexionBdd/conexion_bdd.php");
-
+  
   usuarioNormal();
   echo "Bienvenido a tu panel " . $_SESSION['nombre'];
   $id = $_SESSION['id_usuarios'];
