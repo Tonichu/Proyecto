@@ -84,7 +84,7 @@ $roleController->isUser($_SESSION);
         <form action="../controllers/logout_controller.php" method="post">
           <input type="submit" value="Cerrar sesión" class="btn btn-custom">
         </form>
-        <a href="games/minigames.php"><button>Minijuegos</button></a>
+        <a href="games/minigames.php"><button>Crush Gym</button></a>
         <form action="../views/user/modify_user_data.php" method="post">
           <input type="submit" value="Modificar datos" class="btn btn-custom">
         </form>

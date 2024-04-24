@@ -46,7 +46,7 @@ class crush {
     let randomSquare = this.squares[randomIndex - 1];
     let imagePath = `${randomIndex}.jpg`;
 
-    randomSquare.innerHTML = `<img src="${imagePath}">`;
+    randomSquare.innerHTML = `<img src="images/${imagePath}">`;
     this.hitPosition = randomIndex.toString();
   }
 
@@ -73,14 +73,18 @@ class crush {
     if (this.level === this.levels.length && this.currentTime === 0) {
       alert('¡Felicidades! Has completado todos los niveles.');
       this.showTotalScore(); // Mostrar la puntuación total al completar todos los niveles
+      clearInterval(this.countDownTimerId); // Detener el contador de tiempo
+      clearInterval(this.timerId); // Detener el juego
       return;
     }
 
     if (this.currentTime === 0) {
-      clearInterval(this.countDownTimerId);
-      clearInterval(this.timerId);
-      alert('¡El tiempo se acabó! Tu puntuación es = ' + this.result);
-      this.clearGrid();
+      let totalScore = this.levelScores.reduce((acc, score) => acc + score, 0);
+      alert('¡El tiempo se acabó! ');
+      this.score.textContent = totalScore; // Actualizar el campo de puntuación con la puntuación final
+      clearInterval(this.countDownTimerId); // Detener el contador de tiempo
+      clearInterval(this.timerId); // Detener el juego
+      window.location.href = `save_scores/save_score.php?totalScore=${totalScore}`;
     }
   }
 
@@ -94,7 +98,10 @@ class crush {
     let totalScore = this.levelScores.reduce((acc, score) => acc + score, 0);
     totalScore += 30; // Sumar 30 al totalScore al completar todos los niveles
     alert(`Puntuación final: ${totalScore}`);
-    window.location.href = '../minigames.php';
+    this.score.textContent = totalScore; // Actualizar el campo de puntuación con la puntuación final
+    clearInterval(this.countDownTimerId); // Detener el contador de tiempo
+    clearInterval(this.timerId); // Detener el juego
+    window.location.href = `save_scores/save_score.php?totalScore=${totalScore}`;
   }
 }
 
