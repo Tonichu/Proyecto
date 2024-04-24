@@ -134,7 +134,7 @@ $roleController->isUser($_SESSION);
             <td><?php echo $row['profesor_name']; ?></td>
             <td>
               <?php echo "<input type='hidden' name='id' value='" . $row['id'] . "'>"; ?>
-              <!-- Botón para inscribirse en la clase -->
+              <!-- Botón para cancelar la inscripcion en la clase -->
               <a href="../views/user/unenroll_class.php?id=<?php echo $row['id']; ?>"><button>Cancelar la
                   inscripción</button></a>
             </td>

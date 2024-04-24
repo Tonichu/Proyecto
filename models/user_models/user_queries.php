@@ -146,15 +146,36 @@ class UserQueries
 
 
     public function enrollInClass($idUsuario, $idSesion)
-    {
-        try {
+{
+    try {
+        // Consulta para verificar si la sala tiene capacidad disponible
+        $sql = "
+            SELECT SALAS.aforo, COUNT(*) AS enrolled_count
+            FROM SESIONES
+            INNER JOIN SALAS ON SESIONES.id_salas = SALAS.id_salas
+            LEFT JOIN INSCRIPCIONES ON SESIONES.id = INSCRIPCIONES.id_sesion
+            WHERE SESIONES.id = ?
+            GROUP BY SESIONES.id
+        ";
+
+        $statement = $this->connection->prepare($sql);
+        $statement->execute([$idSesion]);
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if ($result['enrolled_count'] < $result['aforo']) {
+            // La sala tiene capacidad disponible, inscribir al usuario en la sesión
             $queryInscripcion = "INSERT INTO INSCRIPCIONES (id_sesion, id_usuario) VALUES (?, ?)";
             $statement = $this->connection->prepare($queryInscripcion);
             $statement->execute([$idSesion, $idUsuario]);
-        } catch (PDOException $e) {
-            die("Error al inscribirse en la clase: " . $e->getMessage());
+            return "Inscripción exitosa. ¡Bienvenido a la clase!";
+        } else {
+            // La sala está llena para esta sesión, no se puede inscribir al usuario
+            return "Lo sentimos, la clase ya está llena. No se pudo inscribir.";
         }
+    } catch (PDOException $e) {
+        die("Error al inscribirse en la clase: " . $e->getMessage());
     }
+}
 
     public function cancelEnrollment($idUsuario, $idSesion)
     {
