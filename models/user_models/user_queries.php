@@ -120,14 +120,14 @@ class UserQueries
         return $usuario;
     }
 
-    public function insertNewUser($nombre, $apellidos, $telefono, $correo_electronico, $direccion, $pass)
+    public function insertNewUser($nombre, $apellidos, $telefono, $correo_electronico, $direccion, $pass, $foto = null)
     {
         try {
             // Construir la consulta SQL para insertar un nuevo usuario
-            $sql = "INSERT INTO usuarios (nombre, apellidos, telefono, correo_electronico, direccion, pass) VALUES (:nombre, :apellidos, :telefono, :correo_electronico, :direccion, :hash_pass)";
-
+            $sql = "INSERT INTO usuarios (nombre, apellidos, telefono, correo_electronico, direccion, pass, foto) VALUES (:nombre, :apellidos, :telefono, :correo_electronico, :direccion, :hash_pass, :foto)";
+    
             $statement = $this->connection->prepare($sql);
-
+    
             // Asignar valores a los parámetros
             $statement->bindParam(':nombre', $nombre, PDO::PARAM_STR);
             $statement->bindParam(':apellidos', $apellidos, PDO::PARAM_STR);
@@ -135,10 +135,11 @@ class UserQueries
             $statement->bindParam(':correo_electronico', $correo_electronico, PDO::PARAM_STR);
             $statement->bindParam(':direccion', $direccion, PDO::PARAM_STR);
             $statement->bindParam(':hash_pass', $pass, PDO::PARAM_STR);
-
+            $statement->bindParam(':foto', $foto, PDO::PARAM_LOB); // Cambiado a PDO::PARAM_LOB
+    
             // Ejecutar la consulta
             $statement->execute();
-
+    
             // Devolver verdadero si la inserción fue exitosa
             return true;
         } catch (PDOException $e) {
@@ -148,35 +149,47 @@ class UserQueries
         }
     }
 
-    public function updateUser($id, $nombre, $apellidos, $telefono, $correo_electronico, $direccion, $pass_confirm = null)
-    {
-        try {
-            // Construir la consulta SQL base
-            $sql = "UPDATE usuarios SET nombre = :nombre, apellidos = :apellidos, telefono = :telefono, correo_electronico = :correo_electronico, direccion = :direccion, pass = :hash_pass WHERE id_usuarios = :id";
+    public function updateUser($id, $nombre, $apellidos, $telefono, $correo_electronico, $direccion, $pass_confirm = null, $foto_contenido = null, $foto_tipo = null)
+{
+    try {
+        // Construir la consulta SQL base
+        $sql = "UPDATE usuarios SET nombre = :nombre, apellidos = :apellidos, telefono = :telefono, correo_electronico = :correo_electronico, direccion = :direccion, pass = :hash_pass";
 
-
-            $statement = $this->connection->prepare($sql);
-
-            // Asignar valores a los parámetros
-            $statement->bindParam(':nombre', $nombre, PDO::PARAM_STR);
-            $statement->bindParam(':apellidos', $apellidos, PDO::PARAM_STR);
-            $statement->bindParam(':telefono', $telefono, PDO::PARAM_STR);
-            $statement->bindParam(':correo_electronico', $correo_electronico, PDO::PARAM_STR);
-            $statement->bindParam(':direccion', $direccion, PDO::PARAM_STR);
-            $statement->bindParam(':hash_pass', $pass_confirm, PDO::PARAM_STR);
-
-            // Asignar el parámetro de ID
-            $statement->bindParam(':id', $id, PDO::PARAM_INT);
-
-            // Ejecutar la consulta
-            $statement->execute();
-
-            return true;
-        } catch (PDOException $e) {
-            echo "Error al actualizar el usuario: " . $e->getMessage();
-            return false;
+        // Agregar la actualización de la foto si hay contenido de foto proporcionado
+        if ($foto_contenido !== null) {
+            $sql .= ", foto = :foto_contenido";
         }
+
+        $sql .= " WHERE id_usuarios = :id";
+
+        $statement = $this->connection->prepare($sql);
+
+        // Asignar valores a los parámetros
+        $statement->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $statement->bindParam(':apellidos', $apellidos, PDO::PARAM_STR);
+        $statement->bindParam(':telefono', $telefono, PDO::PARAM_STR);
+        $statement->bindParam(':correo_electronico', $correo_electronico, PDO::PARAM_STR);
+        $statement->bindParam(':direccion', $direccion, PDO::PARAM_STR);
+        $statement->bindParam(':hash_pass', $pass_confirm, PDO::PARAM_STR);
+
+        // Asignar el parámetro de ID
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
+        // Si se proporciona contenido de foto, asignar los parámetros adicionales
+        if ($foto_contenido !== null) {
+            $statement->bindParam(':foto_contenido', $foto_contenido, PDO::PARAM_LOB);
+        }
+
+        // Ejecutar la consulta
+        $statement->execute();
+
+        return true;
+    } catch (PDOException $e) {
+        echo "Error al actualizar el usuario: " . $e->getMessage();
+        return false;
     }
+}
+
 
     public function getUnenrolledSessions($userId)
     {

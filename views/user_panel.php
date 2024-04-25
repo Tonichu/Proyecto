@@ -35,10 +35,18 @@ $roleController->isUser($_SESSION);
   <section class="user-profile-section">
     <div class="user-profile-header">
       <div class="user-profile-cover">
-        <div class="user-profile-avatar">
-          <img src="https://img.freepik.com/foto-gratis/chico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpg"
-            alt="Foto de perfil" />
-        </div>
+      <div class="user-profile-avatar">
+    <?php
+    // Verificar si la imagen del usuario está definida
+    if (!empty($user['foto'])) {
+        // Mostrar la imagen del usuario
+        echo '<img src="data:image/jpeg;base64,' . base64_encode($user['foto']) . '" alt="Foto de perfil" />';
+    } else {
+        // Mostrar una imagen por defecto si no hay imagen de usuario
+        echo '<img src="https://img.freepik.com/foto-gratis/chico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpg" alt="Foto de perfil" />';
+    }
+    ?>
+</div>
       </div>
     </div>
     <div class="user-profile-body">

@@ -14,7 +14,7 @@ CREATE TABLE USUARIOS (
     direccion VARCHAR(255),
     pass VARCHAR(255) NOT NULL,
     tipo_usuarios TINYINT(1) DEFAULT 2,
-    foto BLOB, 
+    foto LONGBLOB, 
     CONSTRAINT chk_tipo_usuarios CHECK (tipo_usuarios IN (0, 1, 2))
 );
 
