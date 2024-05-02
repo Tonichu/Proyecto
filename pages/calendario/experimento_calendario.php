@@ -28,7 +28,8 @@
             <?php include 'generar_experimento_calendario.php'; ?>
         </tbody>
 <script>
-  /**/ 
+  scr="../javascript/calendario_ocultar.js"
+  /* 
   function OcultarMannana() {
     Array.from(document.getElementsByClassName("mannana")).forEach(
       function(element, index, array){
@@ -45,12 +46,7 @@
         element.classList.toggle("ocultar");
       }
     )
-    /*
-    var mannana = document.getElementsByClassName('mannana');
-    mannana.classList.toggle('ocultar');
-    var mannanas = document.getElementsByClassName('con-sesion-mannana');
-    mannanas.classList.toggle('ocultar');
-    */
+   
   
 }
 function OcultarTarde() {
@@ -70,13 +66,14 @@ function OcultarTarde() {
       }
     )
 }
+*/
 /*
   function OcultarTarde() {
-    var tarde = document.getElementsByClassName("tarde");//guardo elementos con clase mañana en morning
-    for (var i = 0; i < tarde.length; i++) { //recorro morning cambiando la clase a ocultar
+    let tarde[]= document.getElementsByClassName("tarde");//guardo elementos con clase mañana en morning
+    for (let i = 0; i < tarde.length; i++) { //recorro morning cambiando la clase a ocultar
       tarde[i].classList.toggle("ocultar");
-    var tardes = document.getElementsByClassName("con-sesion-tarde");//guardo elementos con clase 
-    for (var i = 0; i < tardes.length; i++) { //recorro morning cambiando la clase a ocultar
+    let tardes = document.getElementsByClassName("con-sesion-tarde");//guardo elementos con clase 
+    for (let i = 0; i < tardes.length; i++) { //recorro morning cambiando la clase a ocultar
       tardes[i].classList.toggle("ocultar");
     }
   }

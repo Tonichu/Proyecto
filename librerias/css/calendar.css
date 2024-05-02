@@ -1,3 +1,7 @@
+
+
+                                /* FALTA LIMPIEZA. MUCHAS COSAS SE QUEDAN SIN UTILIDAD CON EL CALENDARIO DEFINITIVO. PENDIENTE DE TERMINAR Y MERGE A MVC PARA LIMPIAR */
+
 .calendario {
     width: 100%;
     border-collapse: collapse; /*Une las líneas de las celdas*/
@@ -21,13 +25,7 @@
 .ctrabajador{
     background-color: rgb(198, 130, 224);  
 }
-.sin-sesion{         /* Estilos específicos para las celdas del calendario. Para esto tengo que modificar como crea las celdas */
-    background-color: rgba(196, 191, 166, 0.705);  
-}
-/*no se si importa hacer el . directo o con el recorrido largo la verdad.*/
-.con-sesion {
-    background-color: rgba(147, 255, 120, 0.664);
-}
+
 
 /*.con-sesion:hover{
     animation:destacado;
@@ -35,13 +33,6 @@
 .reg{
     background-color: rgb(230, 235, 191);
 }
-
-.calendario td.apuntado { /*no esta puesto aún*/
-    background-color: #000000;
-}
-
-
-
 
 /*Estilos del calendario - experimento*/
 .filadias{
@@ -52,6 +43,12 @@
 }
 .tarde{
     background-color: #D7E2F3;
+}
+.apuntado-mannana{
+    background-color: chocolate;
+}
+.apuntado-tarde{
+    background-color: chocolate;
 }
 .con-sesion-mannana {
     background-color: rgba(188, 216, 61, 0.664);
@@ -64,6 +61,12 @@
 }
 .sin-sesion-tarde{         /* Estilos específicos para las celdas del calendario. Para esto tengo que modificar como crea las celdas */
     background-color: #C0AFA2;  
+}
+.apuntado-mannana.ocultar{
+    display:none;
+}
+.apuntado-tarde.ocultar{
+    display: none;
 }
 .con-sesion-mannana.ocultar{
         display: none;
@@ -89,14 +92,22 @@
     background-color: aqua;
 }
 
+/*Estilos calendario trabajador - usa algunos de experimento*/
+.profesor-mannana{
+    background-color: bisque;
+}
+.profesor-tarde{
+    background-color: bisque;
+}
 
 
 
 
 
 
-@keyframes destacado{
+@keyframes limiteaforo{
     0%{
+        
         border: 2px rgb(0, 0, 0) solid;
         transform:scale(1);
     }

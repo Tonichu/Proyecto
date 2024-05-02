@@ -6,7 +6,12 @@ if (!$conexion) {
     die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
   }
 
-//
+//DESACTUALIZADO
+
+
+
+
+
 //Añadir a la celta también aforo??
 //Mirar como hacer para que la casilla sea un modal, el cual onclick registre al usuario en la clase. PARA VISTA TRABAJADOR
 //Botón para que el usuario se apunte. Falta añadir la funcionalidad.
