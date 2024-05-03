@@ -108,14 +108,14 @@ for ($hora = 8; $hora <= 20; $hora++) {             //La hora, es decir la fila.
             $date1 = new DateTime($sesion['hora_inicio']);
             $date = new DateTime($sesion['hora_fin']);
             $horacom = $date1->format('H');                //Hora inicio sin minutos
-            $usuario = 'pepe';                             //Profesor que está logueado en la web.   I M P O R T A N T E    ta sin hacer.
+            $usuario = 'maría';                             //Profesor que está logueado en la web.   I M P O R T A N T E    ta sin hacer.
             $sess = $sesion['id_sesion1'];                 //Id de la sesión
             $profe = $sesion['profesor_clase'];            //Profesor de la sesión
             if ( $horacom <= 13) {                         //Igual que durante la semana
                 if($usuario == $profe){              
                                                       
                     echo "<td class='profesor-mannana'><div><p >{$sesion['nombre_clase']} en {$sesion['nombre_sala']}  
-                    - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} $numinscrito/$aforo <a href='../salas/eliminar_sesion.php' ><button>Borrar sesión</button><a></p></div>";
+                    - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} $numinscrito/$aforo <a href='../sesiones/eliminar_sesion.php' ><button>Borrar sesión</button><a></p></div>";
                 }else{                                //Si hay sesión pero no es el profesor el usuario, clase con sesion mañana. No puede borrar la sesion.
                     echo "<td class='con-sesion-mannana'><div><p >{$sesion['nombre_clase']} en {$sesion['nombre_sala']} 
                     - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')}</p></div>";                
@@ -123,7 +123,7 @@ for ($hora = 8; $hora <= 20; $hora++) {             //La hora, es decir la fila.
             } else {
                 if($usuario == $profe){                //Si el usuario es el profesor, tiene una clase distinta y sale el botón de borrar sesión.
                     echo "<td class='profesor-tarde'><div><p >{$sesion['nombre_clase']} en {$sesion['nombre_sala']} 
-                - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} <a href='../salas/eliminar_sesion.php' ><button>Borrar sesión</button><a></p></div>";
+                - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} <a href='../sesiones/eliminar_sesion.php' ><button>Borrar sesión</button><a></p></div>";
                 }else{
                     echo "<td class='con-sesion-tarde'><div><p >{$sesion['nombre_clase']} en {$sesion['nombre_sala']} 
                 - Inicio: {$date1->format('H:i')} / Fin: {$date->format('H:i')} </p></div>";
@@ -132,8 +132,8 @@ for ($hora = 8; $hora <= 20; $hora++) {             //La hora, es decir la fila.
         } elseif($hora <= 13){                          //De no haber sesión, siendo la hora a las 13 o antes.
             echo "<td class='sin-sesion-mannana'><div ><p> <a href='../calendario/formulario_sesion_calendario.php'><button>Crear sesión</button><a></p></div>";
         }else {                                         //De no haber sesión, después de las 13.
-            echo "<td class='sin-sesion-tarde'><div ><p> <a href='../salas/formulario_nueva_sesion.html' ><button>Crear sesión</button><a></p></div>";
+            echo "<td class='sin-sesion-tarde'><div ><p> <a href='../sesion/formulario_nueva_sesion.html' ><button>Crear sesión</button><a></p></div>";
         }
-        echo "</td>";                                   //Formulario de registro de sesión hecho por mi o el de /salas, no funciona ninguno.
+        echo "</td>";                                   //Formulario de registro de sesión hecho por mi o el de /sesion, no funciona ninguno.
     }
 

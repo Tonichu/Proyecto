@@ -28,7 +28,7 @@
             <?php include 'generar_experimento_calendario.php'; ?>
         </tbody>
 <script>
-  scr="../javascript/calendario_ocultar.js"
+  scr="../../librerias/javascript/calendario_ocultar.js"
   /* 
   function OcultarMannana() {
     Array.from(document.getElementsByClassName("mannana")).forEach(

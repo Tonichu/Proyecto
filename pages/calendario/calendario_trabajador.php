@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <button onclick="OcultarMannana()"> Mañanas </button>
+    <button onclick="OcultarTarde()"> Tardes </button>
+
     <table class="calendario" >
         <thead>
             <tr> 
