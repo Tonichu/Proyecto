@@ -18,6 +18,7 @@
             <div class="navbar">
                 <div class="logo">
                     <h2>BUNKAY</h2>
+                    <a href="views/calendario/calendario_trabajador.php">Calendario</a>
                 </div>
                 <div class="menu">
                     <nav>

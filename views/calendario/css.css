@@ -1,0 +1,99 @@
+/* FALTA LIMPIEZA. MUCHAS COSAS SE QUEDAN SIN UTILIDAD CON EL CALENDARIO DEFINITIVO. PENDIENTE DE TERMINAR Y MERGE A MVC PARA LIMPIAR */
+
+.calendario {
+  width: 100%;
+  border-collapse: collapse; /*Une las líneas de las celdas*/
+}
+
+.calendario th,     /*Aplica a filas y columnas*/
+.calendario td {
+  border: 2px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  height: min-content;
+  width: min-content;
+  /*background-color: rgba(161, 159, 156, 0.377);*/
+}
+
+
+.chora{
+  background-color: rgba(219, 192, 141, 0.774);
+}
+
+.ctrabajador{
+  background-color: rgb(198, 130, 224);  
+}
+
+
+/*.con-sesion:hover{
+  animation:destacado;
+}*/
+.reg{
+  background-color: rgb(230, 235, 191);
+}
+
+/*Estilos del calendario - experimento*/
+.filadias{
+  background-color: #D7E2F3;
+}
+.mannana{
+  background-color: #D7E2F3;
+}
+.tarde{
+  background-color: #D7E2F3;
+}
+.apuntado-mannana{
+  background-color: chocolate;
+}
+.apuntado-tarde{
+  background-color: chocolate;
+}
+.con-sesion-mannana {
+  background-color: rgba(188, 216, 61, 0.664);
+}
+.con-sesion-tarde {
+  background-color: rgba(188, 216, 61, 0.664);
+}
+.sin-sesion-mannana{         /* Estilos específicos para las celdas del calendario. Para esto tengo que modificar como crea las celdas */
+  background-color: #C0AFA2;  
+}
+.sin-sesion-tarde{         /* Estilos específicos para las celdas del calendario. Para esto tengo que modificar como crea las celdas */
+  background-color: #C0AFA2;  
+}
+.apuntado-mannana.ocultar{
+  display:none;
+}
+.apuntado-tarde.ocultar{
+  display: none;
+}
+.con-sesion-mannana.ocultar{
+      display: none;
+      background-color: aqua;
+}
+.sin-sesion-mannana.ocultar{
+  display: none;
+  background-color: aqua;
+}
+.mannana.ocultar{
+  display: none;
+  background-color: aqua;
+}
+.con-sesion-tarde.ocultar{
+  display: none;
+}
+.sin-sesion-tarde.ocultar{
+  display: none;
+  background-color: aqua;
+}
+.tarde.ocultar{
+  display: none;
+  background-color: aqua;
+}
+
+/*Estilos calendario trabajador - usa algunos de experimento*/
+.profesor-mannana{
+  background-color: bisque;
+}
+.profesor-tarde{
+  background-color: bisque;
+}
