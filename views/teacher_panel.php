@@ -30,6 +30,7 @@
   $resultRooms = $teacherQueries->getAllRooms();
   $resultInscription = $teacherQueries->inscriptionResult();
   $id_usuario = $_SESSION['id_usuarios'];
+  
 
   ?>
   <header style="background-color: #343a40; padding: 10px;">
@@ -48,6 +49,7 @@
   
   <div class="container mt-5">
     <h2>Crear nueva clase</h2>
+    <a href="calendar/calendar.php">Calendario profesor</a>
     <form action="../controllers/teacher_controller/class/new_class.php" method="post">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" required><br><br>

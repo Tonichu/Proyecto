@@ -25,7 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php include 'generar_calendario_trabajador.php'; ?>
+            <?php include 'calendario_trabajador.php'; ?>
         </tbody>
     
 </body>

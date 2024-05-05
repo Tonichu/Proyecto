@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.calendar-header {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.calendar-day {
+  border: 1px solid #ddd;
+  padding: 30px;
+  text-align: center;
+}
+
+.day-name {
+  padding: 15px;
+}
+.sesion {
+  background-color: #ffd700; /* Color de fondo para las sesiones */
+}
