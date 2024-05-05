@@ -30,8 +30,8 @@ class CalendarQueries
     }
 
     public function getAllSesionForProfesor($idProfesor)
-{
-    $stmt = $this->connection->prepare("SELECT 
+    {
+        $stmt = $this->connection->prepare("SELECT 
                                             SE.id,
                                             C.nombre AS nombre_clase, 
                                             CONCAT(U.nombre, ' ', U.apellidos) AS nombre_profesor,
@@ -43,10 +43,10 @@ class CalendarQueries
                                         JOIN SALAS S ON SE.id_salas = S.id_salas
                                         JOIN USUARIOS U ON C.id_profesor = U.id_usuarios
                                         WHERE U.id_usuarios = :idProfesor");
-    $stmt->bindParam(':idProfesor', $idProfesor);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
+        $stmt->bindParam(':idProfesor', $idProfesor);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
     public function getSesion($dia, $hora)
     {
         $sql = "SELECT                              
