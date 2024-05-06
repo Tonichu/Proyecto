@@ -34,7 +34,23 @@ class SessionController
       return "Error: " . $e->getMessage();
     }
   }
-
+  public function deleteSessionTeacher($id)
+  {
+    try {
+      // Llamar al método eliminar sesion del modelo
+      header("refresh:1;url=../../views/teacher_panel.php");
+      if ($this->SessionController->deleteSession($id)) {
+        // sesion eliminada exitosamente
+        return "sesión eliminada correctamente.";
+      } else {
+        // Error al eliminar la sesión
+        return "Error al eliminar la sesión.";
+      }
+    } catch (Exception $e) {
+      // Capturar y mostrar cualquier excepción ocurrida
+      return "Error: " . $e->getMessage();
+    }
+  }
   
   
 }

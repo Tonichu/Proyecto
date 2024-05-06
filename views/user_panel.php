@@ -100,7 +100,7 @@ $roleController->isUser($_SESSION);
     </div>
     <div class="container mt-5">
       <h2>Clases disponibles</h2>
-      <a href="calendario_sergio/calendario.php">Calendario</a>
+      <a href="calendar/calendarUser.php">Calendario</a>
       <table class="tabla">
         <tr>
           <th>Clase</th>

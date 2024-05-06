@@ -1,15 +1,18 @@
 <?php
 // Obtener las sesiones
 session_start();
-
+require_once(__DIR__ . "/../../controllers/role_controller.php");
 require_once(__DIR__ . "/../../models/calendar_models/calendar_queries.php");
 $calendarQueries = new CalendarQueries();
 $id_usuario = $_SESSION['id_usuarios'];
 $sesiones = $calendarQueries->getAllSesionForProfesor($id_usuario);
 
+$roleController = RoleController::getInstance();
+$roleController->isTeacher($_SESSION);
+
 if (isset($_GET["semana"])) {
     $currentDate = new DateTime($_GET["semana"]);
-}else {
+} else {
     $currentDate = new DateTime();
 }
 
@@ -18,8 +21,8 @@ if (isset($_GET["semana"])) {
 $startOfWeek = new DateTime($currentDate->format('Y-m-d'));
 $startOfWeek->modify('-' . ($currentDate->format('N') - 1) . ' days');
 
-$endOfWeek = clone $startOfWeek;
-$endOfWeek->modify('+6 days')->setTime('23','59','59');
+$endOfWeek = clone $startOfWeek; //clonamos para poder modificar
+$endOfWeek->modify('+6 days')->setTime('23', '59', '59'); // si no se pone esto pasa al 7 dia
 
 $prevWeek = (clone $startOfWeek)->modify('-7 days')->format('Y-m-d');
 $nextWeek = (clone $startOfWeek)->modify('+7 days')->format('Y-m-d');
@@ -57,8 +60,8 @@ foreach ($sesiones as $sesion) {
     $dia = $fechaInicio->format('N'); // Obtener el número del día de la semana (1 para lunes, 2 para martes, etc.)
     $sessionDay = $fechaInicio->format('d');
     // Verificar si la sesión ocurre en el mes actual
-        if (($fechaInicio >= $startOfWeek ) && ($fechaInicio <= $endOfWeek)) {
-            $fechaFin = new DateTime($sesion['fecha_hora_fin']);
+    if (($fechaInicio >= $startOfWeek) && ($fechaInicio <= $endOfWeek)) {
+        $fechaFin = new DateTime($sesion['fecha_hora_fin']);
 
         $horaInicio = $fechaInicio->format('G'); // Obtener la hora de inicio sin minutos
         $horaFin = $fechaFin->format('G'); // Obtener la hora de fin sin minutos
@@ -71,7 +74,7 @@ foreach ($sesiones as $sesion) {
             'nombre_sala' => $sesion['nombre_sala'],
             'fecha_hora_inicio' => $sesion['fecha_hora_inicio'],
             'fecha_hora_fin' => $sesion['fecha_hora_fin']
-        ];   
+        ];
     }
 }
 
@@ -129,10 +132,10 @@ foreach ($sesiones as $sesion) {
                         echo '<div>' . $sesion['nombre_profesor'] . '</div>';
                         echo '<div>' . $sesion['nombre_sala'] . '</div>';
                         //echo '<div>' . $sesion['id'] . '</div>';
-                        echo '<a href="otro_sitio.php"><button>inscribirse</button></a>'; // Botón que lleva a otro sitio
+                        echo '<a href="../../views/teacher/session_modification_from_teacher?id=' . $sesion['id'] . ' "><button>Modificar</button></a>';
+                        echo '<a href="../teacher/delete_session_calendar.php?id=' . $sesion['id'] . ' "><button>Eliminar la clase</button></a>';
                     }
-                }
-
+                }//require_once(__DIR__ . "/../../controllers/teacher_controller/sessions");
                 echo '</td>';
             }
 
@@ -144,8 +147,9 @@ foreach ($sesiones as $sesion) {
     </div>
 
     <!-- Enlace para avanzar a la siguiente semana -->
-    <button><a href="calendar.php?semana=<?php echo $prevWeek?>">semana anterior</a></button>
-    <button><a href="calendar.php?semana=<?php echo $nextWeek?>">Siguiente Semana</a></button>
+    <button><a href="../../views/teacher_panel.php">Volver a tu panel</a></button>
+    <button><a href="calendarTeacher.php?semana=<?php echo $prevWeek ?>">semana anterior</a></button>
+    <button><a href="calendarTeacher.php?semana=<?php echo $nextWeek ?>">Siguiente Semana</a></button>
 </body>
 
 </html>

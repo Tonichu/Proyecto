@@ -1,6 +1,7 @@
 Comandos para entrar en mysql por shell
 \sql
 \connect root@localhost
+use gym;
 select * from usuarios\G; para ver las consultas de manera vertical 
 
 CREATE DATABASE Gym;
