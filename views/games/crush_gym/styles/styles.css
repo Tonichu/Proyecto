@@ -7,9 +7,9 @@ body, html {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 200px); /* Tres columnas de 200px cada una */
-  grid-auto-rows: 200px; /* Altura automática de 200px para las filas */
-  gap: 10px; /* Espacio entre las imágenes */
+  grid-template-columns: repeat(3, 200px);
+  grid-auto-rows: 200px;
+  gap: 10px;
 }
 
 .square {
@@ -19,10 +19,49 @@ body, html {
 }
 
 img {
-  max-width: 100%; /* Ajustar la imagen al ancho máximo del contenedor */
-  max-height: 100%; /* Ajustar la imagen a la altura máxima del contenedor */
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
 }
 .score-container > div {
   margin-bottom: 10px;
+}
+
+#start-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#start-button:hover {
+  background-color: #45a049;
+}
+
+
+a button {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+a button:hover {
+  background-color: #d32f2f;
 }

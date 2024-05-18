@@ -28,7 +28,6 @@ $EnrolledSessions = $userQueries->getEnrolledSessions($id_usuario);
   <link rel="stylesheet" href="../public/css/user/time.css" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-
   <!-- Enlaces a Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+nWo9aS+yn4knpvKl5c4L3s5vfwsv5G4+1jOv8f" crossorigin="anonymous">
@@ -38,7 +37,7 @@ $EnrolledSessions = $userQueries->getEnrolledSessions($id_usuario);
 
   <div id="header">
     <div class="welcome-container">
-      <h1>Bienvenido a tu panel<?php echo $_SESSION['nombre']; ?></h1>
+      <h1>Bienvenido a tu panel <?php echo $_SESSION['nombre']; ?></h1>
     </div>
   </div>
 

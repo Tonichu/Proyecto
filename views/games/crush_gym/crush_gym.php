@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -34,8 +34,6 @@
     <div class="square" id="8"></div>
     <div class="square" id="9"></div>
   </div>
-
- 
 
   <script src="js/app.js"></script>
 </body>

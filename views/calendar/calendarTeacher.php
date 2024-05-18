@@ -1,8 +1,8 @@
 <?php
 // Obtener las sesiones
 session_start();
-require_once(__DIR__ . "/../../controllers/role_controller.php");
-require_once(__DIR__ . "/../../models/calendar_models/calendar_queries.php");
+require_once (__DIR__ . "/../../controllers/role_controller.php");
+require_once (__DIR__ . "/../../models/calendar_models/calendar_queries.php");
 $calendarQueries = new CalendarQueries();
 $id_usuario = $_SESSION['id_usuarios'];
 $sesiones = $calendarQueries->getAllSesionForProfesor($id_usuario);
@@ -77,7 +77,6 @@ foreach ($sesiones as $sesion) {
         ];
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -87,69 +86,119 @@ foreach ($sesiones as $sesion) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace al archivo CSS de Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            margin: 10px;
+        }
+
+        #calendar {
+            max-height: 80vh;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .calendar thead th {
+            vertical-align: middle;
+        }
+
+        .calendar tbody td {
+            vertical-align: middle;
+        }
+
+        /* Estilo para filas impares */
+        .calendar tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilo para filas pares */
+        .calendar tbody tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="calendar">
-        <?php
-
-        // Crear el calendario
-        echo '<table class="calendar">';
-        echo '<tr>';
-        echo '<th></th>'; // Celda vacía para alinear con las horas
-        echo '<th colspan="7">' . $currentYear . ' de ' . $currentMonthName . '</th>'; // Año
-        echo '</tr>';
-
-        // Días de la semana con el número del mes
-        echo '<tr class="calendar-header">';
-        echo '<th>Hora</th>'; // Cabecera de horas
-        $daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-        $tempStartOfWeek = clone $startOfWeek; // Clonamos para evitar modificar la fecha original
-        for ($i = 0; $i < 7; $i++) {
-            $dayOfMonth = $tempStartOfWeek->format('j');
-            $formattedDate = $tempStartOfWeek->format('d');
-            echo '<th class="day-name">' . $daysOfWeek[$i] . '<br>' . $formattedDate . '</th>'; // Nombre del día y número del mes
-            $tempStartOfWeek->modify('+1 day');
-        }
-        echo '</tr>';
-
-        // Horas de 8:00 a 20:00
-        for ($hour = 8; $hour <= 20; $hour++) {
-            echo '<tr>';
-            echo '<td>' . $hour . ':00</td>'; // Hora actual
-
-            // Celdas vacías para alinear con los días de la semana
-            for ($j = 0; $j < 7; $j++) {
-                echo '<td class="calendar-day">';
-
-                // Verificar si hay sesiones para este día y hora
-                $dia = $j + 1; // Día de la semana (1 para lunes, 2 para martes, etc.)
-                if (isset($sesionesPorDiaYHora[$dia][$hour])) {
-                    // Mostrar las sesiones
-                    foreach ($sesionesPorDiaYHora[$dia][$hour] as $sesion) {
-                        echo '<div>' . $sesion['nombre_clase'] . '</div>';
-                        echo '<div>' . $sesion['nombre_profesor'] . '</div>';
-                        echo '<div>' . $sesion['nombre_sala'] . '</div>';
-                        //echo '<div>' . $sesion['id'] . '</div>';
-                        echo '<a href="../../views/teacher/session_modification_from_teacher?id=' . $sesion['id'] . ' "><button>Modificar</button></a>';
-                        echo '<a href="../teacher/delete_session_calendar.php?id=' . $sesion['id'] . ' "><button>Eliminar la clase</button></a>';
+    <div class="container">
+        <div class="row">
+            <div>
+                <a href="calendarTeacher.php?semana=<?php echo $prevWeek ?>" class="btn btn-info">Semana anterior</a>
+                <a href="calendarTeacher.php?semana=<?php echo $nextWeek ?>" class="btn btn-info">Siguiente Semana</a>
+            </div>
+        </div>
+        <div id="calendar" class="table-responsive">
+            <table class="table table-bordered calendar"> <!-- Agregué la clase "calendar" aquí -->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th colspan="7"><?php echo $currentYear . ' de ' . $currentMonthName ?></th>
+                    </tr>
+                    <tr class="table-primary">
+                        <th scope="col">Hora</th>
+                        <?php
+                        $daysOfWeek = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+                        $tempStartOfWeek = clone $startOfWeek;
+                        for ($i = 0; $i < 7; $i++) {
+                            $dayOfMonth = $tempStartOfWeek->format('j');
+                            $formattedDate = $tempStartOfWeek->format('d');
+                            echo '<th scope="col">' . $daysOfWeek[$i] . '<br>' . $formattedDate . '</th>';
+                            $tempStartOfWeek->modify('+1 day');
+                        }
+                        ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    for ($hour = 8; $hour <= 20; $hour++) {
+                        echo '<tr>';
+                        echo '<th scope="row">' . $hour . ':00</th>';
+                        for ($j = 0; $j < 7; $j++) {
+                            echo '<td>';
+                            $dia = $j + 1;
+                            if (isset($sesionesPorDiaYHora[$dia][$hour])) {
+                                foreach ($sesionesPorDiaYHora[$dia][$hour] as $sesion) {
+                                    echo '<div>' . $sesion['nombre_clase'] . '</div>';
+                                    echo '<div>' . $sesion['nombre_profesor'] . '</div>';
+                                    echo '<div>' . $sesion['nombre_sala'] . '</div>';
+                                    echo '<a href="../teacher/session_modification_from_teacher.php?id=' . $sesion['id'] . '" class="btn btn-success btn-sm">Modificar</a>';
+                                    echo '<a href="../teacher/delete_session_calendar.php?id=' . $sesion['id'] . '" class="btn btn-danger btn-sm">Eliminar la clase</a>';
+                                }
+                            }
+                            echo '</td>';
+                        }
+                        echo '</tr>';
                     }
-                }//require_once(__DIR__ . "/../../controllers/teacher_controller/sessions");
-                echo '</td>';
-            }
-
-            echo '</tr>';
-        }
-
-        echo '</table>';
-        ?>
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <a href="../../views/teacher_panel.php" class="btn btn-secondary">Volver a tu panel</a>
+        </div>
     </div>
 
-    <!-- Enlace para avanzar a la siguiente semana -->
-    <button><a href="../../views/teacher_panel.php">Volver a tu panel</a></button>
-    <button><a href="calendarTeacher.php?semana=<?php echo $prevWeek ?>">semana anterior</a></button>
-    <button><a href="calendarTeacher.php?semana=<?php echo $nextWeek ?>">Siguiente Semana</a></button>
+    <!-- Scripts de Bootstrap (opcional, pero requerido para algunas funcionalidades) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

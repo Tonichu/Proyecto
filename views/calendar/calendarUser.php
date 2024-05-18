@@ -136,7 +136,6 @@ foreach ($sesionesApuntado as $sesion) {
             max-height: 80vh;
         }
 
-        /* Definición de colores alternados en el tbody */
         .calendar tbody tr:nth-child(odd) {
             background-color: #f2f2f2;
         }
@@ -184,9 +183,9 @@ foreach ($sesionesApuntado as $sesion) {
                                     echo '<div>' . $sesion['profesor_name'] . '</div>';
                                     echo '<div>' . $sesion['sala_name'] . '</div>';
                                     if ($sesion['apuntado']) {
-                                        echo '<a href="../../views/user/unenroll_class.php?id=' . $sesion['id'] . ' "><button class="btn btn-danger">Cancelar la inscripción</button></a>';
+                                        echo '<a href="../../views/user/unenroll_class.php?id=' . $sesion['id'] . ' "><button class="btn btn-danger btn-sm">Cancelar la inscripción</button></a>';
                                     } else {
-                                        echo '<a href="../../views/user/enroll_class.php?id=' . $sesion['id'] . ' "><button class="btn btn-success">Inscribirse a la clase</button></a>';
+                                        echo '<a href="../../views/user/enroll_class.php?id=' . $sesion['id'] . ' "><button class="btn btn-success btn-sm">Inscribirse a la clase</button></a>';
                                     }
                                 }
                             }
