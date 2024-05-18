@@ -17,6 +17,8 @@ $resultClasses2 = $teacherQueries->getAllClasses();
 $resultRooms = $teacherQueries->getAllRooms();
 $resultInscription = $teacherQueries->inscriptionResult();
 $id_usuario = $_SESSION['id_usuarios'];
+
+$infoTeacher = $teacherQueries->getTeacherById($id_usuario);
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +59,7 @@ $id_usuario = $_SESSION['id_usuarios'];
         <div class="user-profile-avatar">
           <?php
           // Verificar si la imagen del usuario está definida
-          if (!empty($user['foto'])) {
+          if (!empty($infoTeacher['foto'])) {
             // Mostrar la imagen del usuario
             echo '<img src="data:image/jpeg;base64,' . base64_encode($user['foto']) . '" alt="Foto de perfil" />';
           } else {
@@ -76,9 +78,9 @@ $id_usuario = $_SESSION['id_usuarios'];
 
     <div class="user-profile-body">
       <div class="user-profile-bio">
-        <h3 class="title"><?php echo $user['nombre'];
+        <h3 class="title"><?php echo $infoTeacher['nombre'];
         echo " ";
-        echo $user['apellidos']; ?> </h3>
+        echo $infoTeacher['apellidos']; ?> </h3>
       </div>
       <div class="user-profile-footer">
         <ul class="data-list">
@@ -87,13 +89,13 @@ $id_usuario = $_SESSION['id_usuarios'];
           <li><i class="icon fas fa-map-signs"></i> Dirección de usuario:</li>
         </ul>
         <ul class="data-list">
-          <li><?php echo $user['correo_electronico']; ?></li>
-          <li><?php echo $user['telefono']; ?></li>
-          <li><?php echo $user['direccion']; ?></li>
+          <li><?php echo $infoTeacher['correo_electronico']; ?></li>
+          <li><?php echo $infoTeacher['telefono']; ?></li>
+          <li><?php echo $infoTeacher['direccion']; ?></li>
         </ul>
       </div>
 
-      
+
       <div class="social-media">
         <a href="https://www.facebook.com/" target="_blank"><img src="../public/img/icons/facebook.png"
             alt="Facebook" /></a>
