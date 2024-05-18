@@ -27,7 +27,11 @@ $id_usuario = $_SESSION['id_usuarios'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Profesor</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+nWo9aS+yn4knpvKl5c4L3s5vfwsv5G4+1jOv8f" crossorigin="anonymous">
   <link rel="stylesheet" href="../public/css/teacher/teacher_profile.css">
+  <link rel="stylesheet" href="../public/css/user/user_profile.css" />
   <link rel="stylesheet" href="../public/css/user/time.css" />
   <script src="../public/js/teacher/validate_hours.js" defer></script>
 </head>
@@ -39,16 +43,69 @@ $id_usuario = $_SESSION['id_usuarios'];
     </div>
   </div>
 
-  <div>
-    <form action="../controllers/logout_controller.php" method="post">
-      <input type="submit" value="Cerrar sesión" class="btn btn-custom">
-    </form>
-    <form action="../views/teacher/modify_teacher_data.php" method="post">
-      <input type="submit" value="Modificar datos" class="btn btn-custom">
-    </form>
-  </div>
 
-  
+
+  <section class="user-profile-section">
+
+    <div class="user-profile-header">
+      <div class="button-container modificacion">
+        <form action="../controllers/logout_controller.php" method="post">
+          <input type="submit" value="Cerrar sesión" class="btn btn-custom">
+        </form>
+      </div>
+      <div class="user-profile-cover">
+        <div class="user-profile-avatar">
+          <?php
+          // Verificar si la imagen del usuario está definida
+          if (!empty($user['foto'])) {
+            // Mostrar la imagen del usuario
+            echo '<img src="data:image/jpeg;base64,' . base64_encode($user['foto']) . '" alt="Foto de perfil" />';
+          } else {
+            // Mostrar una imagen por defecto si no hay imagen de usuario
+            echo '<img src="https://img.freepik.com/foto-gratis/chico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpg" alt="Foto de perfil" />';
+          }
+          ?>
+        </div>
+      </div>
+      <div class="button-container modificacion">
+        <form action="../views/teacher/modify_teacher_data.php" method="post">
+          <input type="submit" value="Modificar datos" class="btn btn-custom">
+        </form>
+      </div>
+    </div>
+
+    <div class="user-profile-body">
+      <div class="user-profile-bio">
+        <h3 class="title"><?php echo $user['nombre'];
+        echo " ";
+        echo $user['apellidos']; ?> </h3>
+      </div>
+      <div class="user-profile-footer">
+        <ul class="data-list">
+          <li><i class="icon fas fa-envelope"></i> Correo electrónico:</li>
+          <li><i class="icon fas fa-phone-alt"></i> Teléfono:</li>
+          <li><i class="icon fas fa-map-signs"></i> Dirección de usuario:</li>
+        </ul>
+        <ul class="data-list">
+          <li><?php echo $user['correo_electronico']; ?></li>
+          <li><?php echo $user['telefono']; ?></li>
+          <li><?php echo $user['direccion']; ?></li>
+        </ul>
+      </div>
+
+      
+      <div class="social-media">
+        <a href="https://www.facebook.com/" target="_blank"><img src="../public/img/icons/facebook.png"
+            alt="Facebook" /></a>
+        <a href="https://twitter.com/?lang=es" target="_blank"><img src="../public/img/icons/twitter.png"
+            alt="Twitter" /></a>
+        <a href="https://www.instagram.com/" target="_blank"><img src="../public/img/icons/instagram.png"
+            alt="Instagram" /></a>
+      </div>
+    </div>
+  </section>
+
+
 
   <section class="reloj">
     <p id="time">--:--:--</p>

@@ -42,6 +42,38 @@
   height: 5vh;
 }
 
+.button-container {
+  display: inline-block;
+  margin: 10px;
+}
+
+.button-container form,
+.button-container a {
+  text-decoration: none;
+}
+
+.button-container button,
+.button-container input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-container button:hover,
+.button-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.modificacion {
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 80px;
+}
+
 .footer {
   text-align: center;
   margin-bottom: 40px;
