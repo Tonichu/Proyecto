@@ -1,0 +1,273 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,200,300,500,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,300,200,700);
+
+body {
+  color: #fff;
+  margin-top: 100px;
+}
+
+.seccion {
+  background-color: #c34c39;
+  background-image: url("../../img/icons/fondo_evento.jpg");
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  padding: 130px 0 100px;
+}
+
+.imagen {
+  position: absolute;
+  left: 0;
+  top: 7%;
+}
+
+.seccion h2 {
+  font-size: 42px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cuenta {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+}
+
+.cuenta li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  position: relative;
+}
+
+.cuenta li:last-child {
+  margin-right: 0;
+}
+
+.cuenta li span {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  height: 82px;
+  line-height: 79px;
+  width: 75px;
+  border-radius: 10px;
+  border-right: 1px solid #9e3e2e;
+  border-bottom: 1px solid #9e3e2e;
+}
+
+.cuenta li .dias {
+  background-color: #6a5acd; /* New color for days */
+  border-top: 1px solid #836fff;
+  border-left: 1px solid #836fff;
+}
+
+.cuenta li .horas {
+  background-color: #32cd32; /* New color for hours */
+  border-top: 1px solid #7cfc00;
+  border-left: 1px solid #7cfc00;
+}
+
+.cuenta li .minutos {
+  background-color: #ffd700; /* New color for minutes */
+  border-top: 1px solid #ffec8b;
+  border-left: 1px solid #ffec8b;
+}
+
+.cuenta li .segundos {
+  background-color: #ff4500; /* New color for seconds */
+  border-top: 1px solid #ff6347;
+  border-left: 1px solid #ff6347;
+}
+
+.cuenta li:before {
+  background-color: #ffffff;
+  content: "";
+  height: 11px;
+  left: 0;
+  position: absolute;
+  top: 36px;
+  width: 1px;
+}
+
+.cuenta li:after {
+  background-color: #ffffff;
+  content: "";
+  height: 11px;
+  right: 0;
+  position: absolute;
+  top: 36px;
+  width: 1px;
+}
+
+.cart {
+  background-color: #b34534;
+  position: absolute;
+  right: -200px;
+  top: 37%;
+  width: 252px;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -ms-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.cart:hover {
+  right: 0;
+}
+
+.cart a {
+  color: #ffffff;
+  display: block;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.cart a i {
+  font-size: 30px;
+  padding: 20px 12px;
+  background-color: #a64030;
+  margin-right: 3px;
+}
+
+:root {
+  --fondo: #f2f2f2;
+  --color-evento: #c9c9c9;
+  --evento-activo: #ffbd86;
+  --evento-activo-borde: #ff7300;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+.linea-eventos {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 30% auto;
+}
+
+aside {
+  padding: 0 15px;
+}
+
+aside .titulo {
+  margin-bottom: 10px;
+}
+
+aside .contenedor-eventos {
+  padding-top: 20px;
+  position: sticky;
+  top: 0;
+  color: #000;
+}
+
+aside .lista {
+  list-style: none;
+  border-left: 2px solid var(--color-evento);
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+aside .lista li {
+  position: relative;
+}
+
+aside .lista li a {
+  display: block;
+  color: #5a5a5a;
+  padding: 15px 10px;
+  text-decoration: none;
+  transition: 0.3s ease all;
+}
+
+aside .lista li.activo a,
+aside .lista li a:hover {
+  color: #000;
+}
+
+aside .lista li::before {
+  content: "";
+  display: block;
+  height: 12px;
+  width: 12px;
+  background: var(--fondo);
+  border: 2px solid var(--color-evento);
+  position: absolute;
+  left: -19px;
+  top: calc(50% - 6px);
+  transform: rotate(45deg);
+  transition: 0.3s ease all;
+}
+
+aside .lista li.activo::before {
+  background: var(--evento-activo);
+  border: 2px solid var(--evento-activo-borde);
+}
+
+aside .lista li:hover::before {
+  border: 2px solid var(--evento-activo-borde);
+}
+
+main {
+  min-height: 2000px;
+  color: #000;
+}
+
+.carta {
+  margin: 20px 0;
+  padding: 40px;
+  background: #fff;
+}
+
+.linea-eventos {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    margin-bottom: 40px;
+  }
+}
+
+.btn-custom {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.btn-custom:hover {
+  background-color: #45a049;
+}
