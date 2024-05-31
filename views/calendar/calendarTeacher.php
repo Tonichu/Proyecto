@@ -24,8 +24,8 @@ $startOfWeek->modify('-' . ($currentDate->format('N') - 1) . ' days');
 $endOfWeek = clone $startOfWeek; //clonamos para poder modificar
 $endOfWeek->modify('+6 days')->setTime('23', '59', '59'); // si no se pone esto pasa al 7 dia
 
-$prevWeek = (clone $startOfWeek)->modify('-7 days')->format('Y-m-d');
-$nextWeek = (clone $startOfWeek)->modify('+7 days')->format('Y-m-d');
+$prevWeek = (clone $startOfWeek)->modify('-7 days')->format('Y-m-d'); //La semana anterior a la actual
+$nextWeek = (clone $startOfWeek)->modify('+7 days')->format('Y-m-d'); //La semana siguiente a la actual
 
 // Mes actual
 $currentMonth = $currentDate->format('n');

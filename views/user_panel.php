@@ -37,7 +37,7 @@ $EnrolledSessions = $userQueries->getEnrolledSessions($id_usuario);
 
   <div id="header">
     <div class="welcome-container">
-      <h1>Bienvenido a tu panel <?php echo $_SESSION['nombre']; ?></h1>
+      <h1>Bienvenido a tu panel <?php echo $user['nombre']; echo " "; echo $user['apellidos']; ?></h1>
     </div>
   </div>
 

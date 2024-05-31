@@ -11,8 +11,8 @@ class crush {
     this.countDownTimerId = null;
     this.level = 1;
     this.levels = [
-      { scoreThreshold: 1, timeBetweenImages: 1000 },
-      { scoreThreshold: 3, timeBetweenImages: 600, currentTime: 5 },
+      { scoreThreshold: 10, timeBetweenImages: 1000 },
+      { scoreThreshold: 25, timeBetweenImages: 600, currentTime: 15 },
       { scoreThreshold: Infinity, timeBetweenImages: 300, currentTime: 5 }
     ];
     this.totalScore = 0; // Variable para almacenar la puntuación total acumulada

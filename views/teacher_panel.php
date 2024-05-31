@@ -41,7 +41,7 @@ $infoTeacher = $teacherQueries->getTeacherById($id_usuario);
 <body>
   <div id="header">
     <div class="welcome-container">
-      <h1>Bienvenido al Panel de Profesor <?php echo $_SESSION['nombre'] ?></h1>
+      <h1>Bienvenido a tu panel <?php echo $_SESSION['nombre'] ?></h1>
     </div>
   </div>
 
